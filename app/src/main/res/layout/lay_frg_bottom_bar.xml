@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:weightSum="1">
+
+    <ImageButton
+        android:id="@+id/imgBttContacto"
+        style="@style/botonesBarraInferior"
+        android:layout_marginLeft="10dp"
+        android:background="@color/alfaCero"
+        android:scaleType="centerInside"
+        android:src="@drawable/contacto" />
+
+    <ImageButton
+        android:id="@+id/imgBttFacebook"
+        style="@style/botonesBarraInferior"
+        android:layout_marginLeft="10dp"
+        android:scaleType="centerInside"
+        android:background="@color/alfaCero"
+        android:src="@drawable/facebook" />
+
+    <ImageButton
+        android:id="@+id/imgBttGooglePlus"
+        style="@style/botonesBarraInferior"
+        android:layout_marginLeft="10dp"
+        android:scaleType="centerInside"
+        android:background="@color/alfaCero"
+        android:src="@drawable/google" />
+
+    <ImageButton
+        android:id="@+id/imgBttBlog"
+        style="@style/botonesBarraInferior"
+        android:layout_marginLeft="10dp"
+        android:scaleType="centerInside"
+        android:background="@color/alfaCero"
+        android:src="@drawable/blogg" />
+
+    <ImageButton
+        android:id="@+id/imgBttCompartir"
+        style="@style/botonesBarraInferior"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerInside"
+        android:background="@color/alfaCero"
+        android:src="@drawable/compartir" />
+
+</LinearLayout>

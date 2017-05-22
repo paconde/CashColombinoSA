@@ -3,30 +3,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.fconde.cashcolombinoapp.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_bienvenida"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"
+        >
 
     <Button
-        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnHola" />
+        android:layout_height="wrap_content" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/chkHola" />
+        android:layout_height="80dp"
+        android:layout_weight="0">
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.fconde.cashcolombinoapp.frg_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="570dp"
+            tools:layout="@layout/lay_frg_bottom_bar" />
+
+    </LinearLayout>
 
 </LinearLayout>
+

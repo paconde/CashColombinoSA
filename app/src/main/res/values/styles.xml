@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="botonesBarraInferior">
+        <item name="android:layout_width">@dimen/largo</item>
+        <item name="android:layout_height">@dimen/largo</item>
+        <item name="android:scaleType">fitCenter</item>
+
+    </style>
 </resources>
