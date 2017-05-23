@@ -12,12 +12,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_weight="1"
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <ImageButton
+                android:id="@+id/ImgBtnNosotros"
+                android:src="@drawable/nosotros"
+                style="@style/botonesMenuCentral"
+                android:layout_marginTop="@dimen/margenTop"
+                android:layout_marginLeft="@dimen/margenLeft"/>
+
+            <ImageButton
+                android:id="@+id/ImgBtnCatalogo"
+                android:src="@drawable/catalogo"
+                style="@style/botonesMenuCentral"/>
+
+            <ImageButton
+                android:id="@+id/ImgBtnMarcasPropias"
+                android:src="@drawable/marcas_propias"
+                style="@style/botonesMenuCentral"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ImgBtnLocalizador"
+                android:src="@drawable/localizador_productos"
+                style="@style/botonesMenuCentralExtraLargo"/>
+
+            <ImageButton
+                android:id="@+id/ImgBtnRecetas"
+                android:src="@drawable/recetas"
+                style="@style/botonesMenuCentral"/>
+
+            <ImageButton
+                android:id="@+id/ImgBtnPedidos"
+                android:src="@drawable/pedido"
+                style="@style/botonesMenuCentral"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

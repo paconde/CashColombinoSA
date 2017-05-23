@@ -4,7 +4,12 @@
     <dimen name="minimo">32dp</dimen>
     <dimen name="medio">64dp</dimen>
     <dimen name="largo">128dp</dimen>
-    <dimen name="maximo">600</dimen>
+    <dimen name="extralargo">220dp</dimen>
+    <dimen name="extralargo2">260dp</dimen>
+    <dimen name="maximo">600dp</dimen>
     <dimen name="texto">24sp</dimen>
+    <dimen name="margenTop">1200dp</dimen>
+    <dimen name="margenLeft">30dp</dimen>
+    <dimen name="margenLeft2">40dp</dimen>
 
 </resources>
