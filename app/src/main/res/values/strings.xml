@@ -3,4 +3,10 @@
     <string name="txt_bienvenida">Bienvenido a nuestra app !!</string>
     <string name="btnHola">Hola</string>
     <string name="chkHola">Correcto</string>
+    <string name="act_name_nosotros">Nosotros</string>
+    <string name="act_name_catalogo">Catálogo</string>
+    <string name="act_name_marcas_propias">Marcas Propias</string>
+    <string name="act_name_localizador">Localizador Productos</string>
+    <string name="act_name_recetas">Recetas</string>
+    <string name="act_name_pedidos">Pedidos</string>
 </resources>
