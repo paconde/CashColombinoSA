@@ -18,9 +18,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,20 +28,20 @@
 
             <ImageButton
                 android:id="@+id/imgBtnNosotros"
-                android:src="@drawable/nosotros"
                 style="@style/botonesMenuCentral"
+                android:layout_marginLeft="@dimen/margenLeft"
                 android:layout_marginTop="@dimen/margenTop"
-                android:layout_marginLeft="@dimen/margenLeft"/>
+                android:src="@drawable/nosotros" />
 
             <ImageButton
                 android:id="@+id/imgBtnCatalogo"
-                android:src="@drawable/catalogo"
-                style="@style/botonesMenuCentral"/>
+                style="@style/botonesMenuCentral"
+                android:src="@drawable/catalogo" />
 
             <ImageButton
                 android:id="@+id/imgBtnMarcasPropias"
-                android:src="@drawable/marcas_propias"
-                style="@style/botonesMenuCentral"/>
+                style="@style/botonesMenuCentral"
+                android:src="@drawable/marcas_propias" />
 
         </LinearLayout>
 
@@ -52,18 +52,18 @@
 
             <ImageButton
                 android:id="@+id/imgBtnLocalizador"
-                android:src="@drawable/localizador_productos"
-                style="@style/botonesMenuCentralExtraLargo"/>
+                style="@style/botonesMenuCentralExtraLargo"
+                android:src="@drawable/localizador_productos" />
 
             <ImageButton
                 android:id="@+id/imgBtnRecetas"
-                android:src="@drawable/recetas"
-                style="@style/botonesMenuCentral"/>
+                style="@style/botonesMenuCentral"
+                android:src="@drawable/recetas" />
 
             <ImageButton
                 android:id="@+id/imgBtnPedidos"
-                android:src="@drawable/pedido"
-                style="@style/botonesMenuCentral"/>
+                style="@style/botonesMenuCentral"
+                android:src="@drawable/pedido" />
 
         </LinearLayout>
 
