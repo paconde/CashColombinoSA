@@ -9,6 +9,7 @@
     <dimen name="extralargo2">130dp</dimen>
     <dimen name="maximo">300dp</dimen>
     <dimen name="texto">12sp</dimen>
+    <dimen name="texto_medio">24sp</dimen>
     <dimen name="margenTop">60dp</dimen>
     <dimen name="margenLeft">15dp</dimen>
     <dimen name="margenLeft2">20dp</dimen>

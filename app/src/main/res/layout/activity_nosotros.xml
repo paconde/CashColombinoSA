@@ -35,7 +35,7 @@
                 android:layout_marginLeft="@dimen/margenLeft"
                 android:layout_marginRight="@dimen/margenLeft"
                 android:text="@string/nosotros_colombino"
-                android:textSize="@dimen/min_med" />
+                android:textSize="@dimen/texto_medio" />
 
         </LinearLayout>
 
