@@ -9,4 +9,28 @@
     <string name="act_name_localizador">Localizador Productos</string>
     <string name="act_name_recetas">Recetas</string>
     <string name="act_name_pedidos">Pedidos</string>
+
+    <string name="nosotros_colombino">Cash Colombino es una empresa dedicada a la venta y distribución del productos al por mayor al profesional de la alimentación y hostelería.
+Actualmente, CASH COLOMBINO, S.A. junto con las empresas MANUEL BAREA, S.A., CASH BAREA, S.A., y CASH EXTREMEÑO, S.A. se encuentran asociadas bajo el paraguas de BAREA GRUPO.
+El origen de BAREA data del año 1941, cuando Don Manuel Barea Ginés dio el pistoletazo de salida a un grupo empresarial que hoy día está compuesto por diversas mercantiles. Todas ellas con un carácter 100% familiar y siempre orientadas al cliente profesional del sector de la alimentación y la hostelería.
+
+        Asimismo, el grupo dispone de superficies “Cash and Carry” en Sevilla capital, Palomares del Río (Sevilla), Almendralejo (Badajoz) y Huelva capital.
+También cuenta con una avanzada fábrica de pescado congelado y en salazón situada en Alcalá de Guadaira (Sevilla). Sus productos se ponen a disposición en puntos de venta de pescado y marisco congelado y también de bacalao en salazón en Sevilla, Alcalá de Guadaira (Sevilla), Mercasevilla, Mairena del Aljarafe (Sevilla), Dársena Pesquera de El Puerto de Santa María (Cádiz) y Mercamálaga.
+Por último, se hace necesario señalar que posee una tienda especializada en hostelería, situada en el municipio hispalense de Mairena del Aljarafe.
+BAREA GRUPO también distribuye a domicilio, a toda Andalucía, sus productos de alimentación en general, bebidas, droguería y congelados, así como su bacalao en salazón, en particular.</string>
+
+    <string name="nosotros_manuel_barea">MANUEL BAREA S.A. es la empresa matriz de BAREA GRUPO, así como su plataforma central de distribución. Se encuentra radicada en Sevilla, en el Polígono Industrial Carretera Amarilla (PICA). A partir de ahí distribuye productos de alimentación, bebidas, droguería y perfumería.
+
+Su amplia flota de vehículos le permite hacer llegar sus productos a las provincias de Sevilla, Huelva y Cádiz, fundamentalmente.
+
+También pone a la disposición del profesional diferentes puntos de venta de pescado congelado, bacalao en salazón, marisco congelado y más productos de alimentación varia. Las ubicaciones son, el ya mencionado, Polígono Industrial Carretera Amarilla; el Polígono Industrial PISA, en Mairena del Aljarafe (Sevilla); los mercados centrales de Mercasevilla y Mercamálaga; y la zona portuaria de El Puerto de Santa María (Cádiz).
+
+Destacar que las instalaciones del Polígono PISA, en Mairena del Aljarafe, forman parte de un nuevo concepto de instalaciones dedicadas especialmente al sector de la hostelería.
+
+En cifras, se trata de 8.000 metros cuadrados de almacenamiento, 2.500 metros cuadrados de centro de producción, 1.000 metros cuadrados de puntos de venta y un amplio surtido de productos con más de 15.000 referencias al servicio de nuestros clientes.</string>
+
+    <string name="nosotros_cash_barea">Distribuye productos de alimentación, bebidas, droguería y perfumería a las provincias de Sevilla, Córdoba, Málaga, Huelva y Cádiz, entre otras. Consigue llegar a un territorio tan extenso gracias a su relevante flota de vehículos.</string>
+
+    <string name="nosotros_cash_extremeño">Su zona de actuación es Cáceres y Badajoz. Distribuye productos de alimentación, droguería, bebidas y perfumería gracias a la importante flota de vehículos con la que cuenta.</string>
+
 </resources>

@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout = "@layout/tool_bar_main"
+        android:id="@+id/tb_main"></include>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/act_name_nosotros"
-        android:textSize="@dimen/medio"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imagen_nosotros"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/maximo"
+                android:layout_marginLeft="@dimen/margenLeft"
+                android:layout_marginRight="@dimen/margenLeft"
+                android:src="@drawable/instalaciones_cash_colombino"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:id="@+id/texto_nosotros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margenLeft"
+                android:layout_marginRight="@dimen/margenLeft"
+                android:text="@string/nosotros_colombino"
+                android:textSize="@dimen/min_med" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </LinearLayout>

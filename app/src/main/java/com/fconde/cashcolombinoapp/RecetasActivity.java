@@ -13,14 +13,16 @@ import android.support.v7.widget.Toolbar;
 
 public class RecetasActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recetas);
 
-        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recetas);
-        myToolbar.setTitle(R.string.act_name_recetas);
-        myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);*/
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        toolbar.setTitle(R.string.act_name_recetas);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        setSupportActionBar(toolbar);
     }
 }

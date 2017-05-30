@@ -13,14 +13,16 @@ import android.support.v7.widget.Toolbar;
 
 public class LocalizadorActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localizador);
 
-       /* Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_localizador);
-        myToolbar.setTitle(R.string.act_name_localizador);
-        myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);*/
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        toolbar.setTitle(R.string.act_name_localizador);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        setSupportActionBar(toolbar);
     }
 }

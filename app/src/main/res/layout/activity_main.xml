@@ -3,21 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     android:id="@+id/layMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.fconde.cashcolombinoapp.MainActivity">
 
-   <include layout = "@layout/tool_bar_main"
-       android:id="@+id/tb_main"></include>
+    <include layout = "@layout/tool_bar_main"
+        android:id="@+id/tb_main"></include>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_weight="1"
-        android:orientation="vertical">
-
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,20 +26,24 @@
 
             <ImageButton
                 android:id="@+id/imgBtnNosotros"
+                android:src="@drawable/nosotros"
                 style="@style/botonesMenuCentral"
+                android:layout_marginStart="@dimen/margenLeft"
+
                 android:layout_marginLeft="@dimen/margenLeft"
-                android:layout_marginTop="@dimen/margenTop"
-                android:src="@drawable/nosotros" />
+                android:contentDescription="@string/act_name_nosotros" />
 
             <ImageButton
                 android:id="@+id/imgBtnCatalogo"
+                android:src="@drawable/catalogo"
                 style="@style/botonesMenuCentral"
-                android:src="@drawable/catalogo" />
+                android:contentDescription="@string/act_name_catalogo"/>
 
             <ImageButton
                 android:id="@+id/imgBtnMarcasPropias"
+                android:src="@drawable/marcas_propias"
                 style="@style/botonesMenuCentral"
-                android:src="@drawable/marcas_propias" />
+                android:contentDescription="@string/act_name_marcas_propias"/>
 
         </LinearLayout>
 
@@ -49,18 +54,21 @@
 
             <ImageButton
                 android:id="@+id/imgBtnLocalizador"
+                android:src="@drawable/localizador_productos"
                 style="@style/botonesMenuCentralExtraLargo"
-                android:src="@drawable/localizador_productos" />
+                android:contentDescription="@string/act_name_localizador"/>
 
             <ImageButton
                 android:id="@+id/imgBtnRecetas"
+                android:src="@drawable/recetas"
                 style="@style/botonesMenuCentral"
-                android:src="@drawable/recetas" />
+                android:contentDescription="@string/act_name_recetas"/>
 
             <ImageButton
                 android:id="@+id/imgBtnPedidos"
+                android:src="@drawable/pedido"
                 style="@style/botonesMenuCentral"
-                android:src="@drawable/pedido" />
+                android:contentDescription="@string/act_name_pedidos"/>
 
         </LinearLayout>
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".NosotrosActivity">
+
+    <item android:id="@+id/nosotrosColombino"
+        android:title="Cash Colombino,S.A."/>
+
+    <item android:id="@+id/nosotrosCBarea"
+        android:title="Cash Barea,S.A."/>
+
+    <item android:id="@+id/nosotrosMBarea"
+        android:title="Manuel Barea,S.A."/>
+
+    <item android:id="@+id/nosotrosExtremadura"
+        android:title="Cash Extremeño,S.A."/>
+
+</menu>

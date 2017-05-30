@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="minimo">32dp</dimen>
+    <dimen name="min_med">48dp</dimen>
     <dimen name="medio">64dp</dimen>
     <dimen name="largo">128dp</dimen>
     <dimen name="extralargo">220dp</dimen>

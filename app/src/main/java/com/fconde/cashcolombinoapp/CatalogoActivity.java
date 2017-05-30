@@ -15,14 +15,16 @@ import android.support.v7.widget.Toolbar;
 
 public class CatalogoActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
 
-        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_catalogo);
-        myToolbar.setTitle(R.string.act_name_catalogo);
-        myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);*/
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        toolbar.setTitle(R.string.act_name_catalogo);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        setSupportActionBar(toolbar);
     }
 }
