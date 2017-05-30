@@ -1,6 +1,6 @@
 package com.fconde.cashcolombinoapp;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -18,10 +18,10 @@ public class MarcasPropiasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marcas_propias);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_marcas_propias);
+        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_marcas_propias);
         myToolbar.setTitle(R.string.act_name_marcas_propias);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);
+        setSupportActionBar(myToolbar);*/
     }
 }
 

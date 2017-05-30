@@ -1,6 +1,6 @@
 package com.fconde.cashcolombinoapp;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -20,9 +20,9 @@ public class CatalogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_catalogo);
+        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_catalogo);
         myToolbar.setTitle(R.string.act_name_catalogo);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);
+        setSupportActionBar(myToolbar);*/
     }
 }

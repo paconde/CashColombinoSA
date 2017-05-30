@@ -2,7 +2,7 @@ package com.fconde.cashcolombinoapp;
 
 import android.content.Intent;
 import android.os.Build;
-import android.provider.ContactsContract;
+//import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     ImageButton imgBtnNosotros, imgBtnCatalogo, imgBtnMarcasPropias, imgBtnLocalizador, imgBtnRecetas, imgBtnPedidos;
     //Intent intent;
 
@@ -22,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_main);
-        myToolbar.setTitle(R.string.app_name);
-        myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        setSupportActionBar(toolbar);
 
         imgBtnNosotros = (ImageButton)findViewById(R.id.imgBtnNosotros);
         imgBtnCatalogo = (ImageButton)findViewById(R.id.imgBtnCatalogo);
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         imgBtnLocalizador = (ImageButton)findViewById(R.id.imgBtnLocalizador);
         imgBtnRecetas = (ImageButton)findViewById(R.id.imgBtnRecetas);
         imgBtnPedidos = (ImageButton)findViewById(R.id.imgBtnPedidos);
-
 
         imgBtnNosotros.setOnClickListener(new View.OnClickListener() {
             @Override

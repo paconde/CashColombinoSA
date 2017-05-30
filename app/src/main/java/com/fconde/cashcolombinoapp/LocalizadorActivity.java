@@ -1,6 +1,6 @@
 package com.fconde.cashcolombinoapp;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -18,9 +18,9 @@ public class LocalizadorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localizador);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_localizador);
+       /* Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_localizador);
         myToolbar.setTitle(R.string.act_name_localizador);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(myToolbar);
+        setSupportActionBar(myToolbar);*/
     }
 }
