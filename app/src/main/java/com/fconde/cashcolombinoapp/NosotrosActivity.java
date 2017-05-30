@@ -1,6 +1,7 @@
 package com.fconde.cashcolombinoapp;
 
 //import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -50,24 +51,19 @@ public class NosotrosActivity extends AppCompatActivity {
         switch (id){
             case R.id.nosotrosColombino:
                 texto_nosotros.setText(R.string.nosotros_colombino);
-
-                //imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_colombino);
-                Toast.makeText(this,"Selección Cash Colombino", Toast.LENGTH_SHORT).show();
+                imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_colombino);
                 break;
             case R.id.nosotrosCBarea:
                 texto_nosotros.setText(R.string.nosotros_cash_barea);
-                //imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_barea);
-                Toast.makeText(this,"Selección Cash Barea", Toast.LENGTH_SHORT).show();
+                imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_barea);
                 break;
             case R.id.nosotrosMBarea:
                 texto_nosotros.setText(R.string.nosotros_manuel_barea);
-                //imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_barea);
-                Toast.makeText(this,"Selección Manuel Barea", Toast.LENGTH_SHORT).show();
+                imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_barea);
                 break;
             case R.id.nosotrosExtremadura:
                 texto_nosotros.setText(R.string.nosotros_cash_extremeño);
-                //imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_extremeno);
-                Toast.makeText(this,"Selección Cash Extremeño", Toast.LENGTH_SHORT).show();
+                imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_extremeno);
                 break;
             default:
                 return true;
