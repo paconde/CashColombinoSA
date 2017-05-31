@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
+    android:id="@+id/layNosotros"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,7 +13,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,5 +45,20 @@
 
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="0"
+        android:layout_marginTop="@dimen/min_med">
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.fconde.cashcolombinoapp.frg_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="570dp"
+            tools:layout="@layout/lay_frg_bottom_bar" />
+
+    </LinearLayout>
 
 </LinearLayout>

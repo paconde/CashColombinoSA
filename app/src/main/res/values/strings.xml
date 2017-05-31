@@ -38,4 +38,10 @@ En cifras, se trata de 8.000 metros cuadrados de almacenamiento, 2.500 metros cu
 
     <string name="nosotros_cash_extremeño">Cash Extremeño. Su zona de actuación es Cáceres y Badajoz. Distribuye productos de alimentación, droguería, bebidas y perfumería gracias a la importante flota de vehículos con la que cuenta.</string>
 
+    <string name="catalogos">En este apartado podrá estar al día de las últimas novedades que BAREA GRUPO pone a disposición de sus clientes.\n\n
+El profesional de la alimentación y la hostelería encontrará en los siguientes catálogos las mejores promociones y beneficios del mercado, además de unos precios realmente competitivos. No espere más para conocer las innumerables ventajas que hemos preparado para usted y su negocio.\n\n
+</string>
+
+    <string name="oferta_fidelidad">Se aplica a la factura un 10% de descuento en las compras de productos de fidelidad.</string>
+    <string name="oferta_mensual">Los productos incluidos en esta oferta están rebajados sobre su precio habitual.</string>
 </resources>
