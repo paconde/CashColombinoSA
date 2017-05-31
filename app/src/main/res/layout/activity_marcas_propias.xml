@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -8,48 +9,205 @@
     <include layout = "@layout/tool_bar_main"
         android:id="@+id/tb_main"></include>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/min_med"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="@dimen/extralargo2"
-            android:layout_weight="0.3"
-            android:src="@drawable/fidelidad_mayo_17"
-            android:scaleType="fitCenter"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:text="@string/oferta_fidelidad"
-            android:textSize="@dimen/texto_medio"/>
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="@dimen/min_med"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/margenLeft"
+            android:layout_marginRight="@dimen/margenLeft"
+            android:weightSum="1">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="@dimen/extralargo2"
-                android:layout_weight="0.3"
-                android:src="@drawable/oferta_mayo_17"
-                android:scaleType="fitCenter"/>
-
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:text="@string/oferta_mensual"
-                android:textSize="@dimen/texto_medio"/>
+                android:layout_marginTop="@dimen/min_med"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imagenMarcaManuelBarea"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/extralargo2"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/manuel_barea"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/marcaMB" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/marca_manuel_barea"
+                    android:textSize="@dimen/texto_medio" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min_med"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/marca_olibarea"
+                    android:textSize="@dimen/texto_medio"/>
+
+                <ImageView
+                    android:id="@+id/imagenMarcaOlibarea"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/extralargo2"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/olibarea"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/marcaOLIB" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min_med"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imagenMarcaCumbreIberica"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/extralargo2"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/cumbre_iberica"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/marcaCI" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/marca_cumbre_iberica"
+                    android:textSize="@dimen/texto_medio"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min_med"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/marca_consemur"
+                    android:textSize="@dimen/texto_medio"/>
+
+                <ImageView
+                    android:id="@+id/imagenMarcaConsemur"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/extralargo2"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/consemur"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/marcaCON" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min_med"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imagenMarcaBaresol"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/extralargo2"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/baresol"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/marcaBAR" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/marca_baresol"
+                    android:textSize="@dimen/texto_medio"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min_med"
+                android:layout_marginBottom="@dimen/min_med"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/marca_simon_verde"
+                    android:textSize="@dimen/texto_medio"/>
+
+                <ImageView
+                    android:id="@+id/imagenMarcaSimonVerde"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/extralargo2"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/simon_verde"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/marcaSV" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min_med">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/marcas_propias"
+                    android:textSize="@dimen/texto_medio"/>
+
+            </LinearLayout>
 
         </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_weight="0"
+    android:layout_marginTop="@dimen/min_med">
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.fconde.cashcolombinoapp.frg_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="570dp"
+        tools:layout="@layout/lay_frg_bottom_bar" />
+
+    </LinearLayout>
 
 </LinearLayout>

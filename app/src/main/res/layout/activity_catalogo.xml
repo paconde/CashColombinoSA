@@ -18,8 +18,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="@dimen/min_med"
+            android:orientation="vertical"
             android:weightSum="1">
 
 
@@ -43,23 +43,24 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/extralargo2"
                     android:layout_weight="0.3"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/fidelidad_mayo_17"
-                    android:scaleType="fitCenter"/>
+                    android:contentDescription="@string/OF_FID" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/oferta_fidelidad"
-                    android:textSize="@dimen/texto_medio"/>
+                    android:textSize="@dimen/texto_medio" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/min_med"
                 android:layout_marginBottom="@dimen/min_med"
+                android:layout_marginTop="@dimen/min_med"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -67,25 +68,21 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/extralargo2"
                     android:layout_weight="0.3"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/oferta_mayo_17"
-                    android:scaleType="fitCenter"/>
+                    android:contentDescription="@string/OF_MES"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/oferta_mensual"
-                    android:textSize="@dimen/texto_medio"/>
+                    android:textSize="@dimen/texto_medio" />
 
             </LinearLayout>
 
 
         </LinearLayout>
-
-
-
-
-
 
     </ScrollView>
 
