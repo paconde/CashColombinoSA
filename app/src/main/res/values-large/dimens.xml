@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <dimen name="micro">8dp</dimen>
     <dimen name="minimo">32dp</dimen>
     <dimen name="min_med">48dp</dimen>
     <dimen name="medio">64dp</dimen>
@@ -8,6 +8,7 @@
     <dimen name="extralargo">220dp</dimen>
     <dimen name="extralargo2">260dp</dimen>
     <dimen name="maximo">600dp</dimen>
+    <dimen name="maximo2">900dp</dimen>
     <dimen name="texto">24sp</dimen>
     <dimen name="texto_medio">48sp</dimen>
     <dimen name="margenTop">1200dp</dimen>

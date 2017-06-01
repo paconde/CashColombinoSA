@@ -53,14 +53,19 @@
     <string name="marcaCON">CONSEMUR</string>
     <string name="marcaBAR">BARESOL</string>
     <string name="marcaSV">SIMON VERDE</string>
+    <string name="botonMP">Descargar marcas propias</string>
+    <string name="toolbarDescarga">Descargar</string>
 
-    <string name="marca_manuel_barea"><B>MANUEL BAREA</B> pone a tu disposición bacalao y más de 300 especies de otros pescados en salazón y congelados (atún, pescada, merluza, pez espada, acedías, marrajo). El marisco congelado también tiene una presencia importante con más de 200 especies como las gambas, las cigalas, el bogavante, las patas rusa, entre otras.</string>
-    <string name="marca_olibarea">Aceite de oliva, patatas fritas, aperitivos varios o aceitunas y otros encurtidos se aúnan en la marca OLIBAREA.</string>
-    <string name="marca_cumbre_iberica">CUMBRE IBÉRICA está formada por todo tipo de productos ibéricos. Jamón, chorizo, salchichón, caña de lomo o carne congelada de máxima calidad se reúnen bajo una marca de referencia que acoge, además, quesos y vinos.</string>
-    <string name="marca_consemur">CONSEMUR recoge bajo su denominación a productos como frutos secos, conservas de pescado y de verduras, cacaos, artículos de hostelería, entre otros.</string>
-    <string name="marca_baresol">BARESOL es reconocida por su excelente selección de aceites, mayonesas, salsas, etc.</string>
-    <string name="marca_simon_verde">SIMÓN VERDE es una conocida marca de productos de limpieza (lavavajillas, fregasuelos, lejías, suavizantes, jabones), así como de productos de aseo personal (champús, geles, desodorantes, hidratantes).</string>
-    <string name="marcas_propias">Se trabaja constantemente en incrementar los productos de marcas propias de BAREA GRUPO para abrir un mayor abanico de productos a nuestros clientes en los que calidad y el precio deben ser el referente.\n\n</string>
-
+    <string name="marcas_propias_intro">En el lineal de venta de nuestros establecimientos tenemos más de 15.000 referencias.\nEl mayor surtido de nuestro entorno.\n
+                    Entre ellas podemos encontrar más de 400 referencias de productos de marcas propias de gran calidad e inmejorable precio. Para ello concertamos acuerdos con los principales fabricantes nacionales, que garantizan unos productos con rigurosos controles de calidad.\n
+    Entre las marcas propias tenemos:\n</string>
+    <string name="marca_manuel_barea"><B>MANUEL BAREA</B> pone a tu disposición bacalao y más de 300 especies de otros pescados en salazón y congelados (atún, pescada, merluza, pez espada, acedías, marrajo). El marisco congelado también tiene una presencia importante con más de 200 especies como las gambas, las cigalas, el bogavante, las patas rusa, entre otras.\n</string>
+    <string name="marca_olibarea">Aceite de oliva, patatas fritas, aperitivos varios o aceitunas y otros encurtidos se aúnan en la marca OLIBAREA.\n</string>
+    <string name="marca_cumbre_iberica">CUMBRE IBÉRICA está formada por todo tipo de productos ibéricos. Jamón, chorizo, salchichón, caña de lomo o carne congelada de máxima calidad se reúnen bajo una marca de referencia que acoge, además, quesos y vinos.\n</string>
+    <string name="marca_consemur">CONSEMUR recoge bajo su denominación a productos como frutos secos, conservas de pescado y de verduras, cacaos, artículos de hostelería, entre otros.\n</string>
+    <string name="marca_baresol">BARESOL es reconocida por su excelente selección de aceites, mayonesas, salsas, etc.\n</string>
+    <string name="marca_simon_verde">SIMÓN VERDE es una conocida marca de productos de limpieza (lavavajillas, fregasuelos, lejías, suavizantes, jabones), así como de productos de aseo personal (champús, geles, desodorantes, hidratantes).\n</string>
+    <string name="marcas_propias">Se trabaja constantemente en incrementar los productos de marcas propias de BAREA GRUPO para abrir un mayor abanico de productos a nuestros clientes en los que calidad y el precio deben ser el referente.\n</string>
+    <string name="linea">\n</string>
     
 </resources>

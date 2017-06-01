@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MarcasPropiasActivity">
 
-    <item android:id="@+id/marcaMBarea"
-        android:title="Manuel Barea"/>
+    <item android:id="@+id/texto_descargar_marcas_propias"
+        android:title="@string/toolbarDescarga"
+        app:showAsAction="always"/>
 
-    <item android:id="@+id/marcaOlibarea"
-        android:title="Olibarea"/>
+    <item android:id="@+id/descargar_marcas_propias"
+        android:title="Descargar"
+        android:icon="@android:drawable/stat_sys_download"
+        app:showAsAction="always"/>
 
-    <item android:id="@+id/marcaBaresol"
-        android:title="Baresol"/>
-
-    <item android:id="@+id/marcaCIberica"
-        android:title="Cumbre Ibérica"/>
-
-    <item android:id="@+id/marcaConsemur"
-        android:title="Consemur"/>
-
-    <item android:id="@+id/marcaSVerde"
-        android:title="Simón Verde"/>
 </menu>

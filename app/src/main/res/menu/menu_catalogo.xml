@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CatalogoActivity">
+
+    <item android:id="@+id/fidelidad"
+        android:title="Descargar oferta Fidelidad"
+        />
+
+    <item android:id="@+id/oferta_mes"
+        android:title="Descargar oferta mensual"/>
+
+</menu>

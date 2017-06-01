@@ -9,8 +9,11 @@ import android.os.Environment;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 /**
@@ -21,7 +24,9 @@ public class CatalogoActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     ImageView imagenFidelidad, imagenOferta;
-    String urlString;
+    final static String URLFIDELIDAD = "https://www.barea.com/wp-content/uploads/2014/12/MONOGRA%C2%B4FICOS-10-MAYO-2017.pdf";
+    final static String URLOFERTAMES = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-MAYO-2017-SIN-PRECIOS.pdf";
+    //String urlString;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +44,40 @@ public class CatalogoActivity extends AppCompatActivity {
         imagenFidelidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                urlString = "https://www.barea.com/wp-content/uploads/2014/12/MONOGRA%C2%B4FICOS-10-MAYO-2017.pdf";
-                descargaPdf(urlString);
-
+                descargaPdf(URLFIDELIDAD);
             }
         });
 
         imagenOferta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                urlString = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-MAYO-2017-SIN-PRECIOS.pdf";
-                descargaPdf(urlString);
+                descargaPdf(URLOFERTAMES);
             }
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_catalogo, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem option_menu){
+
+        int id = option_menu.getItemId();
+        switch (id){
+            case R.id.fidelidad:
+                descargaPdf(URLFIDELIDAD);
+                break;
+            case R.id.oferta_mes:
+                descargaPdf(URLOFERTAMES);
+                break;
+            default:
+                return true;
+        }
+        return super.onOptionsItemSelected(option_menu);
+    }
     public void descargaPdf(String urlString) {
         Uri uri = Uri.parse(urlString);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
