@@ -29,10 +29,10 @@ public class MarcasPropiasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marcas_propias);
 
-        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        /*toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.act_name_marcas_propias);
         toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);*/
 
         imagenMarcasPropias = (ImageView)findViewById(R.id.imagen_descarga_marcas_propias);
 
