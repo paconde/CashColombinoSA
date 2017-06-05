@@ -10,6 +10,16 @@
     <string name="act_name_recetas">Recetas</string>
     <string name="act_name_pedidos">Pedidos</string>
 
+    <string name="contacto">Contacto</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google plus</string>
+    <string name="blog">Blog</string>
+    <string name="compartir">Compartir</string>
+
+    <string name="manuelBarea">Manuel Barea, S.A.</string>
+    <string name="cashBarea">Cash Barea, S.A.</string>
+    <string name="cashExtrem">Cash Extremeño, S.A.</string>
+    <string name="textoSeleccion">Empresas ...</string>
     <string name="nosotros_colombino">Cash Colombino es una empresa dedicada a la venta y distribución del productos al por mayor al profesional de la alimentación y hostelería.\n\n
 
                     Actualmente, CASH COLOMBINO, S.A. junto con las empresas MANUEL BAREA, S.A., CASH BAREA, S.A., y CASH EXTREMEÑO, S.A. se encuentran asociadas bajo el paraguas de BAREA GRUPO.\n\n
@@ -45,7 +55,10 @@
     <string name="oferta_mensual">Los productos incluidos en esta oferta están rebajados sobre su precio habitual.</string>
 
     <string name="OF_FID">OFERTA FIDELIDAD</string>
-    <string name="OF_MES">OFERTA MENSAL</string>
+    <string name="OF_MES">OFERTA MENSUAL</string>
+
+    <string name="descargarFidelidad">Descargar oferta Fidelidad</string>
+    <string name="descargarOfertaMes">Descargar oferta mensual</string>
 
     <string name="marcaMB">MANUEL BAREA</string>
     <string name="marcaOLIB">OLIBAREA</string>

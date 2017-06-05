@@ -1,5 +1,6 @@
 <resources>
 
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -16,14 +17,13 @@
         <item name="android:layout_height">@dimen/largo</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:layout_marginLeft">@dimen/margenLeft</item>
-        <item name="android:background">@color/alfaCero</item>
+
     </style>
 
     <style name="botonesMenuCentral">
         <item name="android:layout_width">@dimen/extralargo</item>
         <item name="android:layout_height">@dimen/extralargo</item>
         <item name="android:scaleType">fitCenter</item>
-        <item name="android:background">@color/alfaCero</item>
         <item name="android:layout_marginTop">@dimen/margenTop</item>
         <item name="android:layout_marginLeft">@dimen/margenLeft2</item>
     </style>
@@ -32,7 +32,6 @@
         <item name="android:layout_width">@dimen/extralargo</item>
         <item name="android:layout_height">@dimen/extralargo2</item>
         <item name="android:scaleType">fitCenter</item>
-        <item name="android:background">@color/alfaCero</item>
         <item name="android:layout_marginTop">@dimen/margenTop</item>
         <item name="android:layout_marginLeft">@dimen/margenLeft</item>
     </style>

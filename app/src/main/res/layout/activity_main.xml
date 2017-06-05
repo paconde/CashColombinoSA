@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true"
     android:id="@+id/layMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.fconde.cashcolombinoapp.MainActivity">
 
-    <include layout = "@layout/tool_bar_main"
-        android:id="@+id/tb_main"></include>
+    <include
+        android:id="@+id/tb_main"
+        layout="@layout/tool_bar_main"></include>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        >
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,24 +25,27 @@
 
             <ImageButton
                 android:id="@+id/imgBtnNosotros"
-                android:src="@drawable/nosotros"
                 style="@style/botonesMenuCentral"
+                android:layout_marginLeft="@dimen/margenLeft"
                 android:layout_marginStart="@dimen/margenLeft"
 
-                android:layout_marginLeft="@dimen/margenLeft"
-                android:contentDescription="@string/act_name_nosotros" />
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/act_name_nosotros"
+                android:src="@drawable/nosotros" />
 
             <ImageButton
                 android:id="@+id/imgBtnCatalogo"
-                android:src="@drawable/catalogo"
                 style="@style/botonesMenuCentral"
-                android:contentDescription="@string/act_name_catalogo"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/act_name_catalogo"
+                android:src="@drawable/catalogo" />
 
             <ImageButton
                 android:id="@+id/imgBtnMarcasPropias"
-                android:src="@drawable/marcas_propias"
                 style="@style/botonesMenuCentral"
-                android:contentDescription="@string/act_name_marcas_propias"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/act_name_marcas_propias"
+                android:src="@drawable/marcas_propias" />
 
         </LinearLayout>
 
@@ -54,21 +56,24 @@
 
             <ImageButton
                 android:id="@+id/imgBtnLocalizador"
-                android:src="@drawable/localizador_productos"
                 style="@style/botonesMenuCentralExtraLargo"
-                android:contentDescription="@string/act_name_localizador"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/act_name_localizador"
+                android:src="@drawable/localizador_productos" />
 
             <ImageButton
                 android:id="@+id/imgBtnRecetas"
-                android:src="@drawable/recetas"
                 style="@style/botonesMenuCentral"
-                android:contentDescription="@string/act_name_recetas"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/act_name_recetas"
+                android:src="@drawable/recetas" />
 
             <ImageButton
                 android:id="@+id/imgBtnPedidos"
-                android:src="@drawable/pedido"
                 style="@style/botonesMenuCentral"
-                android:contentDescription="@string/act_name_pedidos"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/act_name_pedidos"
+                android:src="@drawable/pedido" />
 
         </LinearLayout>
 
@@ -79,8 +84,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_weight="0"
-        android:layout_marginTop="@dimen/min_med">
+        android:layout_marginTop="@dimen/min_med"
+        android:layout_weight="0">
 
         <fragment
             android:id="@+id/fragment"

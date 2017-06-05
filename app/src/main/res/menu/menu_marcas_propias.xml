@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MarcasPropiasActivity">
 
-    <item android:id="@+id/texto_descargar_marcas_propias"
+    <item
+        android:id="@+id/texto_descargar_marcas_propias"
         android:title="@string/toolbarDescarga"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/descargar_marcas_propias"
-        android:title="Descargar"
+        android:title="@string/toolbarDescarga"
         android:icon="@android:drawable/stat_sys_download"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
 </menu>

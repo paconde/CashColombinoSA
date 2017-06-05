@@ -1,35 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
     android:weightSum="1">
 
     <ImageButton
         android:id="@+id/imgBttContacto"
         style="@style/botonesBarraInferior"
-        android:src="@drawable/contacto" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/contacto"
+        android:contentDescription="@string/contacto" />
 
     <ImageButton
         android:id="@+id/imgBttFacebook"
         style="@style/botonesBarraInferior"
-        android:src="@drawable/facebook" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/facebook"
+        android:contentDescription="@string/facebook" />
 
     <ImageButton
         android:id="@+id/imgBttGooglePlus"
         style="@style/botonesBarraInferior"
-        android:src="@drawable/google" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/google"
+        android:contentDescription="@string/google" />
 
     <ImageButton
         android:id="@+id/imgBttBlog"
         style="@style/botonesBarraInferior"
-        android:src="@drawable/blogg" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/blogg"
+        android:contentDescription="@string/blog" />
 
     <ImageButton
         android:id="@+id/imgBttCompartir"
         style="@style/botonesBarraInferior"
-        android:src="@drawable/compartir" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/compartir"
+        android:contentDescription="@string/compartir" />
 
 </LinearLayout>

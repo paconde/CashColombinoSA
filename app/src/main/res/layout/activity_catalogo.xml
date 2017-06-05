@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-    <include layout = "@layout/tool_bar_main"
-        android:id="@+id/tb_main"></include>
+    <include
+        android:id="@+id/tb_main"
+        layout="@layout/tool_bar_main"></include>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,9 +45,9 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/extralargo2"
                     android:layout_weight="0.3"
+                    android:contentDescription="@string/OF_FID"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/fidelidad_mayo_17"
-                    android:contentDescription="@string/OF_FID" />
+                    android:src="@drawable/fidelidad_mayo_17" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -68,9 +70,9 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/extralargo2"
                     android:layout_weight="0.3"
+                    android:contentDescription="@string/OF_MES"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/oferta_mayo_17"
-                    android:contentDescription="@string/OF_MES"/>
+                    android:src="@drawable/oferta_mayo_17" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -89,8 +91,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_marginTop="@dimen/min_med"
         android:layout_weight="0"
-        android:layout_marginTop="@dimen/min_med">
+        android:background="@android:color/transparent">
 
         <fragment
             android:id="@+id/fragment"

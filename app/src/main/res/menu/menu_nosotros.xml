@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".NosotrosActivity">
 
+    <item android:id="@+id/texto_sel_empresa"
+        android:title="@string/textoSeleccion"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/nosotrosColombino"
-        android:title="Cash Colombino,S.A."/>
+        android:title="@string/app_name"/>
 
     <item android:id="@+id/nosotrosCBarea"
-        android:title="Cash Barea,S.A."/>
+        android:title="@string/cashBarea"/>
 
     <item android:id="@+id/nosotrosMBarea"
-        android:title="Manuel Barea,S.A."/>
+        android:title="@string/manuelBarea"/>
 
     <item android:id="@+id/nosotrosExtremadura"
-        android:title="Cash Extremeño,S.A."/>
+        android:title="@string/cashExtrem"/>
 
 </menu>

@@ -46,6 +46,7 @@ public class MarcasPropiasActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
+
         getMenuInflater().inflate(R.menu.menu_marcas_propias, menu);
         return true;
     }
@@ -56,13 +57,11 @@ public class MarcasPropiasActivity extends AppCompatActivity {
         int id = option_menu.getItemId();
         switch (id){
             case R.id.texto_descargar_marcas_propias:
-
-                Toast.makeText(this,"Selección Manuel Barea", Toast.LENGTH_SHORT).show();
+                descargaPdf(URLMARCASPROPIAS);
                 break;
 
             case R.id.descargar_marcas_propias:
-
-                Toast.makeText(this,"Selección Manuel Barea", Toast.LENGTH_SHORT).show();
+                descargaPdf(URLMARCASPROPIAS);
                 break;
 
             default:

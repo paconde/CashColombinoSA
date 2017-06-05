@@ -4,10 +4,10 @@
     tools:context=".CatalogoActivity">
 
     <item android:id="@+id/fidelidad"
-        android:title="Descargar oferta Fidelidad"
+        android:title="@string/descargarFidelidad"
         />
 
     <item android:id="@+id/oferta_mes"
-        android:title="Descargar oferta mensual"/>
+        android:title="@string/descargarOfertaMes"/>
 
 </menu>
