@@ -80,5 +80,9 @@
     <string name="marca_simon_verde">SIMÓN VERDE es una conocida marca de productos de limpieza (lavavajillas, fregasuelos, lejías, suavizantes, jabones), así como de productos de aseo personal (champús, geles, desodorantes, hidratantes).\n</string>
     <string name="marcas_propias">Se trabaja constantemente en incrementar los productos de marcas propias de BAREA GRUPO para abrir un mayor abanico de productos a nuestros clientes en los que calidad y el precio deben ser el referente.\n</string>
     <string name="linea">\n</string>
-    
+
+    <string name="p1_1">Bacalao con calabacín y salsa mostaza</string>
+    <string name="p1_2">Ensalada de bacalao y patatas</string>
+    <string name="p1_3">Sopa de fideos con bacalao</string>
+
 </resources>
