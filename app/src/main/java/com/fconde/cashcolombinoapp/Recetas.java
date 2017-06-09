@@ -7,21 +7,22 @@ package com.fconde.cashcolombinoapp;
 public class Recetas {
 
     public String nombreReceta;
-    public String codigoImagen;
+    public int codigoImagen;
 
     public Recetas(){
     }
 
-    public Recetas(String nombreReceta, String codigoImagen){
+    public Recetas(String nombreReceta, int codigoImagen){
         this.nombreReceta = nombreReceta;
         this.codigoImagen = codigoImagen;
     }
 
     public String getNombreReceta(){
+
         return nombreReceta;
     }
 
-    public String getCodigoImagen(){
+    public int getCodigoImagen(){
         return codigoImagen;
     }
 

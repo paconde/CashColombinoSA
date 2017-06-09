@@ -7,9 +7,11 @@
     <dimen name="largo">64dp</dimen>
     <dimen name="extralargo">110dp</dimen>
     <dimen name="extralargo2">130dp</dimen>
+    <dimen name="cardViewImage">270dp</dimen>
     <dimen name="maximo">300dp</dimen>
     <dimen name="maximo2">450dp</dimen>
     <dimen name="texto">12sp</dimen>
+    <dimen name="texto_cardView">18sp</dimen>
     <dimen name="texto_medio">24sp</dimen>
     <dimen name="margenTop">60dp</dimen>
     <dimen name="margenLeft">15dp</dimen>
