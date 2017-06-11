@@ -56,16 +56,13 @@ public class RecetasActivity extends AppCompatActivity {
         myRecyclerView.setAdapter(myAdapter);
     }
 
-
     private List<Recetas> getAllRecetas(String pagina){
         ArrayList<Recetas> recetasArrayList = new ArrayList<Recetas>();
-        //String codigoImagen;
         final String[] recetas_p1 = getResources().getStringArray(R.array.recetas_p1);
 
-        for(int i = 0; i < 3; i++){
-            //codigoImagen = "R.drawable.";
-            //int imagen = getResources(R.drawable.p1_+i);
-            recetasArrayList.add(new Recetas(recetas_p1[i], ("R.drawable.p1_" + Integer.toString(i))));
+        for(int i = 1; i < 4; i++){
+            int imagen = getResources().getIdentifier("p" + Integer.valueOf(pagina) + "_" + i, "drawable", getPackageName());
+            recetasArrayList.add(new Recetas(recetas_p1[i -1], imagen));
         }
         return recetasArrayList;
     }
