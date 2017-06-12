@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="recetas_url_p1">
+        <item>receta 1</item>
+        <item>receta 2</item>
+        <item>receta 3</item>
+        <item>receta 4</item>
+        <item>receta 5</item>
+        <item>receta 6</item>
+        <item>receta 7</item>
+        <item>receta 8</item>
+        <item>receta 9</item>
+        <item>receta 10</item>
+        <item>receta 11</item>
+        <item>receta 12</item>
+        <item>receta 13</item>
+        <item>receta 14</item>
+        <item>receta 15</item>
+        <item>receta 16</item>
+        <item>receta 17</item>
+        <item>receta 18</item>
+        <item>receta 19</item>
+        <item>receta 20</item>
+        <item>receta 21</item>
+        <item>receta 22</item>
+        <item>receta 23</item>
+        <item>receta 24</item>
+    </string-array>
+
+    <string-array name="recetas_url_p2">
+        <item>receta 1</item>
+        <item>receta 2</item>
+        <item>receta 3</item>
+        <item>receta 4</item>
+        <item>receta 5</item>
+        <item>receta 6</item>
+        <item>receta 7</item>
+        <item>receta 8</item>
+        <item>receta 9</item>
+        <item>receta 10</item>
+        <item>receta 11</item>
+        <item>receta 12</item>
+        <item>receta 13</item>
+        <item>receta 14</item>
+        <item>receta 15</item>
+        <item>receta 16</item>
+        <item>receta 17</item>
+        <item>receta 18</item>
+        <item>receta 19</item>
+        <item>receta 20</item>
+        <item>receta 21</item>
+        <item>receta 22</item>
+        <item>receta 23</item>
+        <item>receta 24</item>
+    </string-array>
+
+    <string-array name="recetas_url_p3">
+        <item>receta 1</item>
+        <item>receta 2</item>
+        <item>receta 3</item>
+        <item>receta 4</item>
+        <item>receta 5</item>
+        <item>receta 6</item>
+        <item>receta 7</item>
+        <item>receta 8</item>
+        <item>receta 9</item>
+        <item>receta 10</item>
+        <item>receta 11</item>
+        <item>receta 12</item>
+        <item>receta 13</item>
+        <item>receta 14</item>
+        <item>receta 15</item>
+        <item>receta 16</item>
+        <item>receta 17</item>
+        <item>receta 18</item>
+        <item>receta 19</item>
+        <item>receta 20</item>
+        <item>receta 21</item>
+        <item>receta 22</item>
+        <item>receta 23</item>
+        <item>receta 24</item>
+    </string-array>
+
+    <string-array name="recetas_url_p4">
+        <item>receta 1</item>
+        <item>receta 2</item>
+        <item>receta 3</item>
+        <item>receta 4</item>
+        <item>receta 5</item>
+        <item>receta 6</item>
+        <item>receta 7</item>
+        <item>receta 8</item>
+        <item>receta 9</item>
+        <item>receta 10</item>
+        <item>receta 11</item>
+        <item>receta 12</item>
+        <item>receta 13</item>
+        <item>receta 14</item>
+        <item>receta 15</item>
+        <item>receta 16</item>
+        <item>receta 17</item>
+        <item>receta 18</item>
+        <item>receta 19</item>
+        <item>receta 20</item>
+        <item>receta 21</item>
+        <item>receta 22</item>
+        <item>receta 23</item>
+        <item>receta 24</item>
+    </string-array>
+
+    <string-array name="recetas_url_p5">
+        <item>receta 1</item>
+        <item>receta 2</item>
+        <item>receta 3</item>
+        <item>receta 4</item>
+        <item>receta 5</item>
+        <item>receta 6</item>
+        <item>receta 7</item>
+        <item>receta 8</item>
+        <item>receta 9</item>
+        <item>receta 10</item>
+        <item>receta 11</item>
+        <item>receta 12</item>
+    </string-array>
+
+</resources>
