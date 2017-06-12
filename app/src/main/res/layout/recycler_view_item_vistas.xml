@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewVistas"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/maximo"
+    android:layout_margin="@dimen/min_med"
+    card_view:cardBackgroundColor="@color/cardViewBackground"
+    card_view:cardCornerRadius="@dimen/micro"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/imageViewReceta"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/cardViewImage"/>
+
+    <TextView
+        android:id="@+id/textViewReceta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/micro"
+        android:layout_marginLeft="@dimen/micro"
+        android:textSize="@dimen/texto_cardView"/>
+
+</android.support.v7.widget.CardView>

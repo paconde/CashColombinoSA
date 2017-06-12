@@ -315,7 +315,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.fconde.cashcolombinoapp.frg_bottom_bar"
+        android:name="com.fconde.cashcolombinoapp.models.frg_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="570dp"
         tools:layout="@layout/lay_frg_bottom_bar" />

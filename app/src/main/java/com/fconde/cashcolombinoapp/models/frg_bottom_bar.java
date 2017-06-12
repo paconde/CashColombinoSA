@@ -1,4 +1,4 @@
-package com.fconde.cashcolombinoapp;
+package com.fconde.cashcolombinoapp.models;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.fconde.cashcolombinoapp.R;
 
 /**
  * Created by FConde on 22/05/2017.

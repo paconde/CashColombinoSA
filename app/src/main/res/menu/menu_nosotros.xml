@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".NosotrosActivity">
+    tools:context=".activities.NosotrosActivity">
 
     <item android:id="@+id/texto_sel_empresa"
         android:title="@string/textoSeleccion"

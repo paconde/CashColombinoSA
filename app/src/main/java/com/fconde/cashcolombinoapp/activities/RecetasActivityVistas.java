@@ -1,6 +1,7 @@
-package com.fconde.cashcolombinoapp;
+package com.fconde.cashcolombinoapp.activities;
 
 //import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -9,7 +10,13 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.fconde.cashcolombinoapp.R;
+import com.fconde.cashcolombinoapp.models.Recetas;
+import com.fconde.cashcolombinoapp.adapters.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +25,10 @@ import java.util.List;
  * Created by FConde on 24/05/2017.
  */
 
-public class RecetasActivity extends AppCompatActivity {
+public class RecetasActivityVistas extends AppCompatActivity {
 
     private Toolbar toolbar;
     public String pagina = "1";
-
     private List<Recetas> receta;
     private RecyclerView myRecyclerView;
     private RecyclerView.Adapter myAdapter;
@@ -31,7 +37,7 @@ public class RecetasActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recetas);
+        setContentView(R.layout.activity_recetas_vistas);
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.act_name_recetas);
@@ -42,10 +48,11 @@ public class RecetasActivity extends AppCompatActivity {
 
         myRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         myLayoutManager = new LinearLayoutManager(this);
-        myAdapter = new MyAdapter(receta, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
+        //
+        myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_vistas, new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Recetas receta, int position) {
-                Toast.makeText(RecetasActivity.this, receta + " - " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecetasActivityVistas.this, receta + " - " + position, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -54,6 +61,43 @@ public class RecetasActivity extends AppCompatActivity {
 
         myRecyclerView.setLayoutManager(myLayoutManager);
         myRecyclerView.setAdapter(myAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_recetas_vistas, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem option_menu){
+
+        int id = option_menu.getItemId();
+        switch (id){
+            case R.id.icon_recetas_lista:
+                Toast.makeText(this, "Vista Lista activada", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, RecetasActivityLista.class);
+                startActivity(intent);
+                break;
+            case R.id.pagina1:
+                pagina = "1";
+                break;
+            case R.id.pagina2:
+                pagina = "2";
+                break;
+            case R.id.pagina3:
+                pagina = "3";
+                break;
+            case R.id.pagina4:
+                pagina = "4";
+                break;
+            case R.id.pagina5:
+                pagina = "5";
+                break;
+            default:
+                return true;
+        }
+        return super.onOptionsItemSelected(option_menu);
     }
 
     private List<Recetas> getAllRecetas(String pagina){

@@ -1,4 +1,4 @@
-package com.fconde.cashcolombinoapp;
+package com.fconde.cashcolombinoapp.activities;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.fconde.cashcolombinoapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         imgBtnRecetas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), RecetasActivity.class);
+                Intent intent = new Intent(v.getContext(), RecetasActivityVistas.class);
                 startActivity(intent);
             }
         });

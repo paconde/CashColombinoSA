@@ -1,4 +1,4 @@
-package com.fconde.cashcolombinoapp;
+package com.fconde.cashcolombinoapp.activities;
 
 //import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.fconde.cashcolombinoapp.R;
 
 /**
  * Created by FConde on 24/05/2017.

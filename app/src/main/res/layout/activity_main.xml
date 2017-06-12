@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.fconde.cashcolombinoapp.MainActivity">
+    tools:context="com.fconde.cashcolombinoapp.activities.MainActivity">
 
     <include
         android:id="@+id/tb_main"
@@ -89,7 +89,7 @@
 
         <fragment
             android:id="@+id/fragment"
-            android:name="com.fconde.cashcolombinoapp.frg_bottom_bar"
+            android:name="com.fconde.cashcolombinoapp.models.frg_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="570dp"
             tools:layout="@layout/lay_frg_bottom_bar" />

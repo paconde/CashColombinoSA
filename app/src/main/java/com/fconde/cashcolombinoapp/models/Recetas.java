@@ -1,4 +1,4 @@
-package com.fconde.cashcolombinoapp;
+package com.fconde.cashcolombinoapp.models;
 
 /**
  * Created by FConde on 08/06/2017.
