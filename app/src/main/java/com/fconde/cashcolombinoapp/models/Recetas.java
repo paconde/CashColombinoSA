@@ -8,13 +8,15 @@ public class Recetas {
 
     public String nombreReceta;
     public int codigoImagen;
+    public String urlReceta;
 
     public Recetas(){
     }
 
-    public Recetas(String nombreReceta, int codigoImagen){
+    public Recetas(String nombreReceta, int codigoImagen, String urlReceta){
         this.nombreReceta = nombreReceta;
         this.codigoImagen = codigoImagen;
+        this.urlReceta = urlReceta;
     }
 
     public String getNombreReceta(){
@@ -24,6 +26,11 @@ public class Recetas {
 
     public int getCodigoImagen(){
         return codigoImagen;
+    }
+
+    public String getUrlReceta(){
+
+        return urlReceta;
     }
 
 }
