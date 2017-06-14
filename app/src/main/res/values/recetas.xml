@@ -1,126 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="recetas_p1">
-        <item>receta 1</item>
-        <item>receta 2</item>
-        <item>receta 3</item>
-        <item>receta 4</item>
-        <item>receta 5</item>
-        <item>receta 6</item>
-        <item>receta 7</item>
-        <item>receta 8</item>
-        <item>receta 9</item>
-        <item>receta 10</item>
-        <item>receta 11</item>
-        <item>receta 12</item>
-        <item>receta 13</item>
-        <item>receta 14</item>
-        <item>receta 15</item>
-        <item>receta 16</item>
-        <item>receta 17</item>
-        <item>receta 18</item>
-        <item>receta 19</item>
-        <item>receta 20</item>
-        <item>receta 21</item>
-        <item>receta 22</item>
-        <item>receta 23</item>
-        <item>receta 24</item>
+        <item>Bacalao a la andaluza</item>
+        <item>Bacalao a la aragonesa</item>
+        <item>Bacalao a la Llauna</item>
+        <item>Bacalao a la suprema</item>
+        <item>Pastel de bacalao y pistoreceta </item>
+        <item>Pastelitos de bacalaoreceta </item>
+        <item>Buñuelos de Bacalao</item>
+        <item>Arroz con Bacalao</item>
+        <item>Bacalao con Apio</item>
+        <item>Empanada de Bacalao y Pasas</item>
+        <item>Bacalao con Salsa Tártara</item>
+        <item>Ensalada de Bacalao</item>
+        <item>Bacalao con manzanasreceta </item>
+        <item>Bacalao a la Miel</item>
+        <item>Bacalao al horno con hortalizas</item>
+        <item>Tortilla de Bacalaoreceta </item>
+        <item>Bacalao con bacon y espárragos</item>
+        <item>Bacalao mantecato</item>
+        <item>Croquetas de Bacalao</item>
+        <item>Garbanzos con Bacalao y Espinacas</item>
+        <item>Bacalao Gratinado</item>
+        <item>Bacalao con grelos, pasas y piñones</item>
+        <item>Arroz de bacalao</item>
+        <item>Bacalao hortelana</item>
     </string-array>
 
     <string-array name="recetas_p2">
-        <item>receta 1</item>
-        <item>receta 2</item>
-        <item>receta 3</item>
-        <item>receta 4</item>
-        <item>receta 5</item>
-        <item>receta 6</item>
-        <item>receta 7</item>
-        <item>receta 8</item>
-        <item>receta 9</item>
-        <item>receta 10</item>
-        <item>receta 11</item>
-        <item>receta 12</item>
-        <item>receta 13</item>
-        <item>receta 14</item>
-        <item>receta 15</item>
-        <item>receta 16</item>
-        <item>receta 17</item>
-        <item>receta 18</item>
-        <item>receta 19</item>
-        <item>receta 20</item>
-        <item>receta 21</item>
-        <item>receta 22</item>
-        <item>receta 23</item>
-        <item>receta 24</item>
+        <item>Bacalao con coliflor</item>
+        <item>Garbanzos con Bacalao de Vigilia</item>
+        <item>Bacalao con Samfaina</item>
+        <item>Bacalao frito con pimientos</item>
+        <item>Revoltillo de Bacalao a la Portuguesa</item>
+        <item>Atascaburras</item>
+        <item>Lomos de Bacalao a las Almendras</item>
+        <item>Bacalao al aceite de oliva</item>
+        <item>Lomos de bacalao con cebolla y pimiento verde del piquillo</item>
+        <item>Zurrukutuna</item>
+        <item>Bacalao a la Moda de Bakio</item>
+        <item>Bacalao a la Forma Leonesa</item>
+        <item>Esqueixada de bacalao</item>
+        <item>Bacalao con puré princesa</item>
+        <item>Arroz meloso de bacalao y caracoles con verdura</item>
+        <item>Ensalada de bacalao y gamas</item>
+        <item>Bacalao con espinacas</item>
+        <item>Bacalao al ajoarriero</item>
+        <item>Bacalao al horno</item>
+        <item>Bacalao a la Crema</item>
+        <item>Bacalao a la Riojana</item>
+        <item>Bacalao Ajoarriero con Langosta</item>
+        <item>Bacalao a la Vizcaína</item>
+        <item>Bacalao a la Bermuda</item>
     </string-array>
 
     <string-array name="recetas_p3">
-        <item>receta 1</item>
-        <item>receta 2</item>
-        <item>receta 3</item>
-        <item>receta 4</item>
-        <item>receta 5</item>
-        <item>receta 6</item>
-        <item>receta 7</item>
-        <item>receta 8</item>
-        <item>receta 9</item>
-        <item>receta 10</item>
-        <item>receta 11</item>
-        <item>receta 12</item>
-        <item>receta 13</item>
-        <item>receta 14</item>
-        <item>receta 15</item>
-        <item>receta 16</item>
-        <item>receta 17</item>
-        <item>receta 18</item>
-        <item>receta 19</item>
-        <item>receta 20</item>
-        <item>receta 21</item>
-        <item>receta 22</item>
-        <item>receta 23</item>
-        <item>receta 24</item>
+        <item>Ensalada Brasileña</item>
+        <item>Bacalao con Alioli</item>
+        <item>Bacalao en Salsa Verde</item>
+        <item>Ensalada de alubias blancas con Bacalao</item>
+        <item>Revuelto de Bacalao con salsa de calamares</item>
+        <item>Albóndigas de Bacalao con Gambas</item>
+        <item>Ensalada de Bacalao con aroma de albahaca</item>
+        <item>Carpacho de Bacalao</item>
+        <item>Bacalao a la Muselina de Ajo</item>
+        <item>Bacalao “Tino”</item>
+        <item>Bacalao Dorado</item>
+        <item>Ensalada de Bacalao y Pastas</item>
+        <item>Bacalao a la Florentina</item>
+        <item>Bacalao hervido</item>
+        <item>Terrina de Bacalao</item>
+        <item>Bacalao con tomate y alcachofas</item>
+        <item>Bacalao a la noruega</item>
+        <item>Patatas con Bacalao</item>
+        <item>Bacalao a la Vizcaína (otro modo)</item>
+        <item>Bacalao al Pil-Pil</item>
+        <item>Bacalao con Tomate</item>
+        <item>Budin de Bacalao</item>
+        <item>Bacalao con Patatas y Aceitunas</item>
+        <item>Bacalao Encebollado</item>
     </string-array>
 
     <string-array name="recetas_p4">
-        <item>receta 1</item>
-        <item>receta 2</item>
-        <item>receta 3</item>
-        <item>receta 4</item>
-        <item>receta 5</item>
-        <item>receta 6</item>
-        <item>receta 7</item>
-        <item>receta 8</item>
-        <item>receta 9</item>
-        <item>receta 10</item>
-        <item>receta 11</item>
-        <item>receta 12</item>
-        <item>receta 13</item>
-        <item>receta 14</item>
-        <item>receta 15</item>
-        <item>receta 16</item>
-        <item>receta 17</item>
-        <item>receta 18</item>
-        <item>receta 19</item>
-        <item>receta 20</item>
-        <item>receta 21</item>
-        <item>receta 22</item>
-        <item>receta 23</item>
-        <item>receta 24</item>
+        <item>Xató</item>
+        <item>Arroz con Bacalao y Coliflor</item>
+        <item>Bacalao a la Tranca</item>
+        <item>Bacalao con Pisto</item>
+        <item>Potaje de Acelgas con Bacalao</item>
+        <item>Bacalao con Migas</item>
+        <item>Bacalao a la Catalana</item>
+        <item>Bacalao con patatas en Salsa Roja</item>
+        <item>Bacalao con pimiento y cebolla</item>
+        <item>Hornazo de bacalao y alcaparras</item>
+        <item>Ensalada de vainas con bacalao</item>
+        <item>Molde frío</item>
+        <item>Bacalao en escabeche</item>
+        <item>Tortilla de Bacalao y pimientos</item>
+        <item>Arroz con bacalao y cebolla</item>
+        <item>Empanadillas de Bacalao</item>
+        <item>Rosca de arroz blanco con calabacín</item>
+        <item>Bacalao en escabeche ligero</item>
+        <item>Pochas con bacalao marinado</item>
+        <item>Puré de alioli con bacalao</item>
+        <item>Filetes de bacalao a la sidra</item>
+        <item>Arroz con bacalao y espinacas</item>
+        <item>Tarta de Bacalao</item>
+        <item>Pasta con Bacalao</item>
     </string-array>
 
     <string-array name="recetas_p5">
-        <item>receta 1</item>
-        <item>receta 2</item>
-        <item>receta 3</item>
-        <item>receta 4</item>
-        <item>receta 5</item>
-        <item>receta 6</item>
-        <item>receta 7</item>
-        <item>receta 8</item>
-        <item>receta 9</item>
-        <item>receta 10</item>
-        <item>receta 11</item>
+        <item>Bacalao con calabacín y salsa mostaza</item>
+        <item>Ensalada de Bacalao y Patata</item>
+        <item>Sopa de fideos con bacalao</item>
+        <item>Arroz con bacalao y tocino</item>
+        <item>Bacalao guisado con patatas</item>
+        <item>Crema de bacalao</item>
+        <item>Quiche de bacalao y espárragos</item>
+        <item>Ajoarriero con gambas</item>
+        <item>Bacalao en ensalada</item>
+        <item>Bacalao a la mostaza</item>
+        <item>Bacalao con tomate confitado y puré de espárragos verdes</item>
         <item>receta 12</item>
     </string-array>
 
 </resources>
+
