@@ -26,8 +26,8 @@ public class CatalogoActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     ImageView imagenFidelidad, imagenOferta;
-    final static String URLFIDELIDAD = "https://www.barea.com/wp-content/uploads/2014/12/MONOGRA%C2%B4FICOS-10-MAYO-2017.pdf";
-    final static String URLOFERTAMES = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-MAYO-2017-SIN-PRECIOS.pdf";
+    final static String URLFIDELIDAD = "https://www.barea.com/wp-content/uploads/2014/12/MONOGRAFICOS-10-JUNIO-2017.pdf";
+    final static String URLOFERTAMES = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-JUNIO-2017-SIN-PRECIOS.pdf";
     //String urlString;
 
     @RequiresApi(api = Build.VERSION_CODES.M)

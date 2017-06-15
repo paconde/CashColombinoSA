@@ -35,9 +35,8 @@
         <activity android:name=".activities.CatalogoActivity" />
         <activity android:name=".activities.MarcasPropiasActivity" />
         <activity android:name=".activities.LocalizadorActivity" />
-        <activity android:name=".activities.RecetasActivityVistas" />
+        <activity android:name=".activities.RecetasActivity" />
         <activity android:name=".activities.PedidosActivity" />
-        <activity android:name=".activities.RecetasActivityLista"></activity>
     </application>
 
 </manifest>

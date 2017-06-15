@@ -1,7 +1,10 @@
 package com.fconde.cashcolombinoapp.activities;
 
 //import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -25,10 +28,13 @@ import java.util.List;
  * Created by FConde on 24/05/2017.
  */
 
-public class RecetasActivityLista extends AppCompatActivity {
+public class RecetasActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    public String pagina = "1";
+    private SharedPreferences prefs;
+    private String pagina;
+    private String vista;
+
     private List<Recetas> receta;
     private RecyclerView myRecyclerView;
     private RecyclerView.Adapter myAdapter;
@@ -39,64 +45,89 @@ public class RecetasActivityLista extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recetas_lista);
+        setContentView(R.layout.activity_recetas);
 
-        toolbar = (Toolbar) findViewById(R.id.tb_main);
-        toolbar.setTitle(R.string.act_name_recetas);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco, null));
-        setSupportActionBar(toolbar);
+        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        pagina = getPaginaPrefs();
+        vista = getVistaPrefs();
+
+        updateToolbar(pagina);
 
         receta = this.getAllRecetas(pagina);
 
-        myRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        myRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         myLayoutManager = new LinearLayoutManager(this);
-        //
+
         updateAdapter();
-
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_recetas_lista, menu);
-        return true;
+    public boolean onCreateOptionsMenu(Menu menu){
+        vista = getVistaPrefs();
+        if(vista == "lista"){
+            getMenuInflater().inflate(R.menu.menu_recetas_lista, menu);
+            return true;
+        }else{
+            getMenuInflater().inflate(R.menu.menu_recetas_vistas, menu);
+            return true;
+        }
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem option_menu) {
+    public boolean onOptionsItemSelected(MenuItem option_menu){
 
         int id = option_menu.getItemId();
-        switch (id) {
-            case R.id.icon_recetas_vistas:
-                Intent intent = new Intent(this, RecetasActivityVistas.class);
+        switch (id){
+            case R.id.icon_recetas_lista:
+                vista = "lista";
+                updateVistaPrefs(vista);
+                Intent intent = new Intent(this, RecetasActivity.class);
                 finish();
                 startActivity(intent);
                 break;
+            case R.id.icon_recetas_vistas:
+                vista = "imagenes";
+                updateVistaPrefs(vista);
+                Intent intent2 = new Intent(this, RecetasActivity.class);
+                finish();
+                startActivity(intent2);
+                break;
             case R.id.pagina1:
                 pagina = "1";
+                updatePaginaPrefs(pagina);
+                updateToolbar(pagina);
                 receta = this.getAllRecetas(pagina);
                 updateAdapter();
                 myAdapter.notifyDataSetChanged();
                 break;
             case R.id.pagina2:
                 pagina = "2";
+                updatePaginaPrefs(pagina);
+                updateToolbar(pagina);
                 receta = this.getAllRecetas(pagina);
                 updateAdapter();
                 myAdapter.notifyDataSetChanged();
                 break;
             case R.id.pagina3:
                 pagina = "3";
+                updatePaginaPrefs(pagina);
+                updateToolbar(pagina);
                 receta = this.getAllRecetas(pagina);
                 updateAdapter();
                 myAdapter.notifyDataSetChanged();
                 break;
             case R.id.pagina4:
                 pagina = "4";
+                updatePaginaPrefs(pagina);
+                updateToolbar(pagina);
                 receta = this.getAllRecetas(pagina);
                 updateAdapter();
                 myAdapter.notifyDataSetChanged();
                 break;
             case R.id.pagina5:
                 pagina = "5";
+                updatePaginaPrefs(pagina);
+                updateToolbar(pagina);
                 receta = this.getAllRecetas(pagina);
                 updateAdapter();
                 myAdapter.notifyDataSetChanged();
@@ -107,10 +138,10 @@ public class RecetasActivityLista extends AppCompatActivity {
         return super.onOptionsItemSelected(option_menu);
     }
 
-    private List<Recetas> getAllRecetas(String pagina) {
+    private List<Recetas> getAllRecetas(String pagina){
         ArrayList<Recetas> recetasArrayList = new ArrayList<Recetas>();
 
-        switch (pagina) {
+        switch (pagina){
             case "1":
                 recetas = getResources().getStringArray(R.array.recetas_p1);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p1);
@@ -127,35 +158,81 @@ public class RecetasActivityLista extends AppCompatActivity {
                 recetas = getResources().getStringArray(R.array.recetas_p4);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p4);
                 break;
-            case "5":
+            case  "5":
                 recetas = getResources().getStringArray(R.array.recetas_p5);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p5);
                 break;
             default:
-
         }
 
 
-        for (int i = 0; i < recetas.length; i++) {
+        for(int i = 0; i < recetas.length; i++){
             int imagen = getResources().getIdentifier("p" + Integer.valueOf(pagina) + "_" + (i + 1), "drawable", getPackageName());
             recetasArrayList.add(new Recetas(recetas[i], imagen, recetas_url[i]));
         }
         return recetasArrayList;
     }
 
-    private void updateAdapter() {
-        myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_lista, new MyAdapter.OnItemClickListener() {
-            @Override
+    private void updateToolbar(String pagina){
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        //String titulo = getResources(R.string.act_name_recetas).toString();
+        toolbar.setTitle("Recetas " + "Pág. " + pagina);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        setSupportActionBar(toolbar);
 
-            public void onItemClick(Recetas receta, int position) {
-                Toast.makeText(RecetasActivityLista.this, recetas_url[position], Toast.LENGTH_SHORT).show();
-            }
-        });
+    }
+
+    private void updateAdapter(){
+        vista = getVistaPrefs();
+        if(vista == "imagenes" || vista == "null") {
+            myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_vistas, new MyAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(Recetas receta, int position) {
+                    goToUrl(recetas_url[position]);
+                }
+            });
+        }else{
+            myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_lista, new MyAdapter.OnItemClickListener() {
+                @Override
+
+                public void onItemClick(Recetas receta, int position) {
+                    goToUrl(recetas_url[position]);
+                }
+            });
+
+        }
 
         myRecyclerView.setHasFixedSize(true);
         myRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         myRecyclerView.setLayoutManager(myLayoutManager);
         myRecyclerView.setAdapter(myAdapter);
+    }
+
+    private void goToUrl(String url){
+        Intent intentWeb = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intentWeb);
+    }
+
+    private String getPaginaPrefs(){
+        return prefs.getString("pagina", "null");
+    }
+
+    private String getVistaPrefs(){
+        return prefs.getString("vista", "null");
+    }
+
+    private void updatePaginaPrefs(String pagina){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("pagina", pagina);
+        editor.commit();
+        editor.apply();
+    }
+
+    private void updateVistaPrefs(String vista){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("vista", vista);
+        editor.commit();
+        editor.apply();
     }
 }

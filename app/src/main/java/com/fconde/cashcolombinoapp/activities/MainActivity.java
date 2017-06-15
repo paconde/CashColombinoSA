@@ -1,6 +1,8 @@
 package com.fconde.cashcolombinoapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 //import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
@@ -15,6 +17,7 @@ import com.fconde.cashcolombinoapp.R;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private SharedPreferences prefs;
     ImageButton imgBtnNosotros, imgBtnCatalogo, imgBtnMarcasPropias, imgBtnLocalizador, imgBtnRecetas, imgBtnPedidos;
     //Intent intent;
 
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        onCreatePrefs();
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.app_name);
@@ -71,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         imgBtnRecetas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), RecetasActivityVistas.class);
+                Intent intent = new Intent(v.getContext(), RecetasActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,5 +89,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void onCreatePrefs(){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("pagina", "1");
+        editor.putString("vista", "imagenes");
+        editor.commit();
+        editor.apply();
     }
 }
