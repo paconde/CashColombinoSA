@@ -5,21 +5,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.PedidosActivity">
+    tools:context=".activities.LineasPedidoActivity">
 
 
     <include layout = "@layout/tool_bar_main"
         android:id="@+id/tb_main"></include>
 
     <ListView
-        android:id="@+id/listViewPedidos"
+        android:id="@+id/listViewLineasPedidos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margenTop"
         />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabAddPedido"
+        android:id="@+id/fabAddLineaPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

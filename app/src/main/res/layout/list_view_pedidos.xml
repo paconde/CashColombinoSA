@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/textViewPedido"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="Pedido 01/01/2017"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/textViewEnviado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Enviado"
+                android:textSize="18dp"/>
+
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewLineas"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Nº de referencias del pedido:"
+        android:textSize="18dp"/>
+
+</LinearLayout>

@@ -18,20 +18,22 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.NosotrosActivity" />
         <activity android:name=".activities.CatalogoActivity" />
         <activity android:name=".activities.MarcasPropiasActivity" />
         <activity android:name=".activities.LocalizadorActivity" />
         <activity android:name=".activities.RecetasActivity" />
         <activity android:name=".activities.PedidosActivity" />
-        <activity android:name=".activities.SplashActivity"
+        <activity
+            android:name=".activities.SplashActivity"
             android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.LineasPedidoActivity"></activity>
     </application>
 
 </manifest>

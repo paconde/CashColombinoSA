@@ -51,6 +51,8 @@ public class RecetasActivity extends AppCompatActivity {
         pagina = getPaginaPrefs();
         vista = getVistaPrefs();
 
+        //Toast.makeText(this, vista, Toast.LENGTH_LONG).show();
+
         updateToolbar(pagina);
 
         receta = this.getAllRecetas(pagina);
