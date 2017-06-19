@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/enviarPedido"
+        android:title="Enviar Pedido" />
+
+    <item android:id="@+id/duplicarPedido"
+        android:title="Duplicar Pedido" />
+
+    <item android:id="@+id/borrarPedido"
+        android:title="Borrar Pedido" />
+
+</menu>
