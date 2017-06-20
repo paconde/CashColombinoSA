@@ -160,6 +160,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 if(cantidad > 0) {
                     editLineaPedido(cantidad, lineaPedido);
                     //lineasPedido = pedido.getLineasPedido();
+                    onChange(pedido);
                 }
                 else
                     Toast.makeText(getApplicationContext(), "La cantidad no puede ser 0", Toast.LENGTH_SHORT).show();
@@ -204,14 +205,25 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()){
             case R.id.editarLineaPedido:
-                showAlertEditarLinea("Editar Línea", "Modifique la cantidad para este artículo", lineasPedido.get(info.position));
+                if(pedido.isEnviado()){
+                    Toast.makeText(this, "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
+                    break;
+                }else{
+                    showAlertEditarLinea("Editar Línea", "Modifique la cantidad para este artículo", lineasPedido.get(info.position));
+                }
                 return true;
             case R.id.borrarLineaPedido:
-                deleteLineaPedido(lineasPedido.get(info.position));
+                if(pedido.isEnviado()){
+                    Toast.makeText(this, "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
+                    break;
+                }else {
+                    deleteLineaPedido(lineasPedido.get(info.position));
+                }
                 return true;
             default:
-                return super.onContextItemSelected(item);
+
         }
+        return super.onContextItemSelected(item);
     }
 
 }

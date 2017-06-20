@@ -9,20 +9,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Código Artículo"/>
+        android:hint="Código Artículo"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextDescripcionArticulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Descripción Artículo"/>
+        android:hint="Descripción Artículo"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextCantidadArticulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Cantidad Artículo"/>
+        android:hint="Cantidad Artículo"
+        android:inputType="number" />
 
 </LinearLayout>

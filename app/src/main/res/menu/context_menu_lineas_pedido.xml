@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
         <item android:id="@+id/editarLineaPedido"
-        android:title="Editar Línea" />
+        android:title="Modificar cantidad" />
 
         <item android:id="@+id/borrarLineaPedido"
-            android:title="Borrar Línea" />
+            android:title="Borrar Artículo" />
 
 </menu>

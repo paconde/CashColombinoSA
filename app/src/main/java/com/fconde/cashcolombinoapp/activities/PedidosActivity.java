@@ -14,10 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorPedidos;
 import com.fconde.cashcolombinoapp.adapters.MyAdapter;
+import com.fconde.cashcolombinoapp.models.LineasPedido;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 import com.fconde.cashcolombinoapp.models.Recetas;
 
@@ -25,7 +27,10 @@ import java.text.SimpleDateFormat;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
+import io.realm.RealmList;
 import io.realm.RealmResults;
+
+import static java.lang.String.valueOf;
 
 /**
  * Created by FConde on 24/05/2017.
@@ -40,6 +45,8 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     private ListView listView;
     private AdaptadorPedidos adaptadorPedidos;
     private RealmResults<Pedidos> pedidos;
+    private Pedidos pedAux;
+    private RealmList<LineasPedido> lineasPedido;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +72,13 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         fabAddPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createNewPedido(codCliente);
+                pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+                if(pedAux == null){
+                    createNewPedido(codCliente);
+                }else {
+                    Toast.makeText(getApplicationContext(), "HAY UN PEDIDO PENDIENTE DE ENVIO. IMPOSIBLE CREACION", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -76,6 +89,37 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         realm.beginTransaction();
         Pedidos pedidos = new Pedidos(codCliente, false);
         realm.copyToRealm(pedidos);
+        realm.commitTransaction();
+    }
+
+    private void duplicarPedido(Pedidos pedidos){
+        // Guardo las lineas del pedido a duplicar
+        lineasPedido = pedidos.getLineasPedido();
+        // Creo un nuevo pedido
+        createNewPedido(pedidos.getCodCliente());
+        // Me posiciono en el pedido creado
+        pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+        // Guardo el ID del pedido creado
+        int pedidoID = pedAux.getId();
+        // Creamos las lineas para el nuevo pedido
+        realm.beginTransaction();
+        for(int i = 0; i < lineasPedido.size(); i ++){
+            // Guardo en unas variables cada linea a crear
+            String codArticulo = lineasPedido.get(i).getCodArticulo();
+            String descArticulo = lineasPedido.get(i).getDescArticulo();
+            int cantidad = lineasPedido.get(i).getCantidad();
+            // Creo la linea nueva
+            LineasPedido lineaPedido = new LineasPedido(codArticulo, descArticulo, cantidad);
+            realm.copyToRealm(lineaPedido);
+            pedAux.getLineasPedido().add(lineaPedido);
+        }
+        realm.commitTransaction();
+    }
+
+    private void editPedido(boolean enviado, Pedidos pedido){
+        realm.beginTransaction();
+        pedido.setEnviado(enviado);
+        realm.copyToRealmOrUpdate(pedido);
         realm.commitTransaction();
     }
 
@@ -125,10 +169,15 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()){
             case R.id.enviarPedido:
-
+                editPedido(true, pedidos.get((info.position)));
                 return true;
             case R.id.duplicarPedido:
-
+                pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+                if(pedAux == null){
+                    duplicarPedido(pedidos.get(info.position));
+                }else {
+                    Toast.makeText(getApplicationContext(), "HAY UN PEDIDO PENDIENTE DE ENVIO. IMPOSIBLE DUPLICACION", Toast.LENGTH_LONG).show();
+                }
                 return true;
             case R.id.borrarPedido:
                 deletePedido(pedidos.get(info.position));
@@ -139,7 +188,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     }
 
     @Override
-    public void onChange(RealmResults<Pedidos> pedidoses) {
+    public void onChange(RealmResults<Pedidos> pedidos) {
         adaptadorPedidos.notifyDataSetChanged();
     }
 
