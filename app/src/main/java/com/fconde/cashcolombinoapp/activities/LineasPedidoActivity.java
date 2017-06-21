@@ -1,5 +1,6 @@
 package com.fconde.cashcolombinoapp.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -70,12 +71,36 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
 
         listView.setAdapter(adaptadorLineasPedido);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int viewId = view.getId();
+                //Toast.makeText(getApplicationContext(),"ID: " + viewId , Toast.LENGTH_SHORT).show();
+                switch (viewId){
+                    case R.id.imgBtnEditarLinea:
+                        //Boton Editar
+                        Toast.makeText(getApplicationContext(),"Boton Editar :"+ position, Toast.LENGTH_LONG);
+                        break;
+                    case R.id.imgBtnBorrarLinea:
+                        //boton Borrar
+                        Toast.makeText(getApplicationContext(),"Boton Borrar: "+ position,Toast.LENGTH_LONG);
+                        break;
+                    default:
+                        //item de la lista
+                        Toast.makeText(getApplicationContext(),"Item lista: "+ position,Toast.LENGTH_LONG);
+                        break;
+                }
+            }
+        });
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAlertNuevaLinea("Nueva Línea", "Seleccione un artículo para añadir al pedido");
             }
         });
+
+
 
         registerForContextMenu(listView);
     }
@@ -225,5 +250,6 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         }
         return super.onContextItemSelected(item);
     }
+
 
 }

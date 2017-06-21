@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fconde.cashcolombinoapp.R;
@@ -45,7 +47,7 @@ public class AdaptadorLineasPedido extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
 
         ViewHolder vh;
         if(convertView == null){
@@ -54,6 +56,29 @@ public class AdaptadorLineasPedido extends BaseAdapter {
             vh.codigo = (TextView)convertView.findViewById(R.id.textViewCodigo);
             vh.cantidad = (TextView)convertView.findViewById(R.id.textViewCantidad);
             vh.descripcion = (TextView)convertView.findViewById(R.id.textViewArticulo);
+            vh.editLinea = (ImageView)convertView.findViewById(R.id.imgBtnEditarLinea);
+            vh.deleteLinea = (ImageView)convertView.findViewById(R.id.imgBtnBorrarLinea);
+
+            vh.editLinea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((ListView) parent).performItemClick(v, position, 0);
+                }
+            });
+            vh.deleteLinea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((ListView) parent).performItemClick(v, position, 0);
+                }
+            });
+
+            /*convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((ListView) parent).performItemClick(v, position, 0);
+                }
+            });*/
+
             convertView.setTag(vh);
         }else{
             vh = (ViewHolder)convertView.getTag();
@@ -69,6 +94,7 @@ public class AdaptadorLineasPedido extends BaseAdapter {
 
     public class ViewHolder{
         TextView codigo, descripcion, cantidad;
+        ImageView editLinea, deleteLinea;
 
 
     }
