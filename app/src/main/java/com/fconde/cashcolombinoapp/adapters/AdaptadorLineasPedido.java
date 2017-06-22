@@ -5,15 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.models.LineasPedido;
-import com.fconde.cashcolombinoapp.models.Pedidos;
 
 import java.util.List;
+
 
 /**
  * Created by FConde on 17/06/2017.
@@ -56,8 +58,8 @@ public class AdaptadorLineasPedido extends BaseAdapter {
             vh.codigo = (TextView)convertView.findViewById(R.id.textViewCodigo);
             vh.cantidad = (TextView)convertView.findViewById(R.id.textViewCantidad);
             vh.descripcion = (TextView)convertView.findViewById(R.id.textViewArticulo);
-            vh.editLinea = (ImageView)convertView.findViewById(R.id.imgBtnEditarLinea);
-            vh.deleteLinea = (ImageView)convertView.findViewById(R.id.imgBtnBorrarLinea);
+            vh.editLinea = (ImageView) convertView.findViewById(R.id.imgBtnEditarLinea);
+            vh.deleteLinea = (ImageView) convertView.findViewById(R.id.imgBtnBorrarLinea);
 
             vh.editLinea.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -71,13 +73,6 @@ public class AdaptadorLineasPedido extends BaseAdapter {
                     ((ListView) parent).performItemClick(v, position, 0);
                 }
             });
-
-            /*convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((ListView) parent).performItemClick(v, position, 0);
-                }
-            });*/
 
             convertView.setTag(vh);
         }else{
@@ -95,7 +90,5 @@ public class AdaptadorLineasPedido extends BaseAdapter {
     public class ViewHolder{
         TextView codigo, descripcion, cantidad;
         ImageView editLinea, deleteLinea;
-
-
     }
 }

@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private void onCreatePrefs(){
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("pagina", "1");
-        editor.putString("vista", "imagenes");
+        editor.putString("vista", "lista");
         editor.commit();
         editor.apply();
     }

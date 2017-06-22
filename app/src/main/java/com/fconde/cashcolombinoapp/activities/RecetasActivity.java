@@ -1,6 +1,5 @@
 package com.fconde.cashcolombinoapp.activities;
 
-//import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.models.Recetas;
@@ -66,7 +64,7 @@ public class RecetasActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         vista = getVistaPrefs();
-        if(vista == "lista"){
+        if(vista.equals("lista")){
             getMenuInflater().inflate(R.menu.menu_recetas_lista, menu);
             return true;
         }else{
@@ -186,7 +184,7 @@ public class RecetasActivity extends AppCompatActivity {
 
     private void updateAdapter(){
         vista = getVistaPrefs();
-        if(vista == "imagenes" || vista == "null") {
+        if(vista.equals("imagenes") || vista.equals("null")) {
             myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_vistas, new MyAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(Recetas receta, int position) {

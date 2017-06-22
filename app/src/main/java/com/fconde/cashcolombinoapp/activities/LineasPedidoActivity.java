@@ -75,19 +75,25 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int viewId = view.getId();
-                //Toast.makeText(getApplicationContext(),"ID: " + viewId , Toast.LENGTH_SHORT).show();
                 switch (viewId){
                     case R.id.imgBtnEditarLinea:
-                        //Boton Editar
-                        Toast.makeText(getApplicationContext(),"Boton Editar :"+ position, Toast.LENGTH_LONG);
+                        if(pedido.isEnviado()){
+                            Toast.makeText(view.getContext(), "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
+                            break;
+                        }else{
+                            showAlertEditarLinea("Editar Línea", "Modifique la cantidad para este artículo", lineasPedido.get(position));
+                        }
                         break;
                     case R.id.imgBtnBorrarLinea:
-                        //boton Borrar
-                        Toast.makeText(getApplicationContext(),"Boton Borrar: "+ position,Toast.LENGTH_LONG);
+                        if(pedido.isEnviado()){
+                            Toast.makeText(view.getContext(), "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
+                            break;
+                        }else {
+                            deleteLineaPedido(lineasPedido.get(position));
+                        }
                         break;
                     default:
-                        //item de la lista
-                        Toast.makeText(getApplicationContext(),"Item lista: "+ position,Toast.LENGTH_LONG);
+                        //Toast.makeText(view.getContext(),"Item lista: "+ position,Toast.LENGTH_LONG).show();
                         break;
                 }
             }
@@ -100,9 +106,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
             }
         });
 
-
-
-        registerForContextMenu(listView);
+        //registerForContextMenu(listView);
     }
 
     private void crearNuevaLinea(String codigo, String articulo, int cantidad) {
@@ -217,7 +221,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 return super.onOptionsItemSelected(item);
         }
     }
-
+/*
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
@@ -250,6 +254,6 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         }
         return super.onContextItemSelected(item);
     }
-
+*/
 
 }
