@@ -73,7 +73,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 int viewId = view.getId();
                 switch (viewId){
                     case R.id.imgBtnEditarLinea:
@@ -89,7 +89,25 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                             Toast.makeText(view.getContext(), "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
                             break;
                         }else {
-                            deleteLineaPedido(lineasPedido.get(position));
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+                            alertDialogBuilder.setMessage("¿Estás seguro?")
+                                    .setCancelable(false)
+                                    .setPositiveButton("SI", new DialogInterface.OnClickListener(){
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            deleteLineaPedido(lineasPedido.get(position));
+                                        }
+                                    })
+                                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                        }
+                                    });
+
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
+
                         }
                         break;
                     default:

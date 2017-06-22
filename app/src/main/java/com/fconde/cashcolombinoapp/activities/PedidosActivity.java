@@ -1,11 +1,13 @@
 package com.fconde.cashcolombinoapp.activities;
 
 //import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -166,7 +168,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()){
             case R.id.enviarPedido:
                 editPedido(true, pedidos.get((info.position)));
@@ -180,7 +182,26 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
                 }
                 return true;
             case R.id.borrarPedido:
-                deletePedido(pedidos.get(info.position));
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setMessage("¿Estás seguro?")
+                        .setCancelable(false)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                deletePedido(pedidos.get(info.position));
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
                 return true;
             default:
                 return super.onContextItemSelected(item);

@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.MultiAutoCompleteTextView;
 
 import com.fconde.cashcolombinoapp.R;
 
@@ -24,7 +27,8 @@ public class LocalizadorActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.act_name_localizador);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco, null));
         setSupportActionBar(toolbar);
+
     }
 }
