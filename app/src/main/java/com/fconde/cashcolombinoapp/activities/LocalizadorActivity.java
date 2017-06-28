@@ -38,22 +38,6 @@ public class LocalizadorActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.blanco, null));
         setSupportActionBar(toolbar);
 
-        /*InputStream inputStreamCodigos = getResources().openRawResource(R.raw.codigos);
-        CSVFile csvFileCodigos = new CSVFile(inputStreamCodigos);
-        List<String[]> codigos = csvFileCodigos.read();
 
-        InputStream inputStreamArticulos = getResources().openRawResource(R.raw.articulos);
-        CSVFile csvFileArticulos = new CSVFile(inputStreamArticulos);
-        List<String[]> articulos = csvFileArticulos.read();*/
-
-        InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
-        CSVFile csvFileCatalogo = new CSVFile(inputStreamCatalogo);
-        List<Catalogo> catalogo = csvFileCatalogo.read();
-
-        Toast.makeText(this, catalogo.size() + "-"
-                + catalogo.get(1).getCodigoBarras().length() + "-"
-                + catalogo.get(1).getCodigoInterno().length() + "- "
-                + catalogo.get(1).getArticulo().length() + "-"
-                + catalogo.get(1).getFormato().length(), Toast.LENGTH_LONG).show();
-    }
+        }
 }

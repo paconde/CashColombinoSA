@@ -14,16 +14,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorLineasPedido;
+import com.fconde.cashcolombinoapp.models.CSVFile;
+import com.fconde.cashcolombinoapp.models.Catalogo;
 import com.fconde.cashcolombinoapp.models.LineasPedido;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -38,6 +43,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
     private AdaptadorLineasPedido adaptadorLineasPedido;
     private RealmList<LineasPedido> lineasPedido;
     private Realm realm;
+    private List<Catalogo> catalogo;
 
     private int pedidoID;
     private Pedidos pedido;
@@ -52,6 +58,9 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         if(getIntent().getExtras() != null){
             pedidoID = getIntent().getExtras().getInt("id");
         }
+
+        // Cargar catalogo desde CSV
+        cargaCatalogo();
 
         pedido = realm.where(Pedidos.class).equalTo("id", pedidoID).findFirst();
         pedido.addChangeListener(this);
@@ -152,6 +161,14 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         pedido.getLineasPedido().deleteAllFromRealm();
         realm.commitTransaction();
     }
+
+    public void cargaCatalogo(){
+        InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
+        CSVFile csvFileCatalogo = new CSVFile(inputStreamCatalogo);
+        catalogo = csvFileCatalogo.read();
+
+    }
+
     private void showAlertNuevaLinea(String titulo, String mensaje){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -162,8 +179,27 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         builder.setView(inflatedView);
 
         final EditText inputCodigo = (EditText) inflatedView.findViewById(R.id.editTextCodigoArticulo);
+        final ImageButton btnSearchCodigo = (ImageButton) inflatedView.findViewById(R.id.imageButtonCodigoSearch);
         final EditText inputArticulo = (EditText) inflatedView.findViewById(R.id.editTextDescripcionArticulo);
+        final ImageButton btnSearchDesc = (ImageButton) inflatedView.findViewById(R.id.imageButtonDescripcionSearch);
         final EditText inputCantidad = (EditText) inflatedView.findViewById(R.id.editTextCantidadArticulo);
+
+        btnSearchCodigo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (inputCodigo.getText().toString().trim().length() > 0) {
+                    for (int i = 0; i < catalogo.size(); i++) {
+                        if(inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoBarras().toString())){
+                            inputCodigo.setText(catalogo.get(i).getCodigoInterno().toString());
+                            inputArticulo.setText(catalogo.get(i).getArticulo().toString());
+                            return;
+                        }
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(), "Introduzca un código correcto", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         builder.setPositiveButton("Validar", new DialogInterface.OnClickListener() {
             @Override

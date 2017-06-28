@@ -1,5 +1,6 @@
 package com.fconde.cashcolombinoapp.models;
 
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -9,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +26,22 @@ public class CSVFile {
     }
 
     public List<Catalogo> read(){
-        List<Catalogo> listaResultados = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        List<Catalogo> catalogo = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
         try {
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {
-                String[] codBarra = csvLine.split(";");
-                String[] codInterno = csvLine.split(";");
-                String[] articulo = csvLine.split(";");
-                String[] formato = csvLine.split(";");
+                String[] tokens = csvLine.split(";");
 
-                Catalogo cat = new Catalogo(codBarra.toString(), codInterno.toString(), articulo.toString(), formato.toString());
-                cat.setCodigoBarras(codBarra.toString());
-                cat.setCodigoInterno(codInterno.toString());
-                cat.setArticulo(articulo.toString());
-                cat.setFormato(formato.toString());
+                Catalogo cat = new Catalogo();
+                cat.setCodigoBarras(tokens[0]);
+                cat.setCodigoInterno(tokens[1]);
+                cat.setArticulo(tokens[2]);
+                cat.setFormato(tokens[3]);
 
-                listaResultados.add(cat);
-                //listaResultados.add(codBarra, codInterno, articulo, formato);
+                catalogo.add(cat);
+
+                //Log.d("CSV FILE", " Creado: " + cat);
             }
         }
         catch (IOException ex) {
@@ -55,7 +55,7 @@ public class CSVFile {
                 throw new RuntimeException("Error cerrando input stream: "+e);
             }
         }
-        return listaResultados;
+        return catalogo;
     }
 }
 

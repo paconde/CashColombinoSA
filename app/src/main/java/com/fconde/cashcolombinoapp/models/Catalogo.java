@@ -18,6 +18,10 @@ public class Catalogo {
         this.formato = formato;
     }
 
+    public Catalogo() {
+
+    }
+
 
     public String getCodigoBarras() {
         return codigoBarras;
@@ -49,5 +53,15 @@ public class Catalogo {
 
     public void setFormato(String formato) {
         this.formato = formato;
+    }
+
+    @Override
+    public String toString() {
+        return "Catalogo{" +
+                "codigoBarras='" + codigoBarras + '\'' +
+                ", codigoInterno='" + codigoInterno + '\'' +
+                ", articulo='" + articulo + '\'' +
+                ", formato='" + formato + '\'' +
+                '}';
     }
 }
