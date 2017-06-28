@@ -9,8 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
+import com.fconde.cashcolombinoapp.models.CSVFile;
+import com.fconde.cashcolombinoapp.models.Catalogo;
+
+import java.io.InputStream;
+import java.util.List;
+
+import static com.fconde.cashcolombinoapp.R.raw.codigos;
 
 /**
  * Created by FConde on 24/05/2017.
@@ -18,7 +26,7 @@ import com.fconde.cashcolombinoapp.R;
 
 public class LocalizadorActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+   private Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +38,22 @@ public class LocalizadorActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.blanco, null));
         setSupportActionBar(toolbar);
 
+        /*InputStream inputStreamCodigos = getResources().openRawResource(R.raw.codigos);
+        CSVFile csvFileCodigos = new CSVFile(inputStreamCodigos);
+        List<String[]> codigos = csvFileCodigos.read();
+
+        InputStream inputStreamArticulos = getResources().openRawResource(R.raw.articulos);
+        CSVFile csvFileArticulos = new CSVFile(inputStreamArticulos);
+        List<String[]> articulos = csvFileArticulos.read();*/
+
+        InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
+        CSVFile csvFileCatalogo = new CSVFile(inputStreamCatalogo);
+        List<Catalogo> catalogo = csvFileCatalogo.read();
+
+        Toast.makeText(this, catalogo.size() + "-"
+                + catalogo.get(1).getCodigoBarras().length() + "-"
+                + catalogo.get(1).getCodigoInterno().length() + "- "
+                + catalogo.get(1).getArticulo().length() + "-"
+                + catalogo.get(1).getFormato().length(), Toast.LENGTH_LONG).show();
     }
 }

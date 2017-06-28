@@ -107,7 +107,6 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
 
                             AlertDialog alertDialog = alertDialogBuilder.create();
                             alertDialog.show();
-
                         }
                         break;
                     default:
@@ -203,14 +202,17 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         builder.setPositiveButton("Validar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                int cantidad = Integer.valueOf(inputCantidad.getText().toString());
-                if(cantidad > 0) {
-                    editLineaPedido(cantidad, lineaPedido);
-                    //lineasPedido = pedido.getLineasPedido();
-                    onChange(pedido);
+                if(!inputCantidad.getText().toString().equals("")){
+                    int cantidad = Integer.valueOf(inputCantidad.getText().toString());
+                    if(cantidad > 0) {
+                        editLineaPedido(cantidad, lineaPedido);
+                        //lineasPedido = pedido.getLineasPedido();
+                        onChange(pedido);
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "La cantidad no puede ser 0", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(getApplicationContext(), "La cantidad no puede ser 0", Toast.LENGTH_SHORT).show();
+
             }
         });
 
