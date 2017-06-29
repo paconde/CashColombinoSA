@@ -44,6 +44,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
     private RealmList<LineasPedido> lineasPedido;
     private Realm realm;
     private List<Catalogo> catalogo;
+    private boolean codigoEncontrado = false;
 
     private int pedidoID;
     private Pedidos pedido;
@@ -183,34 +184,42 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         final EditText inputArticulo = (EditText) inflatedView.findViewById(R.id.editTextDescripcionArticulo);
         final ImageButton btnSearchDesc = (ImageButton) inflatedView.findViewById(R.id.imageButtonDescripcionSearch);
         final EditText inputCantidad = (EditText) inflatedView.findViewById(R.id.editTextCantidadArticulo);
+        final TextView textViewFormato = (TextView) inflatedView.findViewById(R.id.textViewFormato);
 
         btnSearchCodigo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                codigoEncontrado = false;
                 if (inputCodigo.getText().toString().trim().length() > 0) {
                     for (int i = 0; i < catalogo.size(); i++) {
                         if(inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoBarras().toString())){
                             inputCodigo.setText(catalogo.get(i).getCodigoInterno().toString());
                             inputArticulo.setText(catalogo.get(i).getArticulo().toString());
+                            textViewFormato.setText(catalogo.get(i).getFormato().toString() + " ud./caja");
+                            codigoEncontrado = true;
                             return;
                         }
                     }
                 }else{
                     Toast.makeText(getApplicationContext(), "Introduzca un código correcto", Toast.LENGTH_LONG).show();
                 }
+
+                if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
             }
         });
 
         builder.setPositiveButton("Validar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String codigo = inputCodigo.getText().toString().trim();
-                String articulo = inputArticulo.getText().toString();
-                int cantidad = Integer.valueOf(inputCantidad.getText().toString());
-                if(codigo.length() > 0 && articulo.length() > 0 && cantidad > 0)
-                    crearNuevaLinea(codigo, articulo, cantidad);
-                else
-                    Toast.makeText(getApplicationContext(), "Datos incompletos", Toast.LENGTH_SHORT).show();
+                if(!inputCantidad.getText().toString().equals("")){
+                    String codigo = inputCodigo.getText().toString().trim();
+                    String articulo = inputArticulo.getText().toString();
+                    int cantidad = Integer.valueOf(inputCantidad.getText().toString());
+                    if(codigo.length() > 0 && articulo.length() > 0 && cantidad > 0)
+                        crearNuevaLinea(codigo, articulo, cantidad);
+                    else
+                        Toast.makeText(getApplicationContext(), "Datos incompletos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -230,8 +239,15 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         final TextView codigo = (TextView) inflatedView.findViewById(R.id.textViewCodigoArticulo);
         final TextView articulo = (TextView) inflatedView.findViewById(R.id.textViewDescripcionArticulo);
         final EditText inputCantidad = (EditText) inflatedView.findViewById(R.id.editTextCantidadArticulo);
+        final TextView formato = (TextView) inflatedView.findViewById(R.id.textViewFormato);
 
         codigo.setText(lineaPedido.getCodArticulo());
+        for (int i = 0; i < catalogo.size(); i++) {
+            if (lineaPedido.getCodArticulo().equals(catalogo.get(i).getCodigoBarras().toString())) {
+                formato.setText(catalogo.get(i).getFormato().toString() + " ud./caja");
+                return;
+            }
+        }
         articulo.setText(lineaPedido.getDescArticulo());
         inputCantidad.setHint(String.valueOf(lineaPedido.getCantidad()));
 

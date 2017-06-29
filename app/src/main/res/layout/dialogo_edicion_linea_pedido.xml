@@ -4,11 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewCodigoArticulo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewCodigoArticulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:id="@+id/textViewFormato"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_margin="15dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewDescripcionArticulo"

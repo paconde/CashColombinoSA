@@ -1,24 +1,13 @@
 package com.fconde.cashcolombinoapp.activities;
 
-//import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.MultiAutoCompleteTextView;
-import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
-import com.fconde.cashcolombinoapp.models.CSVFile;
-import com.fconde.cashcolombinoapp.models.Catalogo;
 
-import java.io.InputStream;
-import java.util.List;
-
-import static com.fconde.cashcolombinoapp.R.raw.codigos;
 
 /**
  * Created by FConde on 24/05/2017.

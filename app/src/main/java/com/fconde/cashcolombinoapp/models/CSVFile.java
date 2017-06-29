@@ -1,10 +1,5 @@
 package com.fconde.cashcolombinoapp.models;
 
-import android.util.Log;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import com.fconde.cashcolombinoapp.activities.LocalizadorActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
