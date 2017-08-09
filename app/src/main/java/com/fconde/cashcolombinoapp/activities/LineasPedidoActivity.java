@@ -242,14 +242,19 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         final TextView formato = (TextView) inflatedView.findViewById(R.id.textViewFormato);
 
         codigo.setText(lineaPedido.getCodArticulo());
+        articulo.setText(lineaPedido.getDescArticulo());
+        inputCantidad.setHint(String.valueOf(lineaPedido.getCantidad()));
+
         for (int i = 0; i < catalogo.size(); i++) {
             if (lineaPedido.getCodArticulo().equals(catalogo.get(i).getCodigoBarras().toString())) {
                 formato.setText(catalogo.get(i).getFormato().toString() + " ud./caja");
-                return;
+                i = catalogo.size();
             }
         }
-        articulo.setText(lineaPedido.getDescArticulo());
-        inputCantidad.setHint(String.valueOf(lineaPedido.getCantidad()));
+        Toast.makeText(this, codigo.getText().toString(), Toast.LENGTH_LONG).show();
+
+        //Toast.makeText(this, articulo.getText().toString() + inputCantidad.getText().toString() + formato.getText().toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, formato.getText().toString(), Toast.LENGTH_LONG).show();
 
         builder.setPositiveButton("Validar", new DialogInterface.OnClickListener() {
             @Override
