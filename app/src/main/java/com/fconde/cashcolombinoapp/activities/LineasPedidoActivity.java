@@ -28,6 +28,7 @@ import com.fconde.cashcolombinoapp.models.Pedidos;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -192,7 +193,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 codigoEncontrado = false;
                 if (inputCodigo.getText().toString().trim().length() > 0) {
                     for (int i = 0; i < catalogo.size(); i++) {
-                        if(inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoBarras().toString())){
+                        if((inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoBarras().toString())) || (inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoInterno().toString()))){
                             inputCodigo.setText(catalogo.get(i).getCodigoInterno().toString());
                             inputArticulo.setText(catalogo.get(i).getArticulo().toString());
                             textViewFormato.setText(catalogo.get(i).getFormato().toString() + " ud./caja");
@@ -205,6 +206,42 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 }
 
                 if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnSearchDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Para almacenar los resultados
+                ArrayList<Catalogo> catalogoResultados = new ArrayList<Catalogo>();
+                codigoEncontrado = false;
+                if (inputArticulo.getText().toString().trim().length() > 0) {
+                    String[] palabras = inputArticulo.toString().split(",");
+                    // recorro catalogo en busca del articulo
+                    for (int i = 0; i < catalogo.size(); i++) {
+                        //recorro todas las palabras a buscar
+                        for(int j = 0; j < palabras.length; j++){
+                            if(palabras[j].contains(catalogo.get(i).getArticulo().toString())){
+                                codigoEncontrado = true;
+                            }else {
+                                codigoEncontrado = false;
+                                j = palabras.length;
+                            }
+                        }
+
+                        if (codigoEncontrado){
+                            catalogoResultados.add(catalogo.get(i));
+                        }
+                    }
+
+                    // Mostramos los resultados en pantalla
+
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Introduzca una cadena de texto", Toast.LENGTH_LONG).show();
+                }
+
+                if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
             }
         });
 
