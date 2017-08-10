@@ -1,18 +1,17 @@
 package com.fconde.cashcolombinoapp.activities;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -34,14 +33,14 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
 public class LineasPedidoActivity extends AppCompatActivity implements RealmChangeListener<Pedidos>{
 
     private Toolbar toolbar;
-    private ListView listView;
+    private ListView listView, listViewBusquedaArticulo;
     private FloatingActionButton fab;
     private AdaptadorLineasPedido adaptadorLineasPedido;
+    //private ArrayAdapter<String> adaptadorBusquedaArticulo;
     private RealmList<LineasPedido> lineasPedido;
     private Realm realm;
     private List<Catalogo> catalogo;
@@ -79,7 +78,6 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         fab = (FloatingActionButton)findViewById(R.id.fabAddLineaPedido);
         listView = (ListView)findViewById(R.id.listViewLineasPedidos);
         adaptadorLineasPedido = new AdaptadorLineasPedido(this, lineasPedido, R.layout.list_view_lineas_pedido);
-
         listView.setAdapter(adaptadorLineasPedido);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -213,15 +211,19 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
             @Override
             public void onClick(View v) {
                 // Para almacenar los resultados
+                boolean resultados = false;
                 ArrayList<Catalogo> catalogoResultados = new ArrayList<Catalogo>();
                 codigoEncontrado = false;
                 if (inputArticulo.getText().toString().trim().length() > 0) {
-                    String[] palabras = inputArticulo.toString().split(",");
+                    String[] palabras = inputArticulo.getText().toString().toUpperCase().trim().replace(" ", "").split(",");
+
                     // recorro catalogo en busca del articulo
                     for (int i = 0; i < catalogo.size(); i++) {
+
                         //recorro todas las palabras a buscar
                         for(int j = 0; j < palabras.length; j++){
-                            if(palabras[j].contains(catalogo.get(i).getArticulo().toString())){
+                            //Toast.makeText(getApplicationContext(), palabras[j].toString(), Toast.LENGTH_LONG).show();
+                            if(catalogo.get(i).getArticulo().contains(palabras[j])){
                                 codigoEncontrado = true;
                             }else {
                                 codigoEncontrado = false;
@@ -230,18 +232,46 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                         }
 
                         if (codigoEncontrado){
-                            catalogoResultados.add(catalogo.get(i));
+                            resultados = true;
+                            boolean repetido = false;
+                            // compruebo si el articulo encontrado ya está guardado el el arraylist
+                            if(!catalogoResultados.isEmpty()){
+                                for(int n = 0; n < catalogoResultados.size(); n++){
+                                    if(catalogoResultados.get(n).getCodigoInterno().equals(catalogo.get(i).getCodigoInterno())){
+                                        repetido = true;
+                                        n = catalogoResultados.size();
+                                    }else {
+                                        repetido = false;
+                                    }
+                                }
+                                if(!repetido){
+                                    catalogoResultados.add(catalogo.get(i));
+                                }
+                            }else{
+                                catalogoResultados.add(catalogo.get(i));
+                                //Toast.makeText(getApplicationContext(), catalogoResultados.get(0).getArticulo().toString(), Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
-
-                    // Mostramos los resultados en pantalla
-
 
                 }else{
                     Toast.makeText(getApplicationContext(), "Introduzca una cadena de texto", Toast.LENGTH_LONG).show();
                 }
 
-                if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
+                if(!resultados){
+                    Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
+                }else{
+                    // Mostramos los resultados en pantalla
+                    Toast.makeText(getApplicationContext(), catalogoResultados.get(20).getArticulo(), Toast.LENGTH_LONG).show();
+
+
+                    /*
+                    listViewBusquedaArticulo = (ListView)findViewById(R.id.listViewBusquedaArticulos);
+                    adaptadorBusquedaArticulo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, catalogoResultados.get().getArticulo().toString());
+                    listViewBusquedaArticulo.setAdapter(adaptadorBusquedaArticulo);
+                    */
+
+                }
             }
         });
 

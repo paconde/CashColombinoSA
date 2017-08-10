@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.85"
-            android:hint="Código Artículo"
+            android:hint="Cód.de barras o cod.Barea"
             android:inputType="number" />
 
         <ImageButton
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.85"
-            android:hint="Descripción Artículo"
+            android:hint="Nombre Artículo: aaa,bbb,ccc"
             android:inputType="text" />
 
         <ImageButton
