@@ -1,6 +1,7 @@
 package com.fconde.cashcolombinoapp.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -264,7 +265,10 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                     // Mostramos los resultados en pantalla
                     Toast.makeText(getApplicationContext(), catalogoResultados.get(20).getArticulo(), Toast.LENGTH_LONG).show();
 
-
+                    Intent intent = new Intent(LineasPedidoActivity.this, BusquedaArticuloActivity.class);
+                    //intent.putExtras("resultados",catalogoResultados);
+                    intent.putExtra("resultados", catalogoResultados);
+                    startActivity(intent);
                     /*
                     listViewBusquedaArticulo = (ListView)findViewById(R.id.listViewBusquedaArticulos);
                     adaptadorBusquedaArticulo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, catalogoResultados.get().getArticulo().toString());

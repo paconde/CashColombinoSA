@@ -41,7 +41,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LineasPedidoActivity"></activity>
+        <activity android:name=".activities.LineasPedidoActivity" />
+        <activity android:name=".activities.BusquedaArticuloActivity"></activity>
     </application>
 
 </manifest>
