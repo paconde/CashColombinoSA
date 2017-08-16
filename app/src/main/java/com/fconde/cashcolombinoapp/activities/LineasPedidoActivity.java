@@ -2,6 +2,7 @@ package com.fconde.cashcolombinoapp.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorLineasPedido;
 import com.fconde.cashcolombinoapp.models.CSVFile;
 import com.fconde.cashcolombinoapp.models.Catalogo;
+import com.fconde.cashcolombinoapp.models.Comunicador;
 import com.fconde.cashcolombinoapp.models.LineasPedido;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 
@@ -171,7 +173,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
     }
 
     private void showAlertNuevaLinea(String titulo, String mensaje){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         if(titulo != null) builder.setTitle(titulo);
         if(mensaje != null) builder.setMessage(mensaje);
@@ -262,18 +264,29 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 if(!resultados){
                     Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
                 }else{
+                    //int pos = 0;
                     // Mostramos los resultados en pantalla
-                    Toast.makeText(getApplicationContext(), catalogoResultados.get(20).getArticulo(), Toast.LENGTH_LONG).show();
-
+                    Comunicador.setResultados(catalogoResultados);
                     Intent intent = new Intent(LineasPedidoActivity.this, BusquedaArticuloActivity.class);
-                    //intent.putExtras("resultados",catalogoResultados);
-                    intent.putExtra("resultados", catalogoResultados);
                     startActivity(intent);
+                    //startActivityForResult(intent, pos);
                     /*
                     listViewBusquedaArticulo = (ListView)findViewById(R.id.listViewBusquedaArticulos);
                     adaptadorBusquedaArticulo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, catalogoResultados.get().getArticulo().toString());
                     listViewBusquedaArticulo.setAdapter(adaptadorBusquedaArticulo);
                     */
+                    builder.create();
+                    if(Comunicador.getResultadoFinal() != 9999){
+                        int pos = Comunicador.getResultadoFinal();
+                        inputCodigo.setText(catalogoResultados.get(pos).getCodigoInterno().toString());
+                        inputArticulo.setText(catalogoResultados.get(pos).getArticulo().toString());
+                        textViewFormato.setText(catalogoResultados.get(pos).getFormato().toString() + " ud./caja");
+                        Comunicador.setResultadoFinal(9999);
+                        //Toast.makeText(getApplicationContext(), "artículo: " + pos, Toast.LENGTH_SHORT).show();
+                    }else{
+
+                    }
+
 
                 }
             }

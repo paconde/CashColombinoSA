@@ -1,10 +1,13 @@
 package com.fconde.cashcolombinoapp.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by FConde on 28/06/2017.
  */
 
-public class Catalogo {
+public class Catalogo{
 
     private String codigoBarras;
     private String codigoInterno;
@@ -64,4 +67,5 @@ public class Catalogo {
                 ", formato='" + formato + '\'' +
                 '}';
     }
+
 }

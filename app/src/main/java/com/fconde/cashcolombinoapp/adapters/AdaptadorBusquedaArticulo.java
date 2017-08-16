@@ -1,6 +1,7 @@
 package com.fconde.cashcolombinoapp.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,16 +45,26 @@ public class AdaptadorBusquedaArticulo extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
+        ViewHolder holder;
 
-        LayoutInflater layoutInflater = LayoutInflater.from(this.context);
-        v = layoutInflater.inflate(R.layout.list_view_busqueda_articulos, null);
+        if(convertView == null){
+            LayoutInflater layoutInflater = LayoutInflater.from(this.context);
+            convertView = layoutInflater.inflate(R.layout.list_view_busqueda_articulos, null);
+
+            holder = new ViewHolder();
+            holder.nombreArticulo = (TextView) convertView.findViewById(R.id.textViewBusquedaArticulo);
+            convertView.setTag(holder);
+        }else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         String resultadoItem = resultados.get(position).getArticulo();
+        holder.nombreArticulo.setText(resultadoItem);
 
-        TextView textViewResultadoItem = (TextView) v.findViewById(R.id.textViewBusquedaArticulo);
-        textViewResultadoItem.setText(resultadoItem);
+        return convertView;
+    }
 
-        return v;
+    static class ViewHolder{
+        private TextView nombreArticulo;
     }
 }

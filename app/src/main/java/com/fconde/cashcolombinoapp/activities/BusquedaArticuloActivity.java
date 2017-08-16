@@ -2,18 +2,22 @@ package com.fconde.cashcolombinoapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorBusquedaArticulo;
 import com.fconde.cashcolombinoapp.models.Catalogo;
+import com.fconde.cashcolombinoapp.models.Comunicador;
 
 import java.util.ArrayList;
 
 public class BusquedaArticuloActivity extends AppCompatActivity {
 
     private ListView listViewBusquedaArticulo;
-    private ArrayList<Catalogo> resultados;
+    private ArrayList<Catalogo> resultados = Comunicador.getResultados();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +26,16 @@ public class BusquedaArticuloActivity extends AppCompatActivity {
 
         listViewBusquedaArticulo = (ListView)findViewById(R.id.listViewBusquedaArticulo);
 
-        /*
-        if(getIntent().getExtras() != null){
-            resultados = getIntent().getExtras().putStringArrayList(););
-        }
-        */
-
         AdaptadorBusquedaArticulo adaptadorBusquedaArticulo = new AdaptadorBusquedaArticulo(this, R.layout.list_view_busqueda_articulos, resultados);
         listViewBusquedaArticulo.setAdapter(adaptadorBusquedaArticulo);
+
+        listViewBusquedaArticulo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Comunicador.setResultadoFinal(position);
+
+                finish();
+            }
+        });
     }
 }
