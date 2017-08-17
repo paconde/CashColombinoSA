@@ -1,5 +1,6 @@
 package com.fconde.cashcolombinoapp.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class BusquedaArticuloActivity extends AppCompatActivity {
 
     private ListView listViewBusquedaArticulo;
     private ArrayList<Catalogo> resultados = Comunicador.getResultados();
+    private int resultPosition = 9999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,19 @@ public class BusquedaArticuloActivity extends AppCompatActivity {
         listViewBusquedaArticulo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Comunicador.setResultadoFinal(position);
-
+                //Comunicador.setResultadoFinal(position);
+                Comunicador.setArticuloEncontrado(true);
+                resultPosition = position;
                 finish();
             }
         });
+    }
+
+    @Override
+    public void finish() {
+        Intent data = new Intent();
+        data.putExtra("position", resultPosition);
+        setResult(RESULT_OK, data);
+        super.finish();
     }
 }

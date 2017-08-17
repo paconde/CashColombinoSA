@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 public class Comunicador {
     private static ArrayList<Catalogo> resultados = null;
-    private static int pos = 0;
+    private static int pos;
+    private static volatile boolean articuloEncontrado = false;
 
     public static void setResultados(ArrayList<Catalogo> newResultados){
         resultados = newResultados;
@@ -26,4 +27,7 @@ public class Comunicador {
         return pos;
     }
 
+    public static void setArticuloEncontrado (boolean encontrado){articuloEncontrado = encontrado;}
+
+    public static boolean getArticuloEncontrado(){return articuloEncontrado;}
 }

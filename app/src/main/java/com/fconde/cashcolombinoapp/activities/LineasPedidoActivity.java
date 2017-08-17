@@ -52,6 +52,9 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
     private int pedidoID;
     private Pedidos pedido;
 
+    private int resultPosition = 0;
+    static final int REQUEST_CODE = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,8 +134,14 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAlertNuevaLinea("Nueva Línea", "Seleccione un artículo para añadir al pedido");
+                //showAlertNuevaLinea("Nueva Línea", "Seleccione un artículo para añadir al pedido");
+
+                Intent intent = new Intent(LineasPedidoActivity.this, NuevaLineaActivity.class);
+                startActivity(intent);
+
             }
+
+
         });
 
         //registerForContextMenu(listView);
@@ -179,6 +188,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         if(mensaje != null) builder.setMessage(mensaje);
 
         View inflatedView = LayoutInflater.from(this).inflate(R.layout.dialogo_nueva_linea_pedido, null);
+
         builder.setView(inflatedView);
 
         final EditText inputCodigo = (EditText) inflatedView.findViewById(R.id.editTextCodigoArticulo);
@@ -268,26 +278,25 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                     // Mostramos los resultados en pantalla
                     Comunicador.setResultados(catalogoResultados);
                     Intent intent = new Intent(LineasPedidoActivity.this, BusquedaArticuloActivity.class);
-                    startActivity(intent);
-                    //startActivityForResult(intent, pos);
-                    /*
-                    listViewBusquedaArticulo = (ListView)findViewById(R.id.listViewBusquedaArticulos);
-                    adaptadorBusquedaArticulo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, catalogoResultados.get().getArticulo().toString());
-                    listViewBusquedaArticulo.setAdapter(adaptadorBusquedaArticulo);
-                    */
-                    builder.create();
-                    if(Comunicador.getResultadoFinal() != 9999){
-                        int pos = Comunicador.getResultadoFinal();
-                        inputCodigo.setText(catalogoResultados.get(pos).getCodigoInterno().toString());
-                        inputArticulo.setText(catalogoResultados.get(pos).getArticulo().toString());
-                        textViewFormato.setText(catalogoResultados.get(pos).getFormato().toString() + " ud./caja");
-                        Comunicador.setResultadoFinal(9999);
-                        //Toast.makeText(getApplicationContext(), "artículo: " + pos, Toast.LENGTH_SHORT).show();
-                    }else{
+                    startActivityForResult(intent, REQUEST_CODE);
 
+                    Toast.makeText(getApplicationContext(), String.valueOf(resultPosition), Toast.LENGTH_SHORT).show();
+
+                    while(!Comunicador.getArticuloEncontrado()){
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-
-
+                    if(Comunicador.getArticuloEncontrado()){
+                        //int pos = Comunicador.getResultadoFinal();
+                        inputCodigo.setText(catalogoResultados.get(resultPosition).getCodigoInterno().toString());
+                        inputArticulo.setText(catalogoResultados.get(resultPosition).getArticulo().toString());
+                        textViewFormato.setText(catalogoResultados.get(resultPosition).getFormato().toString() + " ud./caja");
+                        Comunicador.setArticuloEncontrado(false);
+                        //Toast.makeText(getApplicationContext(), String.valueOf(resultPosition), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -309,6 +318,17 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //Toast.makeText(getApplicationContext(), String.valueOf(requestCode), Toast.LENGTH_SHORT).show();
+        if(resultCode == RESULT_OK && requestCode == REQUEST_CODE){
+            if(data.hasExtra("position")){
+                resultPosition = data.getExtras().getInt("position");
+                onResume();
+            }
+        }
     }
 
     private void showAlertEditarLinea(String titulo, String mensaje, final LineasPedido lineaPedido){

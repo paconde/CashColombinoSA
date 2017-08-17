@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextCodigoArticulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="0.85"
+            android:hint="Cód.de barras o cod.Barea"
+            android:inputType="number" />
+
+        <ImageButton
+            android:id="@+id/imageButtonCodigoSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:layout_margin="15dp"
+            android:src="@android:drawable/ic_menu_search"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextDescripcionArticulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="0.85"
+            android:hint="Nombre Artículo: aaa,bbb,ccc"
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDescripcionSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:layout_margin="15dp"
+            android:src="@android:drawable/ic_menu_search"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextCantidadArticulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Cantidad pedida"
+            android:inputType="number"
+            android:layout_weight="0.50"/>
+
+        <TextView
+            android:id="@+id/textViewFormato"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="24 Und./caja"
+            android:layout_margin="15dp"
+            android:textSize="18sp"
+            android:layout_weight="0.50"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnValidar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Añadir al pedido"/>
+
+    </LinearLayout>
+
+</LinearLayout>

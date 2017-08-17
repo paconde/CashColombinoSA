@@ -42,7 +42,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.LineasPedidoActivity" />
-        <activity android:name=".activities.BusquedaArticuloActivity"></activity>
+        <activity android:name=".activities.BusquedaArticuloActivity" />
+        <activity android:name=".activities.NuevaLineaActivity"></activity>
     </application>
 
 </manifest>
