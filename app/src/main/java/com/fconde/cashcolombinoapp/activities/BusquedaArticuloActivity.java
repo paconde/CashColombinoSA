@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorBusquedaArticulo;
@@ -19,7 +18,8 @@ public class BusquedaArticuloActivity extends AppCompatActivity {
 
     private ListView listViewBusquedaArticulo;
     private ArrayList<Catalogo> resultados = Comunicador.getResultados();
-    private int resultPosition = 9999;
+
+    private String codigo, articulo, formato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,9 @@ public class BusquedaArticuloActivity extends AppCompatActivity {
         listViewBusquedaArticulo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Comunicador.setResultadoFinal(position);
-                Comunicador.setArticuloEncontrado(true);
-                resultPosition = position;
+                codigo = resultados.get(position).getCodigoInterno();
+                articulo = resultados.get(position).getArticulo();
+                formato = resultados.get(position).getFormato();
                 finish();
             }
         });
@@ -45,7 +45,9 @@ public class BusquedaArticuloActivity extends AppCompatActivity {
     @Override
     public void finish() {
         Intent data = new Intent();
-        data.putExtra("position", resultPosition);
+        data.putExtra("codigo", codigo);
+        data.putExtra("articulo", articulo);
+        data.putExtra("formato", formato);
         setResult(RESULT_OK, data);
         super.finish();
     }

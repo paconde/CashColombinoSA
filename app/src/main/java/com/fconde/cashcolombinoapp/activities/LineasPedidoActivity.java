@@ -40,20 +40,20 @@ import io.realm.RealmList;
 public class LineasPedidoActivity extends AppCompatActivity implements RealmChangeListener<Pedidos>{
 
     private Toolbar toolbar;
-    private ListView listView, listViewBusquedaArticulo;
+    private ListView listView;
     private FloatingActionButton fab;
     private AdaptadorLineasPedido adaptadorLineasPedido;
-    //private ArrayAdapter<String> adaptadorBusquedaArticulo;
     private RealmList<LineasPedido> lineasPedido;
     private Realm realm;
     private List<Catalogo> catalogo;
-    private boolean codigoEncontrado = false;
 
     private int pedidoID;
     private Pedidos pedido;
 
-    private int resultPosition = 0;
     static final int REQUEST_CODE = 0;
+
+    private String codigo, articulo;
+    private int cantidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +125,6 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                         }
                         break;
                     default:
-                        //Toast.makeText(view.getContext(),"Item lista: "+ position,Toast.LENGTH_LONG).show();
                         break;
                 }
             }
@@ -134,17 +133,12 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //showAlertNuevaLinea("Nueva Línea", "Seleccione un artículo para añadir al pedido");
-
                 Intent intent = new Intent(LineasPedidoActivity.this, NuevaLineaActivity.class);
-                startActivity(intent);
-
+                startActivityForResult(intent, REQUEST_CODE);
             }
 
 
         });
-
-        //registerForContextMenu(listView);
     }
 
     private void crearNuevaLinea(String codigo, String articulo, int cantidad) {
@@ -178,155 +172,19 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
         CSVFile csvFileCatalogo = new CSVFile(inputStreamCatalogo);
         catalogo = csvFileCatalogo.read();
-
-    }
-
-    private void showAlertNuevaLinea(String titulo, String mensaje){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        if(titulo != null) builder.setTitle(titulo);
-        if(mensaje != null) builder.setMessage(mensaje);
-
-        View inflatedView = LayoutInflater.from(this).inflate(R.layout.dialogo_nueva_linea_pedido, null);
-
-        builder.setView(inflatedView);
-
-        final EditText inputCodigo = (EditText) inflatedView.findViewById(R.id.editTextCodigoArticulo);
-        final ImageButton btnSearchCodigo = (ImageButton) inflatedView.findViewById(R.id.imageButtonCodigoSearch);
-        final EditText inputArticulo = (EditText) inflatedView.findViewById(R.id.editTextDescripcionArticulo);
-        final ImageButton btnSearchDesc = (ImageButton) inflatedView.findViewById(R.id.imageButtonDescripcionSearch);
-        final EditText inputCantidad = (EditText) inflatedView.findViewById(R.id.editTextCantidadArticulo);
-        final TextView textViewFormato = (TextView) inflatedView.findViewById(R.id.textViewFormato);
-
-        btnSearchCodigo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                codigoEncontrado = false;
-                if (inputCodigo.getText().toString().trim().length() > 0) {
-                    for (int i = 0; i < catalogo.size(); i++) {
-                        if((inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoBarras().toString())) || (inputCodigo.getText().toString().trim().equals(catalogo.get(i).getCodigoInterno().toString()))){
-                            inputCodigo.setText(catalogo.get(i).getCodigoInterno().toString());
-                            inputArticulo.setText(catalogo.get(i).getArticulo().toString());
-                            textViewFormato.setText(catalogo.get(i).getFormato().toString() + " ud./caja");
-                            codigoEncontrado = true;
-                            return;
-                        }
-                    }
-                }else{
-                    Toast.makeText(getApplicationContext(), "Introduzca un código correcto", Toast.LENGTH_LONG).show();
-                }
-
-                if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        btnSearchDesc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Para almacenar los resultados
-                boolean resultados = false;
-                ArrayList<Catalogo> catalogoResultados = new ArrayList<Catalogo>();
-                codigoEncontrado = false;
-                if (inputArticulo.getText().toString().trim().length() > 0) {
-                    String[] palabras = inputArticulo.getText().toString().toUpperCase().trim().replace(" ", "").split(",");
-
-                    // recorro catalogo en busca del articulo
-                    for (int i = 0; i < catalogo.size(); i++) {
-
-                        //recorro todas las palabras a buscar
-                        for(int j = 0; j < palabras.length; j++){
-                            //Toast.makeText(getApplicationContext(), palabras[j].toString(), Toast.LENGTH_LONG).show();
-                            if(catalogo.get(i).getArticulo().contains(palabras[j])){
-                                codigoEncontrado = true;
-                            }else {
-                                codigoEncontrado = false;
-                                j = palabras.length;
-                            }
-                        }
-
-                        if (codigoEncontrado){
-                            resultados = true;
-                            boolean repetido = false;
-                            // compruebo si el articulo encontrado ya está guardado el el arraylist
-                            if(!catalogoResultados.isEmpty()){
-                                for(int n = 0; n < catalogoResultados.size(); n++){
-                                    if(catalogoResultados.get(n).getCodigoInterno().equals(catalogo.get(i).getCodigoInterno())){
-                                        repetido = true;
-                                        n = catalogoResultados.size();
-                                    }else {
-                                        repetido = false;
-                                    }
-                                }
-                                if(!repetido){
-                                    catalogoResultados.add(catalogo.get(i));
-                                }
-                            }else{
-                                catalogoResultados.add(catalogo.get(i));
-                                //Toast.makeText(getApplicationContext(), catalogoResultados.get(0).getArticulo().toString(), Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    }
-
-                }else{
-                    Toast.makeText(getApplicationContext(), "Introduzca una cadena de texto", Toast.LENGTH_LONG).show();
-                }
-
-                if(!resultados){
-                    Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
-                }else{
-                    //int pos = 0;
-                    // Mostramos los resultados en pantalla
-                    Comunicador.setResultados(catalogoResultados);
-                    Intent intent = new Intent(LineasPedidoActivity.this, BusquedaArticuloActivity.class);
-                    startActivityForResult(intent, REQUEST_CODE);
-
-                    Toast.makeText(getApplicationContext(), String.valueOf(resultPosition), Toast.LENGTH_SHORT).show();
-
-                    while(!Comunicador.getArticuloEncontrado()){
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if(Comunicador.getArticuloEncontrado()){
-                        //int pos = Comunicador.getResultadoFinal();
-                        inputCodigo.setText(catalogoResultados.get(resultPosition).getCodigoInterno().toString());
-                        inputArticulo.setText(catalogoResultados.get(resultPosition).getArticulo().toString());
-                        textViewFormato.setText(catalogoResultados.get(resultPosition).getFormato().toString() + " ud./caja");
-                        Comunicador.setArticuloEncontrado(false);
-                        //Toast.makeText(getApplicationContext(), String.valueOf(resultPosition), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
-        builder.setPositiveButton("Validar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                if(!inputCantidad.getText().toString().equals("")){
-                    String codigo = inputCodigo.getText().toString().trim();
-                    String articulo = inputArticulo.getText().toString();
-                    int cantidad = Integer.valueOf(inputCantidad.getText().toString());
-                    if(codigo.length() > 0 && articulo.length() > 0 && cantidad > 0)
-                        crearNuevaLinea(codigo, articulo, cantidad);
-                    else
-                        Toast.makeText(getApplicationContext(), "Datos incompletos", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //Toast.makeText(getApplicationContext(), String.valueOf(requestCode), Toast.LENGTH_SHORT).show();
         if(resultCode == RESULT_OK && requestCode == REQUEST_CODE){
-            if(data.hasExtra("position")){
-                resultPosition = data.getExtras().getInt("position");
-                onResume();
+            if(data.hasExtra("codigo") && data.hasExtra("articulo") && data.hasExtra("cantidad")){
+                codigo = data.getExtras().getString("codigo");
+                articulo = data.getExtras().getString("articulo");
+                cantidad = data.getExtras().getInt("cantidad");
+                if(codigo != null || articulo != null || cantidad != 0){
+                    crearNuevaLinea(codigo, articulo, cantidad);
+                    onResume();
+                }
             }
         }
     }
@@ -355,10 +213,6 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 i = catalogo.size();
             }
         }
-        Toast.makeText(this, codigo.getText().toString(), Toast.LENGTH_LONG).show();
-
-        //Toast.makeText(this, articulo.getText().toString() + inputCantidad.getText().toString() + formato.getText().toString(), Toast.LENGTH_LONG).show();
-        //Toast.makeText(this, formato.getText().toString(), Toast.LENGTH_LONG).show();
 
         builder.setPositiveButton("Validar", new DialogInterface.OnClickListener() {
             @Override
@@ -367,13 +221,11 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                     int cantidad = Integer.valueOf(inputCantidad.getText().toString());
                     if(cantidad > 0) {
                         editLineaPedido(cantidad, lineaPedido);
-                        //lineasPedido = pedido.getLineasPedido();
                         onChange(pedido);
                     }
                     else
                         Toast.makeText(getApplicationContext(), "La cantidad no puede ser 0", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -402,39 +254,4 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                 return super.onOptionsItemSelected(item);
         }
     }
-/*
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-
-        getMenuInflater().inflate(R.menu.context_menu_lineas_pedido, menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        switch (item.getItemId()){
-            case R.id.editarLineaPedido:
-                if(pedido.isEnviado()){
-                    Toast.makeText(this, "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
-                    break;
-                }else{
-                    showAlertEditarLinea("Editar Línea", "Modifique la cantidad para este artículo", lineasPedido.get(info.position));
-                }
-                return true;
-            case R.id.borrarLineaPedido:
-                if(pedido.isEnviado()){
-                    Toast.makeText(this, "PEDIDO ENVIADO. NO SE PUEDE EDITAR.", Toast.LENGTH_LONG).show();
-                    break;
-                }else {
-                    deleteLineaPedido(lineasPedido.get(info.position));
-                }
-                return true;
-            default:
-
-        }
-        return super.onContextItemSelected(item);
-    }
-*/
-
 }
