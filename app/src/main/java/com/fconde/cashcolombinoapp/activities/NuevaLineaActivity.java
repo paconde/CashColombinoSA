@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ public class NuevaLineaActivity extends AppCompatActivity {
     TextView textViewFormato;
     Button addLinea;
 
+    private Toolbar toolbar;
     private boolean codigoEncontrado = false;
     private List<Catalogo> catalogo;
 
@@ -39,6 +41,11 @@ public class NuevaLineaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nueva_linea);
+
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitle("Selección de artículos");
+        setSupportActionBar(toolbar);
 
         inputCodigo = (EditText) findViewById(R.id.editTextCodigoArticulo);
         btnSearchCodigo = (ImageButton) findViewById(R.id.imageButtonCodigoSearch);

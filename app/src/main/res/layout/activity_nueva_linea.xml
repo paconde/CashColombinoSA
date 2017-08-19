@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout = "@layout/tool_bar_main"
+        android:id="@+id/tb_main"></include>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:layout_margin="15dp"
+            android:background="@color/colorAccent"
             android:src="@android:drawable/ic_menu_search"/>
 
     </LinearLayout>
@@ -49,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:layout_margin="15dp"
+            android:background="@color/colorAccent"
             android:src="@android:drawable/ic_menu_search"
             />
 
@@ -88,8 +93,24 @@
             android:id="@+id/btnValidar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:background="@color/colorAccent"
             android:layout_margin="15dp"
             android:hint="Añadir al pedido"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:textSize="20dp"
+            android:text="Teclee el código de barras o el código interno del producto si lo conoce o bien haga una busqueda por nombre escribiendo palabras separadas por comas."/>
 
     </LinearLayout>
 

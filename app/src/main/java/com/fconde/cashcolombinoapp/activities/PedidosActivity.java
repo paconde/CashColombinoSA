@@ -20,12 +20,9 @@ import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorPedidos;
-import com.fconde.cashcolombinoapp.adapters.MyAdapter;
 import com.fconde.cashcolombinoapp.models.CSVFile;
-import com.fconde.cashcolombinoapp.models.Catalogo;
 import com.fconde.cashcolombinoapp.models.LineasPedido;
 import com.fconde.cashcolombinoapp.models.Pedidos;
-import com.fconde.cashcolombinoapp.models.Recetas;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -53,6 +50,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     private RealmResults<Pedidos> pedidos;
     private Pedidos pedAux;
     private RealmList<LineasPedido> lineasPedido;
+    private String pedidoEnv;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,8 +120,22 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         realm.commitTransaction();
     }
 
-    private void editPedido(boolean enviado, Pedidos pedido){
+
+    public void cargaPedido(Pedidos pedido){
+        pedidoEnv = "";
+        pedidoEnv += "Id: " + valueOf(pedido.getId()) + ";";
+        pedidoEnv += "Codigo Cliente: " + pedido.getCodCliente() + ";";
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = df.format(pedido.getFechaCreacion());
+        pedidoEnv += "Fecha: " + fecha + "\n";
+
+
+        Toast.makeText(this, pedidoEnv, Toast.LENGTH_LONG).show();
+    }
+
+    private void sendPedido(boolean enviado, Pedidos pedido){
         realm.beginTransaction();
+
         pedido.setEnviado(enviado);
         realm.copyToRealmOrUpdate(pedido);
         realm.commitTransaction();
@@ -175,7 +187,8 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()){
             case R.id.enviarPedido:
-                editPedido(true, pedidos.get((info.position)));
+                //sendPedido(true, pedidos.get((info.position)));
+                cargaPedido(pedidos.get((info.position)));
                 return true;
             case R.id.duplicarPedido:
                 pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
