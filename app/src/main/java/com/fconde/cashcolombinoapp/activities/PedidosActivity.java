@@ -3,6 +3,7 @@ package com.fconde.cashcolombinoapp.activities;
 //import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -20,13 +21,10 @@ import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorPedidos;
-import com.fconde.cashcolombinoapp.models.CSVFile;
 import com.fconde.cashcolombinoapp.models.LineasPedido;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -48,9 +46,10 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     private ListView listView;
     private AdaptadorPedidos adaptadorPedidos;
     private RealmResults<Pedidos> pedidos;
-    private Pedidos pedAux;
+    private Pedidos pedAux, sendPedido;
     private RealmList<LineasPedido> lineasPedido;
     private String pedidoEnv;
+    private String email = "conde@barea.com";
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +81,6 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
                 }else {
                     Toast.makeText(getApplicationContext(), "HAY UN PEDIDO PENDIENTE DE ENVIO. IMPOSIBLE CREACION", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -121,7 +119,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     }
 
 
-    public void cargaPedido(Pedidos pedido){
+    public void emailPedido(boolean enviado, Pedidos pedido){
         pedidoEnv = "";
         pedidoEnv += "Id: " + valueOf(pedido.getId()) + ";";
         pedidoEnv += "Codigo Cliente: " + pedido.getCodCliente() + ";";
@@ -129,13 +127,24 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         String fecha = df.format(pedido.getFechaCreacion());
         pedidoEnv += "Fecha: " + fecha + "\n";
 
+        sendPedido = realm.where(Pedidos.class).equalTo("id", pedido.getId()).findFirst();
+        lineasPedido = sendPedido.getLineasPedido();
 
-        Toast.makeText(this, pedidoEnv, Toast.LENGTH_LONG).show();
-    }
+        for(int i = 0; i < lineasPedido.size(); i++){
+            pedidoEnv += lineasPedido.get(i).getCodArticulo() + ";";
+            pedidoEnv += lineasPedido.get(i).getDescArticulo() + ";";
+            pedidoEnv += lineasPedido.get(i).getCantidad() + "\n";
+        }
 
-    private void sendPedido(boolean enviado, Pedidos pedido){
+        Intent intentMail = new Intent(Intent.ACTION_SEND);
+        intentMail.setData(Uri.parse("mailto:"));
+        intentMail.setType("text/plain");
+        intentMail.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        intentMail.putExtra(Intent.EXTRA_SUBJECT, "ENVIO DE PEDIDO");
+        intentMail.putExtra(Intent.EXTRA_TEXT, pedidoEnv);
+        startActivity(intentMail);
+
         realm.beginTransaction();
-
         pedido.setEnviado(enviado);
         realm.copyToRealmOrUpdate(pedido);
         realm.commitTransaction();
@@ -188,7 +197,12 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         switch (item.getItemId()){
             case R.id.enviarPedido:
                 //sendPedido(true, pedidos.get((info.position)));
-                cargaPedido(pedidos.get((info.position)));
+                if(pedidos.get(info.position).isEnviado()){
+                    Toast.makeText(getApplicationContext(), "ESTE PEDIDO YA HA SIDO ENVIADO.", Toast.LENGTH_LONG).show();
+                }else{
+                    emailPedido(true, pedidos.get((info.position)));
+                }
+
                 return true;
             case R.id.duplicarPedido:
                 pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
