@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         imgBtnPedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PedidosActivity.class);
+                Intent intent = new Intent(v.getContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });

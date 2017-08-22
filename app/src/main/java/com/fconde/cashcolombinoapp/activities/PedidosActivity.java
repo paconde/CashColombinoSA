@@ -61,6 +61,11 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
         setSupportActionBar(toolbar);
 
+        if(getIntent().getExtras() != null){
+            codCliente = getIntent().getExtras().getString("codCliente");
+            Toast.makeText(getApplicationContext(), codCliente.toString(), Toast.LENGTH_SHORT).show();
+        }
+
        // DB Realm
         realm = Realm.getDefaultInstance();
         pedidos = realm.where(Pedidos.class).findAll();

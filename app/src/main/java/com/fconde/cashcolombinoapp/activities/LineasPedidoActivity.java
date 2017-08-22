@@ -2,7 +2,6 @@ package com.fconde.cashcolombinoapp.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,24 +12,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.adapters.AdaptadorLineasPedido;
-import com.fconde.cashcolombinoapp.models.CSVFile;
+import com.fconde.cashcolombinoapp.models.CSVFileCat;
 import com.fconde.cashcolombinoapp.models.Catalogo;
-import com.fconde.cashcolombinoapp.models.Comunicador;
 import com.fconde.cashcolombinoapp.models.LineasPedido;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -170,8 +165,8 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
 
     public void cargaCatalogo(){
         InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
-        CSVFile csvFileCatalogo = new CSVFile(inputStreamCatalogo);
-        catalogo = csvFileCatalogo.read();
+        CSVFileCat csvFileCatCatalogo = new CSVFileCat(inputStreamCatalogo);
+        catalogo = csvFileCatCatalogo.read();
     }
 
     @Override

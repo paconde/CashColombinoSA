@@ -1,6 +1,5 @@
 package com.fconde.cashcolombinoapp.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
-import com.fconde.cashcolombinoapp.models.CSVFile;
+import com.fconde.cashcolombinoapp.models.CSVFileCat;
 import com.fconde.cashcolombinoapp.models.Catalogo;
 import com.fconde.cashcolombinoapp.models.Comunicador;
 
@@ -157,8 +156,8 @@ public class NuevaLineaActivity extends AppCompatActivity {
 
     public void cargaCatalogo(){
         InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
-        CSVFile csvFileCatalogo = new CSVFile(inputStreamCatalogo);
-        catalogo = csvFileCatalogo.read();
+        CSVFileCat csvFileCatCatalogo = new CSVFileCat(inputStreamCatalogo);
+        catalogo = csvFileCatCatalogo.read();
     }
 
     @Override
