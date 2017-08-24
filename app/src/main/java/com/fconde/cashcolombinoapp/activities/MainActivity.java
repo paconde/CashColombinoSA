@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 //import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.app_name);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         setSupportActionBar(toolbar);
 
         imgBtnNosotros = (ImageButton)findViewById(R.id.imgBtnNosotros);

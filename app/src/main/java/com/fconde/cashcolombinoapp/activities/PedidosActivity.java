@@ -1,13 +1,16 @@
 package com.fconde.cashcolombinoapp.activities;
 
 //import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -40,9 +43,10 @@ import static java.lang.String.valueOf;
 public class PedidosActivity extends AppCompatActivity implements RealmChangeListener<RealmResults<Pedidos>>, AdapterView.OnItemClickListener{
 
     private Toolbar toolbar;
+    private String tittleToolbar;
     private FloatingActionButton fabAddPedido;
     private Realm realm;
-    private String codCliente = "123456";
+    private String nifCliente, codCliente;
     private ListView listView;
     private AdaptadorPedidos adaptadorPedidos;
     private RealmResults<Pedidos> pedidos;
@@ -50,21 +54,29 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     private RealmList<LineasPedido> lineasPedido;
     private String pedidoEnv;
     private String email = "conde@barea.com";
+    private SharedPreferences prefs;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedidos);
 
-        toolbar = (Toolbar) findViewById(R.id.tb_main);
-        toolbar.setTitle(R.string.act_name_pedidos);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
-        setSupportActionBar(toolbar);
-
         if(getIntent().getExtras() != null){
             codCliente = getIntent().getExtras().getString("codCliente");
-            Toast.makeText(getApplicationContext(), codCliente.toString(), Toast.LENGTH_SHORT).show();
+            nifCliente = getIntent().getExtras().getString("NIF");
+            //Toast.makeText(getApplicationContext(), nifCliente.toString(), Toast.LENGTH_SHORT).show();
         }
+
+        prefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
+
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        tittleToolbar = "Pedidos: " + nifCliente;
+        //toolbar.setTitle(R.string.act_name_pedidos);
+        toolbar.setTitle(tittleToolbar);
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
+        setSupportActionBar(toolbar);
+
+
 
        // DB Realm
         realm = Realm.getDefaultInstance();
@@ -177,12 +189,35 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
+            case R.id.addPedido:
+
+                return true;
+            case R.id.removePedido:
+
+                return true;
             case R.id.delete_all:
                 deleteAllPedidos();
+                return true;
+            case R.id.logout:
+                logOut();
+                return true;
+            case R.id.logout_forget:
+                removeSharedPreferences();
+                logOut();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void logOut(){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    private void removeSharedPreferences(){
+        prefs.edit().clear().apply();
     }
 
     @Override

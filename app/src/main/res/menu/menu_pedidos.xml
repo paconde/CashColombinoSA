@@ -20,5 +20,14 @@
         android:title="Borrar TODO">
     </item>
 
+    <item android:id="@+id/logout"
+        android:title="Log out"
+        app:showAsAction="never">
+    </item>
+
+    <item android:id="@+id/logout_forget"
+        android:title="Log out y olvidar"
+        app:showAsAction="never">
+    </item>
 
 </menu>

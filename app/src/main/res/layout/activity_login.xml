@@ -8,6 +8,10 @@
     android:orientation="vertical"
     tools:context="com.fconde.cashcolombinoapp.activities.LoginActivity">
 
+    <include
+        android:id="@+id/tb_main"
+        layout="@layout/tool_bar_main"></include>
+
     <EditText
         android:id="@+id/editTextLogin"
         android:layout_width="match_parent"

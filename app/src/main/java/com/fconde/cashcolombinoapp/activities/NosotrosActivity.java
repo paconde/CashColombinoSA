@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -32,7 +33,7 @@ public class NosotrosActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.act_name_nosotros);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         setSupportActionBar(toolbar);
         texto_nosotros = (TextView)findViewById(R.id.texto_nosotros);
         imagen_nosotros = (ImageView)findViewById(R.id.imagen_nosotros);

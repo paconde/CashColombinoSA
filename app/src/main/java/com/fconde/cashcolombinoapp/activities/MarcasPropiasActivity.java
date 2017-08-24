@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -33,7 +34,7 @@ public class MarcasPropiasActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.act_name_marcas_propias);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         setSupportActionBar(toolbar);
 
         imagenMarcasPropias = (ImageView)findViewById(R.id.imagen_descarga_marcas_propias);

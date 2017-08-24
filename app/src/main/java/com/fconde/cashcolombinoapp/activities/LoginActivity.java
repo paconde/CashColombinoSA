@@ -3,8 +3,10 @@ package com.fconde.cashcolombinoapp.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,7 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private SharedPreferences prefs;
     private EditText editTextLogin, editTextPassword;
     private Switch switchRecordar;
@@ -34,10 +37,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        prefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
-
         bindUI();
         cargaUsuarios();
+
+        prefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
+
+        setCredentialsIfExist();
+
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
+        toolbar.setTitle("Identificación");
+        setSupportActionBar(toolbar);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(login.equals(usuarios.get(i).getNifLogin())){
                             if(password.equals(usuarios.get(i).getPassword())){
                                 if(usuarios.get(i).getIsActivo().equals("true")){
-                                    goToPedidos(password);
+                                    goToPedidos(login, password);
                                     saveOnPreferences(login, password);
                                     i = usuarios.size();
                                 }else{
@@ -73,6 +83,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setCredentialsIfExist(){
+        String login = getLoginPreferences();
+        String password = getPasswordPreferences();
+        if(!TextUtils.isEmpty(login) && !TextUtils.isEmpty(password)){
+            editTextLogin.setText(login);
+            editTextPassword.setText(password);
+        }
+    }
+
+    private String getLoginPreferences(){
+        return prefs.getString("login", "");
+    }
+
+    private String getPasswordPreferences(){
+        return prefs.getString("password", "");
     }
 
     private void saveOnPreferences (String login, String password){
@@ -104,8 +131,9 @@ public class LoginActivity extends AppCompatActivity {
         }else return false;
     }
 
-    private void goToPedidos(String codCliente){
+    private void goToPedidos(String login, String codCliente){
         Intent intent = new Intent(LoginActivity.this, PedidosActivity.class);
+        intent.putExtra("NIF", login);
         intent.putExtra("codCliente", codCliente);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

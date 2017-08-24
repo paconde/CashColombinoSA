@@ -1,6 +1,8 @@
 package com.fconde.cashcolombinoapp.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -10,12 +12,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import static android.R.color.holo_red_dark;
+import static android.R.color.holo_red_light;
+import static android.R.color.white;
+import static com.fconde.cashcolombinoapp.R.color.colorAccent;
 
 /**
  * Created by FConde on 16/06/2017.
@@ -69,6 +77,12 @@ public class AdaptadorPedidos extends BaseAdapter {
 
         String enviado = (pedido.isEnviado()) ? "SI" : "NO";
         vh.enviado.setText("Enviado: " + enviado);
+
+        if(enviado == "SI"){
+            convertView.setBackgroundColor(ContextCompat.getColor(context, R.color.backPedEnviado));
+        }else {
+            convertView.setBackgroundColor(ContextCompat.getColor(context, R.color.backPedNoEnviado));
+        }
 
         String numeroLineas = String.valueOf(pedido.getLineasPedido().size());
         vh.lineas.setText("Nº de referencias del pedido: " + numeroLineas);

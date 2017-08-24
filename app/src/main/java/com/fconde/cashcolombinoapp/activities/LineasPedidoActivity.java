@@ -3,6 +3,7 @@ package com.fconde.cashcolombinoapp.activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -72,7 +73,7 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         String fecha = df.format(pedido.getFechaCreacion());
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         toolbar.setTitle("Pedido: " + fecha);
         setSupportActionBar(toolbar);
 
@@ -100,7 +101,8 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
                             break;
                         }else {
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
-                            alertDialogBuilder.setMessage("¿Estás seguro?")
+                            alertDialogBuilder.setMessage(pedido.getLineasPedido().get(position).getDescArticulo().toString() + "\n" + "\n"+ "    ¿Estás seguro?")
+                                    .setTitle("CANCELAR ARTICULO:")
                                     .setCancelable(false)
                                     .setPositiveButton("SI", new DialogInterface.OnClickListener(){
                                         @Override

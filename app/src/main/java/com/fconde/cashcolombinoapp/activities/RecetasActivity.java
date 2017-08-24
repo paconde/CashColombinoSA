@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -177,7 +178,7 @@ public class RecetasActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         //String titulo = getResources(R.string.act_name_recetas).toString();
         toolbar.setTitle("Recetas " + "Pág. " + pagina);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.blanco,null));
+        toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         setSupportActionBar(toolbar);
 
     }
