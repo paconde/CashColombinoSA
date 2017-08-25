@@ -10,15 +10,19 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
+import com.fconde.cashcolombinoapp.models.Comunicador;
+import com.fconde.cashcolombinoapp.models.Pedidos;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private SharedPreferences prefs;
+    private SharedPreferences prefs, prefLogin;
     ImageButton imgBtnNosotros, imgBtnCatalogo, imgBtnMarcasPropias, imgBtnLocalizador, imgBtnRecetas, imgBtnPedidos;
     //Intent intent;
 
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        prefLogin = getSharedPreferences("Login", Context.MODE_PRIVATE);
         onCreatePrefs();
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
@@ -86,8 +91,15 @@ public class MainActivity extends AppCompatActivity {
         imgBtnPedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), LoginActivity.class);
-                startActivity(intent);
+                Intent intentPedidos = new Intent(v.getContext(), PedidosActivity.class);
+                Intent intentLogin = new Intent(v.getContext(), LoginActivity.class);
+
+                if(!TextUtils.isEmpty(Comunicador.getLoginPreferences(prefLogin)) &&
+                    !TextUtils.isEmpty(Comunicador.getPasswordPreferences(prefLogin))){
+                    startActivity(intentPedidos);
+                }else{
+                    startActivity(intentLogin);
+                }
             }
         });
     }

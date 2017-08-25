@@ -1,5 +1,7 @@
 package com.fconde.cashcolombinoapp.models;
 
+import android.content.SharedPreferences;
+
 import java.util.ArrayList;
 
 /**
@@ -30,4 +32,13 @@ public class Comunicador {
     public static void setArticuloEncontrado (boolean encontrado){articuloEncontrado = encontrado;}
 
     public static boolean getArticuloEncontrado(){return articuloEncontrado;}
+
+    public static String getLoginPreferences(SharedPreferences preferences){
+        return preferences.getString("login", "");
+    }
+
+    public static String getPasswordPreferences(SharedPreferences preferences){
+        return preferences.getString("password", "");
+    }
+
 }

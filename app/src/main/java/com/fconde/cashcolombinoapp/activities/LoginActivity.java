@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.models.CSVFileCat;
 import com.fconde.cashcolombinoapp.models.CSVFileUser;
+import com.fconde.cashcolombinoapp.models.Comunicador;
 import com.fconde.cashcolombinoapp.models.Pedidos;
 import com.fconde.cashcolombinoapp.models.Usuarios;
 
@@ -86,20 +87,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setCredentialsIfExist(){
-        String login = getLoginPreferences();
-        String password = getPasswordPreferences();
+        String login = Comunicador.getLoginPreferences(prefs);
+        String password = Comunicador.getPasswordPreferences(prefs);
         if(!TextUtils.isEmpty(login) && !TextUtils.isEmpty(password)){
             editTextLogin.setText(login);
             editTextPassword.setText(password);
         }
-    }
-
-    private String getLoginPreferences(){
-        return prefs.getString("login", "");
-    }
-
-    private String getPasswordPreferences(){
-        return prefs.getString("password", "");
     }
 
     private void saveOnPreferences (String login, String password){

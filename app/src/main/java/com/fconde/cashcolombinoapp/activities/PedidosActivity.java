@@ -64,7 +64,6 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         if(getIntent().getExtras() != null){
             codCliente = getIntent().getExtras().getString("codCliente");
             nifCliente = getIntent().getExtras().getString("NIF");
-            //Toast.makeText(getApplicationContext(), nifCliente.toString(), Toast.LENGTH_SHORT).show();
         }
 
         prefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
@@ -190,7 +189,12 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
         switch (item.getItemId()){
             case R.id.addPedido:
-
+                pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+                if(pedAux == null){
+                    createNewPedido(codCliente);
+                }else {
+                    Toast.makeText(getApplicationContext(), "HAY UN PEDIDO PENDIENTE DE ENVIO. IMPOSIBLE CREACION", Toast.LENGTH_LONG).show();
+                }
                 return true;
             case R.id.removePedido:
 
