@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(!TextUtils.isEmpty(Comunicador.getLoginPreferences(prefLogin)) &&
                     !TextUtils.isEmpty(Comunicador.getPasswordPreferences(prefLogin))){
+                    intentPedidos.putExtra("NIF", Comunicador.getLoginPreferences(prefLogin));
+                    intentPedidos.putExtra("codCliente", Comunicador.getPasswordPreferences(prefLogin));
+                    intentPedidos.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intentPedidos);
                 }else{
                     startActivity(intentLogin);

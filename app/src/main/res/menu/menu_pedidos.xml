@@ -10,12 +10,6 @@
         app:showAsAction="ifRoom">
     </item>
 
-    <item android:id="@+id/removePedido"
-        android:title=""
-        android:icon="@drawable/ic_remove_circle_outline_white_36dp"
-        app:showAsAction="ifRoom">
-    </item>
-
     <item android:id="@+id/delete_all"
         android:title="Borrar TODO">
     </item>

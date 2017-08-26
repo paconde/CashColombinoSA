@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
 
-        setCredentialsIfExist();
+        //setCredentialsIfExist();
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                         if(login.equals(usuarios.get(i).getNifLogin())){
                             if(password.equals(usuarios.get(i).getPassword())){
                                 if(usuarios.get(i).getIsActivo().equals("true")){
-                                    goToPedidos(login, password);
                                     saveOnPreferences(login, password);
+                                    goToPedidos(login, password);
                                     i = usuarios.size();
                                 }else{
                                     Toast.makeText(getApplicationContext(), "No está autorizado a usar este apartado de la app. Pongase en contacto con su representante para su activación.", Toast.LENGTH_LONG).show();

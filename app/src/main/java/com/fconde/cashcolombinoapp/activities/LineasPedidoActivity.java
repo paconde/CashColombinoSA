@@ -244,6 +244,10 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+            case R.id.addLineaPedido:
+                Intent intent = new Intent(LineasPedidoActivity.this, NuevaLineaActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+                return true;
             case R.id.delete_all:
                 deleteAllLineasPedidos();
                 return true;

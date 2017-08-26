@@ -42,8 +42,7 @@ import static java.lang.String.valueOf;
 
 public class PedidosActivity extends AppCompatActivity implements RealmChangeListener<RealmResults<Pedidos>>, AdapterView.OnItemClickListener{
 
-    private Toolbar toolbar;
-    private String tittleToolbar;
+
     private FloatingActionButton fabAddPedido;
     private Realm realm;
     private String nifCliente, codCliente;
@@ -60,6 +59,9 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedidos);
+
+        final Toolbar toolbar;
+        final String tittleToolbar;
 
         if(getIntent().getExtras() != null){
             codCliente = getIntent().getExtras().getString("codCliente");
@@ -195,9 +197,6 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
                 }else {
                     Toast.makeText(getApplicationContext(), "HAY UN PEDIDO PENDIENTE DE ENVIO. IMPOSIBLE CREACION", Toast.LENGTH_LONG).show();
                 }
-                return true;
-            case R.id.removePedido:
-
                 return true;
             case R.id.delete_all:
                 deleteAllPedidos();
