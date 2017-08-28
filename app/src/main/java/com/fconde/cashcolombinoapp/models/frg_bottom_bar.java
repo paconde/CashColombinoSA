@@ -1,6 +1,8 @@
 package com.fconde.cashcolombinoapp.models;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
@@ -42,28 +44,32 @@ public class frg_bottom_bar extends Fragment {
         imgBtnContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(view.getContext(),"Contacto", Toast.LENGTH_SHORT).show();
+                String urlContacto = "https://www.barea.com/cash-carry/cash-colombino/";
+                goToUrl(urlContacto);
             }
         });
 
         imgBtnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(view.getContext(),"Facebook", Toast.LENGTH_SHORT).show();
+                String urlFacebook = "https://www.facebook.com/bareagrupo";
+                goToUrl(urlFacebook);
             }
         });
 
         imgBtnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(view.getContext(),"Google plus", Toast.LENGTH_SHORT).show();
+                String urlGooglePlus = "https://plus.google.com/+BareaCash";
+                goToUrl(urlGooglePlus);
             }
         });
 
         imgBtnBlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(view.getContext(),"Blog", Toast.LENGTH_SHORT).show();
+                String urlBlog = "https://www.barea.com/blog/";
+                goToUrl(urlBlog);
             }
         });
 
@@ -74,8 +80,14 @@ public class frg_bottom_bar extends Fragment {
             }
         });
 
+
         return view;
 
         //return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    private void goToUrl(String url){
+        Intent intentWeb = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intentWeb);
     }
 }

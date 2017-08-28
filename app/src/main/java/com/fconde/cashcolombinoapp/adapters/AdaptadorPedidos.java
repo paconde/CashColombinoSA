@@ -75,10 +75,10 @@ public class AdaptadorPedidos extends BaseAdapter {
         String fecha = df.format(pedido.getFechaCreacion());
         vh.pedido.setText("Pedido: " + fecha);
 
-        String enviado = (pedido.isEnviado()) ? "SI" : "NO";
-        vh.enviado.setText("Enviado: " + enviado);
+        String enviado = (pedido.isEnviado()) ? "ENVIADO" : "PTE. ENVÍO";
+        vh.enviado.setText(enviado);
 
-        if(enviado == "SI"){
+        if(enviado == "ENVIADO"){
             convertView.setBackgroundColor(ContextCompat.getColor(context, R.color.backPedEnviado));
         }else {
             convertView.setBackgroundColor(ContextCompat.getColor(context, R.color.backPedNoEnviado));

@@ -35,9 +35,7 @@ import io.realm.RealmList;
 
 public class LineasPedidoActivity extends AppCompatActivity implements RealmChangeListener<Pedidos>{
 
-    private Toolbar toolbar;
     private ListView listView;
-    private FloatingActionButton fab;
     private AdaptadorLineasPedido adaptadorLineasPedido;
     private RealmList<LineasPedido> lineasPedido;
     private Realm realm;
@@ -72,11 +70,13 @@ public class LineasPedidoActivity extends AppCompatActivity implements RealmChan
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(pedido.getFechaCreacion());
 
+        final Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         toolbar.setTitle("Pedido: " + fecha);
         setSupportActionBar(toolbar);
 
+        final FloatingActionButton fab;
         fab = (FloatingActionButton)findViewById(R.id.fabAddLineaPedido);
         listView = (ListView)findViewById(R.id.listViewLineasPedidos);
         adaptadorLineasPedido = new AdaptadorLineasPedido(this, lineasPedido, R.layout.list_view_lineas_pedido);

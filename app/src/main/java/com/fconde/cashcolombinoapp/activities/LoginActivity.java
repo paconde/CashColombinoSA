@@ -15,10 +15,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
-import com.fconde.cashcolombinoapp.models.CSVFileCat;
 import com.fconde.cashcolombinoapp.models.CSVFileUser;
-import com.fconde.cashcolombinoapp.models.Comunicador;
-import com.fconde.cashcolombinoapp.models.Pedidos;
 import com.fconde.cashcolombinoapp.models.Usuarios;
 
 import java.io.InputStream;
@@ -26,7 +23,6 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private SharedPreferences prefs;
     private EditText editTextLogin, editTextPassword;
     private Switch switchRecordar;
@@ -43,8 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
 
-        //setCredentialsIfExist();
-
+        final Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         toolbar.setTitle("Identificación");
@@ -56,43 +51,44 @@ public class LoginActivity extends AppCompatActivity {
                 String login = editTextLogin.getText().toString().toUpperCase().trim();
                 editTextLogin.setText(login);
                 String password = editTextPassword.getText().toString();
+                boolean encontrado = false;
+
                 if(isValidLogin(login, password)){
                     for(int i = 0; i < usuarios.size(); i++){
-                        if(login.equals(usuarios.get(i).getNifLogin())){
-                            if(password.equals(usuarios.get(i).getPassword())){
-                                if(usuarios.get(i).getIsActivo().equals("true")){
-                                    saveOnPreferences(login, password);
-                                    goToPedidos(login, password);
+                        if(login.equals(usuarios.get(i).getNifLogin()) && password.equals(usuarios.get(i).getPassword()) && usuarios.get(i).getIsActivo().equals("true")){
+                            saveOnPreferences(login, password);
+                            i = usuarios.size();
+                            encontrado = true;
+                            goToPedidos(login, password);
+                        }else{
+                            if(login.equals(usuarios.get(i).getNifLogin()) && password.equals(usuarios.get(i).getPassword()) && usuarios.get(i).getIsActivo().equals("false")){
+                                Toast.makeText(getApplicationContext(), "No está autorizado a usar este apartado de la app. Pongase en contacto con su representante para su activación.", Toast.LENGTH_LONG).show();
+                                encontrado = true;
+                                i = usuarios.size();
+                            }else{
+                                if(login.equals(usuarios.get(i).getNifLogin()) && !password.equals(usuarios.get(i).getPassword())){
+                                    Toast.makeText(getApplicationContext(), "¡¡ PASSWORD INCORRECTO !!", Toast.LENGTH_SHORT).show();
+                                    encontrado = true;
                                     i = usuarios.size();
                                 }else{
-                                    Toast.makeText(getApplicationContext(), "No está autorizado a usar este apartado de la app. Pongase en contacto con su representante para su activación.", Toast.LENGTH_LONG).show();
-                                    i = usuarios.size();
+                                    if(login.equals(usuarios.get(i).getNifLogin())) {
+                                        encontrado = false;
+                                    }
                                 }
-                            }else{
-                                Toast.makeText(getApplicationContext(), "¡¡ PASSWORD INCORRECTO !!", Toast.LENGTH_SHORT).show();
-                                i = usuarios.size();
                             }
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Este usuario no existe o no está autorizado a usar este apartado de la app. Pongase en contacto con su representante para su activación.", Toast.LENGTH_LONG).show();
-                            i = usuarios.size();
                         }
                     }
+
+                    if(!encontrado){
+                        Toast.makeText(getApplicationContext(), "Este usuario no existe. Pongase en contacto con su representante para su activación.", Toast.LENGTH_LONG).show();
+                    }
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Usuario y/o password incorrecto.", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
-    }
-
-    private void setCredentialsIfExist(){
-        String login = Comunicador.getLoginPreferences(prefs);
-        String password = Comunicador.getPasswordPreferences(prefs);
-        if(!TextUtils.isEmpty(login) && !TextUtils.isEmpty(password)){
-            editTextLogin.setText(login);
-            editTextPassword.setText(password);
-        }
     }
 
     private void saveOnPreferences (String login, String password){

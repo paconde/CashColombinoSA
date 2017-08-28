@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 
@@ -25,7 +24,6 @@ import com.fconde.cashcolombinoapp.R;
 
 public class CatalogoActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     ImageView imagenFidelidad, imagenOferta;
     final static String URLFIDELIDAD = "https://www.barea.com/wp-content/uploads/2014/12/MONOGRAFICOS-10-JUNIO-2017.pdf";
     final static String URLOFERTAMES = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-JUNIO-2017-SIN-PRECIOS.pdf";
@@ -36,6 +34,7 @@ public class CatalogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
 
+        final Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         toolbar.setTitle(R.string.act_name_catalogo);
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));

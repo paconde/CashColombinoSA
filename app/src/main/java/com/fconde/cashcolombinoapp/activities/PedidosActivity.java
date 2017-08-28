@@ -81,7 +81,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
        // DB Realm
         realm = Realm.getDefaultInstance();
-        pedidos = realm.where(Pedidos.class).findAll();
+        pedidos = realm.where(Pedidos.class).equalTo("codCliente", codCliente).findAll();
         pedidos.addChangeListener(this);
 
         listView = (ListView)findViewById(R.id.listViewPedidos);
@@ -93,7 +93,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         fabAddPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+                pedAux = realm.where(Pedidos.class).equalTo("codCliente", codCliente).equalTo("enviado", false).findFirst();
                 if(pedAux == null){
                     createNewPedido(codCliente);
                 }else {
@@ -118,7 +118,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
         // Creo un nuevo pedido
         createNewPedido(pedidos.getCodCliente());
         // Me posiciono en el pedido creado
-        pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+        pedAux = realm.where(Pedidos.class).equalTo("codCliente", codCliente).equalTo("enviado", false).findFirst();
         // Guardo el ID del pedido creado
         int pedidoID = pedAux.getId();
         // Creamos las lineas para el nuevo pedido
@@ -176,7 +176,8 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
     private void deleteAllPedidos(){
         realm.beginTransaction();
-        realm.deleteAll();
+        realm.where(Pedidos.class).equalTo("codCliente", codCliente).findAll().deleteAllFromRealm();
+        //realm.deleteAll();
         realm.commitTransaction();
     }
 
@@ -191,7 +192,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
         switch (item.getItemId()){
             case R.id.addPedido:
-                pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+                pedAux = realm.where(Pedidos.class).equalTo("codCliente", codCliente).equalTo("enviado", false).findFirst();
                 if(pedAux == null){
                     createNewPedido(codCliente);
                 }else {
@@ -248,7 +249,7 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
                 return true;
             case R.id.duplicarPedido:
-                pedAux = realm.where(Pedidos.class).equalTo("enviado", false).findFirst();
+                pedAux = realm.where(Pedidos.class).equalTo("codCliente", codCliente).equalTo("enviado", false).findFirst();
                 if(pedAux == null){
                     duplicarPedido(pedidos.get(info.position));
                 }else {
