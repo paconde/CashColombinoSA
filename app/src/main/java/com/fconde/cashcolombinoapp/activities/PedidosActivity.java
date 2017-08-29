@@ -290,8 +290,12 @@ public class PedidosActivity extends AppCompatActivity implements RealmChangeLis
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(PedidosActivity.this, LineasPedidoActivity.class);
-        intent.putExtra("id", pedidos.get(position).getId());
-        startActivity(intent);
+        if(!pedidos.get(position).isEnviado()){
+            Intent intent = new Intent(PedidosActivity.this, LineasPedidoActivity.class);
+            intent.putExtra("id", pedidos.get(position).getId());
+            startActivity(intent);
+        }else{
+            Toast.makeText(getApplicationContext(), "PEDIDO CERRADO", Toast.LENGTH_SHORT).show();
+        }
     }
 }

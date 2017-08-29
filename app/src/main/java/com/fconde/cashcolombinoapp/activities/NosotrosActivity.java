@@ -1,7 +1,6 @@
 package com.fconde.cashcolombinoapp.activities;
 
 //import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -12,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 
@@ -65,7 +63,7 @@ public class NosotrosActivity extends AppCompatActivity {
                 imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_barea);
                 break;
             case R.id.nosotrosExtremadura:
-                texto_nosotros.setText(R.string.nosotros_cash_extremeño);
+                texto_nosotros.setText(R.string.nosotros_cash_extremeno);
                 imagen_nosotros.setImageResource(R.drawable.instalaciones_cash_extremeno);
                 break;
             default:

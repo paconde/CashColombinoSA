@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.85"
-            android:hint="Nombre Artículo: aaa,bbb,ccc"
+            android:hint="Nombre Artículo: aaa bbb ccc"
             android:inputType="text" />
 
         <ImageButton
@@ -93,7 +93,7 @@
             android:id="@+id/btnValidar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:background="@color/colorAccent"
             android:layout_margin="15dp"
             android:hint="Añadir al pedido"/>
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
             android:textSize="20dp"
-            android:text="Teclee el código de barras o el código interno del producto si lo conoce o bien haga una busqueda por nombre escribiendo palabras separadas por comas."/>
+            android:text="Teclee el código de barras o el código interno del producto si lo conoce o bien haga una busqueda por nombre escribiendo palabras separadas."/>
 
     </LinearLayout>
 

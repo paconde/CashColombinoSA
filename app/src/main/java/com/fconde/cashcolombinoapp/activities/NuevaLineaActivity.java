@@ -88,8 +88,8 @@ public class NuevaLineaActivity extends AppCompatActivity {
                  ArrayList<Catalogo> catalogoResultados = new ArrayList<Catalogo>();
                  codigoEncontrado = false;
                  if (inputArticulo.getText().toString().trim().length() > 0) {
-                     String[] palabras = inputArticulo.getText().toString().toUpperCase().trim().replace(" ", "").split(",");
-
+                     //String[] palabras = inputArticulo.getText().toString().toUpperCase().trim().replace(" ", "").split(",");
+                     String[] palabras = inputArticulo.getText().toString().toUpperCase().split(" ");
                      // recorro catalogo en busca del articulo
                      for (int i = 0; i < catalogo.size(); i++) {
                          //recorro todas las palabras a buscar

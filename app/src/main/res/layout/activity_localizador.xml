@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,5 +8,117 @@
     <include layout = "@layout/tool_bar_main"
         android:id="@+id/tb_main"></include>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextCodigoArticulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="0.85"
+            android:hint="Cód.de barras o cod.Barea"
+            android:inputType="number" />
+
+        <ImageButton
+            android:id="@+id/imageButtonCodigoSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:layout_margin="15dp"
+            android:background="@color/colorAccent"
+            android:src="@android:drawable/ic_menu_search"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextDescripcionArticulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="0.85"
+            android:hint="Nombre Artículo: aaa bbb ccc"
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDescripcionSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:layout_margin="15dp"
+            android:background="@color/colorAccent"
+            android:src="@android:drawable/ic_menu_search"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewUbicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Ubicación :"
+            android:textSize="18sp"
+            android:layout_weight="0.50"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnValidar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@color/colorAccent"
+            android:layout_margin="15dp"
+            android:hint="Ver ubicación del artículo"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:textSize="20dp"
+            android:text="Teclee el código de barras o el código interno del producto si lo conoce o bien haga una busqueda por nombre escribiendo palabras separadas."/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnVerPlano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@color/colorAccent"
+            android:layout_margin="15dp"
+            android:hint="Ver en el plano"/>
+
+    </LinearLayout>
 
 </LinearLayout>

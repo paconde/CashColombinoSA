@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +22,6 @@ public class frg_bottom_bar extends Fragment {
 
     public frg_bottom_bar(){
 
-        //imgBtnContacto = (ImageButton)find
     }
 
     @Nullable
@@ -80,10 +78,8 @@ public class frg_bottom_bar extends Fragment {
             }
         });
 
-
         return view;
 
-        //return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     private void goToUrl(String url){
