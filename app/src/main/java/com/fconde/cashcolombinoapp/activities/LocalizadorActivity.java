@@ -1,8 +1,10 @@
 package com.fconde.cashcolombinoapp.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -33,13 +35,14 @@ import java.util.List;
 public class LocalizadorActivity extends AppCompatActivity {
 
     EditText inputCodigo, inputArticulo;
-    ImageButton btnSearchCodigo, btnSearchDesc;
+    ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar;
     TextView ubicacion;
     Button validar, verPlano;
 
     private List<Catalogo> catalogo;
     private List<Calles> calles;
 
+    private String codigo, articulo, calle;
     private boolean codigoEncontrado = false;
 
     static final int REQUEST_CODE = 0;
@@ -60,6 +63,7 @@ public class LocalizadorActivity extends AppCompatActivity {
         inputArticulo = (EditText) findViewById(R.id.editTextDescripcionArticulo);
         btnSearchDesc = (ImageButton) findViewById(R.id.imageButtonDescripcionSearch);
         ubicacion = (TextView)findViewById(R.id.textViewUbicacion);
+        btnLimpiar = (ImageButton)findViewById(R.id.imageButtonLimpiar);
         validar = (Button)findViewById(R.id.btnValidar);
         verPlano = (Button)findViewById(R.id.btnVerPlano);
 
@@ -70,6 +74,7 @@ public class LocalizadorActivity extends AppCompatActivity {
         btnSearchCodigo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ubicacion.setText("Ubicación");
                 codigoEncontrado = false;
                 if (inputCodigo.getText().toString().trim().length() > 0) {
                     for (int i = 0; i < catalogo.size(); i++) {
@@ -92,6 +97,7 @@ public class LocalizadorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Para almacenar los resultados
+                ubicacion.setText("Ubicación");
                 boolean resultados = false;
                 ArrayList<Catalogo> catalogoResultados = new ArrayList<Catalogo>();
                 codigoEncontrado = false;
@@ -137,7 +143,16 @@ public class LocalizadorActivity extends AppCompatActivity {
 
                 if(!resultados){
                     Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
-                }else{
+                }else{btnLimpiar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        inputCodigo.setText("");
+                        inputCodigo.setHint("Cód.de barras o cod.Barea");
+                        inputArticulo.setText("");
+                        inputArticulo.setHint("Nombre Artículo: aaa bbb ccc");
+                        ubicacion.setText("Ubicación :");
+                    }
+                });
                     // Mostramos los resultados en pantalla
                     Comunicador.setResultados(catalogoResultados);
                     Intent intent = new Intent(LocalizadorActivity.this, BusquedaArticuloActivity.class);
@@ -149,30 +164,41 @@ public class LocalizadorActivity extends AppCompatActivity {
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Buscar ubicación", Toast.LENGTH_SHORT).show();
+                codigoEncontrado = false;
+                if(!inputCodigo.getText().toString().isEmpty() && !inputArticulo.getText().toString().isEmpty()){
+                    for (int i = 0; i < calles.size(); i++) {
+                        if(inputCodigo.getText().toString().equals(calles.get(i).getCodigo())){
+                            calle = calles.get(i).getCalle();
+                            if(calle.equals("HS0") || calle.equals("HS2")){
+                                ubicacion.setText("Departamento anexo Hostelería");
+                            }else{
+                                if(calle.equals("DP0") || calle.equals("DP2") || calle.equals("CM2")){
+                                    ubicacion.setText("Departamento anexo Pescadería");
+                                }else ubicacion.setText("Ubicación calle: " + calle);
+                            }
 
-                /*
-                if(!inputCantidad.getText().toString().equals("")){
-                    codigo = inputCodigo.getText().toString().trim();
-                    articulo = inputArticulo.getText().toString();
-                    cantidad = Integer.valueOf(inputCantidad.getText().toString());
-                    if(codigo.length() > 0 && articulo.length() > 0 && cantidad > 0){
-                        finish();
+                            i = calles.size();
+                            codigoEncontrado = true;
+                        }
                     }
-                    else
-                        Toast.makeText(getApplicationContext(), "Datos incompletos", Toast.LENGTH_SHORT).show();
+
+                    if(!codigoEncontrado){
+                        Toast.makeText(getApplicationContext(), "Actualmente no disponemos de la ubicación de esta referencia. Es muy posible que no se trabaje.", Toast.LENGTH_LONG).show();
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Datos incompletos", Toast.LENGTH_SHORT).show();
                 }
-                */
             }
         });
 
         verPlano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Ver en mapa", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LocalizadorActivity.this, PlanoActivity.class);
+                startActivity(intent);
             }
         });
-
     }
 
     public void cargaCatalogo(){

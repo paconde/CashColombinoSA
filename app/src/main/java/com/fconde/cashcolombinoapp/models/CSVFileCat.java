@@ -22,7 +22,8 @@ public class CSVFileCat {
 
     public List<Catalogo> read(){
         List<Catalogo> catalogo = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+        //BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("ISO-8859-1")));
         try {
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {

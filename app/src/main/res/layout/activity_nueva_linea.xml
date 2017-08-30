@@ -80,7 +80,17 @@
             android:hint="Und./caja"
             android:layout_margin="15dp"
             android:textSize="18sp"
-            android:layout_weight="0.50"/>
+            android:layout_weight="0.35"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonLimpiar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:layout_margin="15dp"
+            android:background="@color/colorAccent"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            />
 
     </LinearLayout>
 

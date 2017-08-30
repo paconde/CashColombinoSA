@@ -24,7 +24,7 @@ import java.util.List;
 public class NuevaLineaActivity extends AppCompatActivity {
 
     EditText inputCodigo, inputArticulo, inputCantidad;
-    ImageButton btnSearchCodigo, btnSearchDesc;
+    ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar;
     TextView textViewFormato;
     Button addLinea;
 
@@ -53,6 +53,7 @@ public class NuevaLineaActivity extends AppCompatActivity {
         btnSearchDesc = (ImageButton) findViewById(R.id.imageButtonDescripcionSearch);
         inputCantidad = (EditText) findViewById(R.id.editTextCantidadArticulo);
         textViewFormato = (TextView) findViewById(R.id.textViewFormato);
+        btnLimpiar = (ImageButton)findViewById(R.id.imageButtonLimpiar);
         addLinea = (Button)findViewById(R.id.btnValidar);
 
         // Cargar catalogo desde CSV
@@ -137,6 +138,19 @@ public class NuevaLineaActivity extends AppCompatActivity {
                  }
              }
          });
+
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputCodigo.setText("");
+                inputCodigo.setHint("Cód.de barras o cod.Barea");
+                inputArticulo.setText("");
+                inputArticulo.setHint("Nombre Artículo: aaa bbb ccc");
+                inputCantidad.setText("");
+                inputCantidad.setHint("Cantidad pedida");
+                textViewFormato.setText("Und./caja");
+            }
+        });
 
         addLinea.setOnClickListener(new View.OnClickListener() {
             @Override
