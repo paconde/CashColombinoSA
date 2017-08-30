@@ -17,19 +17,28 @@
     </style>
 
     <style name="botonesBarraInferior">
-        <item name="android:layout_width">@dimen/largo</item>
-        <item name="android:layout_height">@dimen/largo</item>
         <item name="android:scaleType">fitCenter</item>
-        <item name="android:layout_marginLeft">@dimen/margenLeft</item>
+        <item name="android:padding">@dimen/dim8dp</item>
+        <item name="android:layout_width">@dimen/dim0dp</item>
+        <item name="android:layout_height">@dimen/dim80dp</item>
+        <item name="android:background">@android:color/transparent</item>
 
     </style>
 
     <style name="botonesMenuCentral">
-        <item name="android:layout_width">@dimen/extralargo</item>
-        <item name="android:layout_height">@dimen/extralargo</item>
+        <item name="android:layout_width">@dimen/dim0dp</item>
+        <item name="android:layout_height">@dimen/dim100dp</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:layout_marginTop">@dimen/margenTop</item>
-        <item name="android:layout_marginLeft">@dimen/margenLeft2</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="botonesMenuCentralLand">
+        <item name="android:layout_width">@dimen/dim100dp</item>
+        <item name="android:layout_height">@dimen/dim100dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_marginTop">@dimen/margenTop</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
     <style name="botonesMenuCentralExtraLargo">

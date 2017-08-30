@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="micro">4dp</dimen>
+    <dimen name="dim8dp">8dp</dimen>
+    <dimen name="dim60dp">60dp</dimen>
+    <dimen name="dim70dp">70dp</dimen>
+    <dimen name="dim80dp">80dp</dimen>
+    <dimen name="dim0dp">0dp</dimen>
+    <dimen name="dim100dp">100dp</dimen>
     <dimen name="minimo">16dp</dimen>
     <dimen name="min_med">24dp</dimen>
     <dimen name="medio">32dp</dimen>

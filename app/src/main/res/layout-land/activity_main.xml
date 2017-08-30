@@ -18,27 +18,32 @@
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/dim60dp"
         android:orientation="horizontal"
-        android:layout_below="@+id/tb_main">
+        android:layout_below="@+id/tb_main"
+        >
 
         <ImageButton
             android:id="@+id/imgBtnNosotros"
-            style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
-            app:srcCompat="@drawable/nosotros"
-            android:contentDescription="@string/act_name_nosotros"/>
+            style="@style/botonesMenuCentralLand"
+            android:layout_height="@dimen/dim60dp"
+            android:layout_marginTop="@dimen/dim8dp"
+            android:contentDescription="@string/act_name_nosotros"
+            app:srcCompat="@drawable/nosotros" />
 
         <ImageButton
             android:id="@+id/imgBtnCatalogo"
-            style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            style="@style/botonesMenuCentralLand"
+            android:layout_height="@dimen/dim60dp"
+            android:layout_marginTop="@dimen/dim8dp"
             app:srcCompat="@drawable/catalogo"
             android:contentDescription="@string/act_name_catalogo"/>
 
         <ImageButton
             android:id="@+id/imgBtnMarcasPropias"
-            style="@style/botonesMenuCentral"
-            android:layout_weight="0.34"
+            style="@style/botonesMenuCentralLand"
+            android:layout_height="@dimen/dim60dp"
+            android:layout_marginTop="@dimen/dim8dp"
             app:srcCompat="@drawable/marcas_propias"
             android:contentDescription="@string/act_name_marcas_propias"/>
 
@@ -47,29 +52,31 @@
     <LinearLayout
         android:id="@+id/layout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_below="@+id/layout1">
 
         <ImageButton
             android:id="@+id/imgBtnLocalizador"
-            style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            style="@style/botonesMenuCentralLand"
+            android:layout_height="@dimen/dim70dp"
+            android:layout_marginTop="@dimen/dim8dp"
             app:srcCompat="@drawable/localizador_productos"
-            android:contentDescription="@string/act_name_localizador"
-            android:layout_height="120dp"/>
+            android:contentDescription="@string/act_name_localizador"/>
 
         <ImageButton
             android:id="@+id/imgBtnRecetas"
-            style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            style="@style/botonesMenuCentralLand"
+            android:layout_height="@dimen/dim60dp"
+            android:layout_marginTop="@dimen/dim8dp"
             app:srcCompat="@drawable/recetas"
             android:contentDescription="@string/act_name_recetas"/>
 
         <ImageButton
             android:id="@+id/imgBtnPedidos"
-            style="@style/botonesMenuCentral"
-            android:layout_weight="0.34"
+            style="@style/botonesMenuCentralLand"
+            android:layout_height="@dimen/dim60dp"
+            android:layout_marginTop="@dimen/dim8dp"
             app:srcCompat="@drawable/pedido"
             android:contentDescription="@string/act_name_pedidos"/>
 

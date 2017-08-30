@@ -11,35 +11,35 @@
     <ImageButton
         android:id="@+id/imgBttContacto"
         style="@style/botonesBarraInferior"
-        android:background="@android:color/transparent"
+        android:layout_weight="0.2"
         android:src="@drawable/contacto"
         android:contentDescription="@string/contacto" />
 
     <ImageButton
         android:id="@+id/imgBttFacebook"
         style="@style/botonesBarraInferior"
-        android:background="@android:color/transparent"
+        android:layout_weight="0.2"
         android:src="@drawable/facebook"
         android:contentDescription="@string/facebook" />
 
     <ImageButton
         android:id="@+id/imgBttGooglePlus"
         style="@style/botonesBarraInferior"
-        android:background="@android:color/transparent"
+        android:layout_weight="0.2"
         android:src="@drawable/google"
         android:contentDescription="@string/google" />
 
     <ImageButton
         android:id="@+id/imgBttBlog"
         style="@style/botonesBarraInferior"
-        android:background="@android:color/transparent"
+        android:layout_weight="0.2"
         android:src="@drawable/blogg"
         android:contentDescription="@string/blog" />
 
     <ImageButton
         android:id="@+id/imgBttCompartir"
         style="@style/botonesBarraInferior"
-        android:background="@android:color/transparent"
+        android:layout_weight="0.2"
         android:src="@drawable/compartir"
         android:contentDescription="@string/compartir" />
 
