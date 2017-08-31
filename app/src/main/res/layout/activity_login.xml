@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/tb_main"
-        layout="@layout/tool_bar_main"></include>
+        layout="@layout/tool_bar_main"/>
 
     <EditText
         android:id="@+id/editTextLogin"
