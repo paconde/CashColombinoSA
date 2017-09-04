@@ -60,7 +60,7 @@
         <ImageButton
             android:id="@+id/imgBtnLocalizador"
             style="@style/botonesMenuCentralLand"
-            android:layout_height="@dimen/dim80dp"
+            android:layout_height="@dimen/dim70dp"
             android:layout_marginTop="@dimen/dim8dp"
             android:layout_weight="1"
             android:contentDescription="@string/act_name_localizador"
@@ -71,9 +71,9 @@
             style="@style/botonesMenuCentralLand"
             android:layout_height="@dimen/dim70dp"
             android:layout_marginTop="@dimen/dim8dp"
-            android:layout_weight="1"
+            app:srcCompat="@drawable/recetas"
             android:contentDescription="@string/act_name_recetas"
-            app:srcCompat="@drawable/recetas" />
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/imgBtnPedidos"
