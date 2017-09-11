@@ -20,7 +20,7 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:padding">@dimen/dim8dp</item>
         <item name="android:layout_width">@dimen/dim0dp</item>
-        <item name="android:layout_height">@dimen/dim80dp</item>
+        <item name="android:layout_height">@dimen/dim60dp</item>
         <item name="android:background">@android:color/transparent</item>
 
     </style>
