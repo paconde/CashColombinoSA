@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.fconde.cashcolombinoapp.activities.ContactoActivity">
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/tb_main"
-        layout="@layout/tool_bar_main" />
+    <include layout = "@layout/tool_bar_main"
+        android:id="@+id/tb_main"></include>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="0.85"
+            android:textSize="@dimen/dim60dp"
+            android:text="959233330"/>
 
-</android.support.constraint.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/imageButtonLlamada1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dim60dp"
+            android:scaleType="fitCenter"
+            android:layout_weight="0.15"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/blanco"
+            android:background="@color/colorAccent"
+            android:src="@drawable/contacto"/>
+
+    </LinearLayout>
+
+</LinearLayout>
