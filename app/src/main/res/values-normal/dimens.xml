@@ -2,6 +2,7 @@
 <resources>
     <dimen name="micro">4dp</dimen>
     <dimen name="dim8dp">8dp</dimen>
+    <dimen name="dim40dp">40dp</dimen>
     <dimen name="dim60dp">60dp</dimen>
     <dimen name="dim70dp">90dp</dimen>
     <dimen name="dim80dp">180dp</dimen>

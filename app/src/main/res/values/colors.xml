@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#0073BA</color>
-    <color name="colorPrimaryDark">#00316F</color>
+    <color name="colorPrimaryDark">#00316f</color>
     <color name="colorAccent">#7edee7</color>
     <color name="blanco">#ffffff</color>
-    <color name="cardViewBackground">#faef88</color>
+    <color name="cardViewBackground">#c6ea633e</color>
     <color name="backPedNoEnviado">#B5FFB6</color>
     <color name="backPedEnviado">#FF524C</color>
 </resources>

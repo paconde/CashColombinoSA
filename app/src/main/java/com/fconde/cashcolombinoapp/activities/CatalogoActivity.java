@@ -26,7 +26,7 @@ public class CatalogoActivity extends AppCompatActivity {
 
     ImageView imagenFidelidad, imagenOferta;
     final static String URLFIDELIDAD = "https://www.barea.com/wp-content/uploads/2014/12/MONOGRA%CC%81FICOS-10-SEPTIEMBRE-2017.pdf";
-    final static String URLOFERTAMES = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-JUNIO-2017-SIN-PRECIOS.pdf";
+    final static String URLOFERTAMES = "https://www.barea.com/wp-content/uploads/2014/12/OFERTA-CASH-ALIMENTACION-SEPTIEMBRE-2017-SIN-PRECIOS.pdf";
     //String urlString;
 
     @RequiresApi(api = Build.VERSION_CODES.M)

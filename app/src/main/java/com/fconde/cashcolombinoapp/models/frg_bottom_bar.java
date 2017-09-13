@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
+import com.fconde.cashcolombinoapp.activities.ContactoActivity;
 
 /**
  * Created by FConde on 22/05/2017.
@@ -42,8 +43,8 @@ public class frg_bottom_bar extends Fragment {
         imgBtnContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String urlContacto = "https://www.barea.com/cash-carry/cash-colombino/";
-                goToUrl(urlContacto);
+                Intent intent = new Intent(v.getContext(), ContactoActivity.class);
+                startActivity(intent);
             }
         });
 
