@@ -24,21 +24,21 @@
         <ImageButton
             android:id="@+id/imgBtnNosotros"
             style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            android:layout_weight="1"
             app:srcCompat="@drawable/nosotros"
             android:contentDescription="@string/act_name_nosotros"/>
 
         <ImageButton
             android:id="@+id/imgBtnCatalogo"
             style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            android:layout_weight="1"
             app:srcCompat="@drawable/catalogo"
             android:contentDescription="@string/act_name_catalogo"/>
 
         <ImageButton
             android:id="@+id/imgBtnMarcasPropias"
             style="@style/botonesMenuCentral"
-            android:layout_weight="0.34"
+            android:layout_weight="1"
             app:srcCompat="@drawable/marcas_propias"
             android:contentDescription="@string/act_name_marcas_propias"/>
 
@@ -54,7 +54,7 @@
         <ImageButton
             android:id="@+id/imgBtnLocalizador"
             style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            android:layout_weight="1"
             app:srcCompat="@drawable/localizador_productos"
             android:contentDescription="@string/act_name_localizador"
             android:layout_height="120dp"/>
@@ -62,14 +62,14 @@
         <ImageButton
             android:id="@+id/imgBtnRecetas"
             style="@style/botonesMenuCentral"
-            android:layout_weight="0.33"
+            android:layout_weight="1"
             app:srcCompat="@drawable/recetas"
             android:contentDescription="@string/act_name_recetas"/>
 
         <ImageButton
             android:id="@+id/imgBtnPedidos"
             style="@style/botonesMenuCentral"
-            android:layout_weight="0.34"
+            android:layout_weight="1"
             app:srcCompat="@drawable/pedido"
             android:contentDescription="@string/act_name_pedidos"/>
 

@@ -38,6 +38,7 @@
                 android:id="@+id/texto_nosotros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margenLeft"
                 android:layout_marginLeft="@dimen/margenLeft"
                 android:layout_marginRight="@dimen/margenLeft"
                 android:text="@string/nosotros_colombino"

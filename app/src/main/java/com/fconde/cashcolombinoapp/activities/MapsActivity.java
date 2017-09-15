@@ -2,8 +2,8 @@ package com.fconde.cashcolombinoapp.activities;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
-import com.fconde.cashcolombinoapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -12,9 +12,13 @@ import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.fconde.cashcolombinoapp.R;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String empresa = "Cash Colombino";
+    private double latitud, longitud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
 
+        if(getIntent().getExtras() != null){
+            empresa = getIntent().getExtras().getString("empresa");
+        }
+
+
+    }
 
     /**
      * Manipulates the map once available.
@@ -37,6 +46,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        switch (empresa){
+            case "Cash Colombino":
+                latitud = 37.27005;
+                longitud = -6.914534;
+                break;
+            case "Cash Barea":
+                latitud = 37.3844671;
+                longitud = -5.9572327;
+                break;
+            case "Manuel Barea":
+                latitud = 37.3844671;
+                longitud = -5.9572327;
+                break;
+            case "Cash Extremeño":
+                latitud = 38.672472;
+                longitud = -6.389109;
+                break;
+            default:
+                empresa = "Cash Colombino";
+                latitud = 37.27005;
+                longitud = -6.914534;
+                break;
+        }
+
+        Toast.makeText(this, String.valueOf(longitud), Toast.LENGTH_SHORT).show();
+
         mMap = googleMap;
 
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -45,8 +80,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         uiSettings.setZoomControlsEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        LatLng cashColombino = new LatLng(37.27005,-6.914534);
-        mMap.addMarker(new MarkerOptions().position(cashColombino).title("Cash Colombino"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(cashColombino));
+        LatLng position = new LatLng(latitud,longitud);
+        mMap.addMarker(new MarkerOptions().position(position).title(empresa));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
     }
 }

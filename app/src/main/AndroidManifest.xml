@@ -7,6 +7,7 @@
         android:minSdkVersion="9"
         android:targetSdkVersion="25" />
 
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -98,7 +99,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyA-mUTwVvdh2LqbIaDWtWrRqL-1E5eML6w"/>
 
         <activity
             android:name=".activities.MapsActivity"
