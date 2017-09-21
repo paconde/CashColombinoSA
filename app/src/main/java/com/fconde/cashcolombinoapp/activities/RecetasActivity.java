@@ -140,7 +140,7 @@ public class RecetasActivity extends AppCompatActivity {
     }
 
     private List<Recetas> getAllRecetas(String pagina){
-        ArrayList<Recetas> recetasArrayList = new ArrayList<Recetas>();
+        ArrayList<Recetas> recetasArrayList = new ArrayList<>();
 
         switch (pagina){
             case "1":
