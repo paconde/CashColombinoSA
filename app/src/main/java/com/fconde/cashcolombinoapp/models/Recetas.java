@@ -7,15 +7,16 @@ package com.fconde.cashcolombinoapp.models;
 public class Recetas {
 
     public String nombreReceta;
-    public int codigoImagen;
+    //public int codigoImagen;
+    public String urlImagenReceta;
     public String urlReceta;
 
     public Recetas(){
     }
 
-    public Recetas(String nombreReceta, int codigoImagen, String urlReceta){
+    public Recetas(String nombreReceta, String urlImagenReceta, String urlReceta){
         this.nombreReceta = nombreReceta;
-        this.codigoImagen = codigoImagen;
+        this.urlImagenReceta = urlImagenReceta;
         this.urlReceta = urlReceta;
     }
 
@@ -24,8 +25,9 @@ public class Recetas {
         return nombreReceta;
     }
 
-    public int getCodigoImagen(){
-        return codigoImagen;
+    public String getUrlImagenReceta(){
+
+        return urlImagenReceta;
     }
 
     public String getUrlReceta(){

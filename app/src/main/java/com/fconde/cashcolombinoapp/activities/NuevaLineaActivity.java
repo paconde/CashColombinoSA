@@ -17,6 +17,9 @@ import com.fconde.cashcolombinoapp.models.CSVFileCat;
 import com.fconde.cashcolombinoapp.models.Catalogo;
 import com.fconde.cashcolombinoapp.models.Comunicador;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,7 @@ import java.util.List;
 public class NuevaLineaActivity extends AppCompatActivity {
 
     EditText inputCodigo, inputArticulo, inputCantidad;
-    ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar;
+    ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar, btnBarcodeScan;
     TextView textViewFormato;
     Button addLinea;
 
@@ -49,6 +52,7 @@ public class NuevaLineaActivity extends AppCompatActivity {
 
         inputCodigo = (EditText) findViewById(R.id.editTextCodigoArticulo);
         btnSearchCodigo = (ImageButton) findViewById(R.id.imageButtonCodigoSearch);
+        btnBarcodeScan = (ImageButton) findViewById(R.id.imageButtonBarcodeScan);
         inputArticulo = (EditText) findViewById(R.id.editTextDescripcionArticulo);
         btnSearchDesc = (ImageButton) findViewById(R.id.imageButtonDescripcionSearch);
         inputCantidad = (EditText) findViewById(R.id.editTextCantidadArticulo);
@@ -78,6 +82,14 @@ public class NuevaLineaActivity extends AppCompatActivity {
                 }
 
                 if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnBarcodeScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator scanIntegrator = new IntentIntegrator(NuevaLineaActivity.this);
+                scanIntegrator.initiateScan();
             }
         });
 
@@ -169,6 +181,8 @@ public class NuevaLineaActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void cargaCatalogo(){
         InputStream inputStreamCatalogo = getResources().openRawResource(R.raw.catalogo);
         CSVFileCat csvFileCatCatalogo = new CSVFileCat(inputStreamCatalogo);
@@ -193,6 +207,24 @@ public class NuevaLineaActivity extends AppCompatActivity {
                 inputArticulo.setText(data.getExtras().getString("articulo"));
                 textViewFormato.setText(data.getExtras().getString("formato") + " ud./caja");
             }
+        }
+
+        // se reciben datos del lector de codigos de barras.
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (scanningResult != null) {
+            String scanContent = scanningResult.getContents();
+            for (int i = 0; i < catalogo.size(); i++) {
+                if((scanContent.equals(catalogo.get(i).getCodigoBarras().toString())) || (scanContent.equals(catalogo.get(i).getCodigoInterno().toString()))){
+                    inputCodigo.setText(catalogo.get(i).getCodigoInterno().toString());
+                    inputArticulo.setText(catalogo.get(i).getArticulo().toString());
+                    textViewFormato.setText(catalogo.get(i).getFormato().toString() + " ud./caja");
+                    codigoEncontrado = true;
+                    return;
+                }
+            }
+            if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "No se reciben datos", Toast.LENGTH_SHORT).show();
         }
     }
 }

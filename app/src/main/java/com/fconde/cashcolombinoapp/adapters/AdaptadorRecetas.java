@@ -18,14 +18,14 @@ import java.util.List;
  * Created by FConde on 08/06/2017.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
+public class AdaptadorRecetas extends RecyclerView.Adapter<AdaptadorRecetas.ViewHolder>{
 
     private List<Recetas> receta;
     private int layout;
     private OnItemClickListener itemClickListener;
     private Context context;
 
-    public MyAdapter(List<Recetas> receta, int layout, OnItemClickListener itemClickListener){
+    public AdaptadorRecetas(List<Recetas> receta, int layout, OnItemClickListener itemClickListener){
         this.receta = receta;
         this.layout = layout;
         this.itemClickListener = itemClickListener;
@@ -70,7 +70,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         public void bind(final Recetas receta, final OnItemClickListener itemClickListener){
             //this.textViewName.setText(recetas);
             textViewName.setText(receta.getNombreReceta());
-            Picasso.with(context).load(receta.getCodigoImagen()).fit().into(imageViewReceta);
+            Picasso.with(context).load(receta.getUrlImagenReceta()).fit().into(imageViewReceta);
             //imageViewReceta.setImageResource(receta.getCodigoImagen());
 
             itemView.setOnClickListener(new View.OnClickListener() {

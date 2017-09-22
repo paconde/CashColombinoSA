@@ -22,6 +22,8 @@ import com.fconde.cashcolombinoapp.models.CSVFileCat;
 import com.fconde.cashcolombinoapp.models.Calles;
 import com.fconde.cashcolombinoapp.models.Catalogo;
 import com.fconde.cashcolombinoapp.models.Comunicador;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -35,7 +37,7 @@ import java.util.List;
 public class LocalizadorActivity extends AppCompatActivity {
 
     EditText inputCodigo, inputArticulo;
-    ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar;
+    ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar, btnBarcodeScan;
     TextView ubicacion;
     Button validar, verPlano;
 
@@ -60,6 +62,7 @@ public class LocalizadorActivity extends AppCompatActivity {
 
         inputCodigo = (EditText) findViewById(R.id.editTextCodigoArticulo);
         btnSearchCodigo = (ImageButton) findViewById(R.id.imageButtonCodigoSearch);
+        btnBarcodeScan = (ImageButton) findViewById(R.id.imageButtonBarcodeScan);
         inputArticulo = (EditText) findViewById(R.id.editTextDescripcionArticulo);
         btnSearchDesc = (ImageButton) findViewById(R.id.imageButtonDescripcionSearch);
         ubicacion = (TextView)findViewById(R.id.textViewUbicacion);
@@ -90,6 +93,14 @@ public class LocalizadorActivity extends AppCompatActivity {
                 }
 
                 if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnBarcodeScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator scanIntegrator = new IntentIntegrator(LocalizadorActivity.this);
+                scanIntegrator.initiateScan();
             }
         });
 
@@ -143,21 +154,23 @@ public class LocalizadorActivity extends AppCompatActivity {
 
                 if(!resultados){
                     Toast.makeText(getApplicationContext(), "Artículo no localizado, pruebe con otro texto", Toast.LENGTH_LONG).show();
-                }else{btnLimpiar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        inputCodigo.setText("");
-                        inputCodigo.setHint("Cód.de barras o cod.Barea");
-                        inputArticulo.setText("");
-                        inputArticulo.setHint("Nombre Artículo: aaa bbb ccc");
-                        ubicacion.setText("Ubicación :");
-                    }
-                });
+                }else{
                     // Mostramos los resultados en pantalla
                     Comunicador.setResultados(catalogoResultados);
                     Intent intent = new Intent(LocalizadorActivity.this, BusquedaArticuloActivity.class);
                     startActivityForResult(intent, REQUEST_CODE);
                 }
+            }
+        });
+
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputCodigo.setText("");
+                inputCodigo.setHint("Cód.de barras o cod.Barea");
+                inputArticulo.setText("");
+                inputArticulo.setHint("Nombre Artículo: aaa bbb ccc");
+                ubicacion.setText("Ubicación :");
             }
         });
 
@@ -220,6 +233,23 @@ public class LocalizadorActivity extends AppCompatActivity {
                 inputCodigo.setText(data.getExtras().getString("codigo"));
                 inputArticulo.setText(data.getExtras().getString("articulo"));
             }
+        }
+
+        // se reciben datos del lector de codigos de barras.
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (scanningResult != null) {
+            String scanContent = scanningResult.getContents();
+            for (int i = 0; i < catalogo.size(); i++) {
+                if((scanContent.equals(catalogo.get(i).getCodigoBarras().toString())) || (scanContent.equals(catalogo.get(i).getCodigoInterno().toString()))){
+                    inputCodigo.setText(catalogo.get(i).getCodigoInterno().toString());
+                    inputArticulo.setText(catalogo.get(i).getArticulo().toString());
+                    codigoEncontrado = true;
+                    return;
+                }
+            }
+            if(!codigoEncontrado) Toast.makeText(getApplicationContext(), "Códgo no localizado, pruebe con otro código", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "No se reciben datos", Toast.LENGTH_SHORT).show();
         }
     }
 }

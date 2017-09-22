@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="recetas_imagen_url_p1">
+        <item>https://www.barea.com/wp-content/uploads/2014/12/bacalao-andaluza.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/bacalao-aragonesa.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/bacalao-llauna.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/bacalao-suprema.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/pastel-bacalao-pisto.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/pastelitos-bacalao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/BuC3B1uelos-de-bacao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/Arroz-con-bacalao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/Bacalao-con-apio.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/Empanada-de-bacalao-pasas.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/bacalao-con-salsa-tartara.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/Ensalada-bacalao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/bacalao-manzanas.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/bacalao-miel.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2014/12/bacalao-horno-hortalizas.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/Tortilla-bacalao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/bacalao-bacon-esparragos.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/Mantecato.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/croquetas-bacalao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/bacalao-espinacas.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/01/b-gratinado.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/02/bacalao-grelos.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/02/arroz-bacalao.jpg</item>
+        <item>https://www.barea.com/wp-content/uploads/2015/02/bacalao-hortelana.jpg</item>
+    </string-array>
+
+    <string-array name="recetas_imagen_url_p2">
+        <item>https://www.barea.com/recetas/bacalao-con-coliflor/</item>
+        <item>https://www.barea.com/recetas/garbanzos-con-bacalao-de-vigilia/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-samfaina/</item>
+        <item>https://www.barea.com/recetas/bacalao-frito-con-pimientos/</item>
+        <item>https://www.barea.com/recetas/revoltillo-de-bacalao-la-portuguesa/</item>
+        <item>https://www.barea.com/recetas/atascaburras/</item>
+        <item>https://www.barea.com/recetas/lomos-de-bacalao-las-almendras/</item>
+        <item>https://www.barea.com/recetas/bacalao-al-aceite-de-oliva/</item>
+        <item>https://www.barea.com/recetas/lomos-de-bacalao-con-cebolla-y-pimiento-verde-del-piquillo/</item>
+        <item>https://www.barea.com/recetas/zurrukutuna/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-moda-de-bakio/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-forma-leonesa/</item>
+        <item>https://www.barea.com/recetas/esqueixada-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-pure-princesa/</item>
+        <item>https://www.barea.com/recetas/arroz-meloso-de-bacalao-y-caracoles-con-verdura/</item>
+        <item>https://www.barea.com/recetas/ensalada-de-bacalao-y-gamas/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-espinacas/</item>
+        <item>https://www.barea.com/recetas/bacalao-al-ajoarriero/</item>
+        <item>https://www.barea.com/recetas/bacalao-al-horno/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-crema/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-riojana/</item>
+        <item>https://www.barea.com/recetas/bacalao-ajoarriero-con-langosta/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-vizcaina/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-bermuda/</item>
+    </string-array>
+
+    <string-array name="recetas_imagen_url_p3">
+        <item>https://www.barea.com/recetas/ensalada-brasilena/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-alioli/</item>
+        <item>https://www.barea.com/recetas/bacalao-en-salsa-verde/</item>
+        <item>https://www.barea.com/recetas/ensalada-de-alubias-blancas-con-bacalao/</item>
+        <item>https://www.barea.com/recetas/revuelto-de-bacalao-con-salsa-de-calamares/</item>
+        <item>https://www.barea.com/recetas/albondigas-de-bacalao-con-gambas/</item>
+        <item>https://www.barea.com/recetas/ensalada-de-bacalao-con-aroma-de-albahaca/</item>
+        <item>https://www.barea.com/recetas/carpacho-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/bacalao-a-la-muselina-de-ajo/</item>
+        <item>https://www.barea.com/recetas/bacalao-tino-2/</item>
+        <item>https://www.barea.com/recetas/bacalao-dorado-2/</item>
+        <item>https://www.barea.com/recetas/ensalada-de-bacalao-y-pastas/</item>
+        <item>https://www.barea.com/recetas/bacalao-a-la-florentina/</item>
+        <item>https://www.barea.com/recetas/bacalao-hervido/</item>
+        <item>https://www.barea.com/recetas/terrina-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-tomate-y-alcachofas/</item>
+        <item>https://www.barea.com/recetas/bacalao-a-la-noruega/</item>
+        <item>https://www.barea.com/recetas/patatas-con-bacalao/</item>
+        <item>https://www.barea.com/recetas/bacalao-a-la-vizcaina-otro-modo/</item>
+        <item>https://www.barea.com/recetas/bacalao-al-pil-pil/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-tomate/</item>
+        <item>https://www.barea.com/recetas/budin-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-patatas-y-aceitunas/</item>
+        <item>https://www.barea.com/recetas/bacalao-encebollado/</item>
+    </string-array>
+
+    <string-array name="recetas_imagen_url_p4">
+        <item>https://www.barea.com/recetas/xato/</item>
+        <item>https://www.barea.com/recetas/arroz-con-bacalao-y-coliflor/</item>
+        <item>https://www.barea.com/recetas/bacalao-a-la-tranca/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-pisto/</item>
+        <item>https://www.barea.com/recetas/potaje-de-acelgas-con-bacalao/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-migas/</item>
+        <item>https://www.barea.com/recetas/bacalao-a-la-catalana/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-patatas-en-salsa-roja/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-pimiento-y-cebolla/</item>
+        <item>https://www.barea.com/recetas/hornazo-de-bacalao-y-alcaparras/</item>
+        <item>https://www.barea.com/recetas/ensalada-de-vainas-con-bacalao/</item>
+        <item>https://www.barea.com/recetas/molde-frio/</item>
+        <item>https://www.barea.com/recetas/bacalao-en-escabeche/</item>
+        <item>https://www.barea.com/recetas/tortilla-de-bacalao-y-pimientos/</item>
+        <item>https://www.barea.com/recetas/arroz-con-bacalao-y-cebolla/</item>
+        <item>https://www.barea.com/recetas/empanadillas-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/rosca-de-arroz-blanco-con-calabacin/</item>
+        <item>https://www.barea.com/recetas/bacalao-en-escabeche-ligero/</item>
+        <item>https://www.barea.com/recetas/pochas-con-bacalao-marinado/</item>
+        <item>https://www.barea.com/recetas/pure-de-alioli-con-bacalao/</item>
+        <item>https://www.barea.com/recetas/filetes-de-bacalao-a-la-sidra/</item>
+        <item>https://www.barea.com/recetas/arroz-con-bacalao-y-espinacas/</item>
+        <item>https://www.barea.com/recetas/tarta-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/pasta-con-bacalao/</item>
+    </string-array>
+
+    <string-array name="recetas_imagen_url_p5">
+        <item>https://www.barea.com/recetas/bacalao-con-calabacin-y-salsa-mostaza/</item>
+        <item>https://www.barea.com/recetas/ensalada-de-bacalao-y-patata/</item>
+        <item>https://www.barea.com/recetas/sopa-de-fideos-con-bacalao/</item>
+        <item>https://www.barea.com/recetas/arroz-con-bacalao-y-tocino/</item>
+        <item>https://www.barea.com/recetas/bacalao-guisado-con-patatas/</item>
+        <item>https://www.barea.com/recetas/crema-de-bacalao/</item>
+        <item>https://www.barea.com/recetas/quiche-de-bacalao-y-esparragos/</item>
+        <item>https://www.barea.com/recetas/ajoarriero-con-gambas/</item>
+        <item>https://www.barea.com/recetas/bacalao-en-ensalada/</item>
+        <item>https://www.barea.com/recetas/bacalao-la-mostaza/</item>
+        <item>https://www.barea.com/recetas/bacalao-con-tomate-confitado-y-pure-de-esparragos-verdes/</item>
+    </string-array>
+
+</resources>

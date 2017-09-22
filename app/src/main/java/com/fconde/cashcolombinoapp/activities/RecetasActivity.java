@@ -3,7 +3,10 @@ package com.fconde.cashcolombinoapp.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -15,10 +18,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
 import com.fconde.cashcolombinoapp.models.Recetas;
-import com.fconde.cashcolombinoapp.adapters.MyAdapter;
+import com.fconde.cashcolombinoapp.adapters.AdaptadorRecetas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +42,9 @@ public class RecetasActivity extends AppCompatActivity {
     private RecyclerView myRecyclerView;
     private RecyclerView.Adapter myAdapter;
     private RecyclerView.LayoutManager myLayoutManager;
-    public String[] recetas;
-    public String[] recetas_url;
+    public String[] recetas;                                // Nombre de las recetas
+    public String[] recetas_url;                            // URL de las recetas
+    public String[] recetas_imagen_url;                     // URL de las imagenes de las recetas
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +55,59 @@ public class RecetasActivity extends AppCompatActivity {
         pagina = getPaginaPrefs();
         vista = getVistaPrefs();
 
-        //Toast.makeText(this, vista, Toast.LENGTH_LONG).show();
-
         updateToolbar(pagina);
 
         receta = this.getAllRecetas(pagina);
+
+        if(isOnLine()){
+            AsyncTaskCargarImagenes MyTask = new AsyncTaskCargarImagenes();
+            MyTask.execute(receta);
+        }else{
+            Toast.makeText(getApplicationContext(), "No hay conexión de datos.", Toast.LENGTH_SHORT).show();
+        }
 
         myRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         myLayoutManager = new LinearLayoutManager(this);
 
         updateAdapter();
+    }
+
+    public boolean isOnLine(){
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if(networkInfo !=null && networkInfo.isConnectedOrConnecting()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public class AsyncTaskCargarImagenes extends AsyncTask<List<Recetas>, String, String>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(List<Recetas>... params) {
+            List<Recetas> RecetasUrl = params[0];
+            for(int i = 0; i < RecetasUrl.size(); i++){
+                String urlImagen = RecetasUrl.get(i).getUrlImagenReceta();
+
+            }
+            return "";
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
     }
 
     @Override
@@ -146,30 +194,34 @@ public class RecetasActivity extends AppCompatActivity {
             case "1":
                 recetas = getResources().getStringArray(R.array.recetas_p1);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p1);
+                recetas_imagen_url = getResources().getStringArray(R.array.recetas_imagen_url_p1);
                 break;
             case "2":
                 recetas = getResources().getStringArray(R.array.recetas_p2);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p2);
+                recetas_imagen_url = getResources().getStringArray(R.array.recetas_imagen_url_p2);
                 break;
             case "3":
                 recetas = getResources().getStringArray(R.array.recetas_p3);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p3);
+                recetas_imagen_url = getResources().getStringArray(R.array.recetas_imagen_url_p3);
                 break;
             case "4":
                 recetas = getResources().getStringArray(R.array.recetas_p4);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p4);
+                recetas_imagen_url = getResources().getStringArray(R.array.recetas_imagen_url_p4);
                 break;
             case  "5":
                 recetas = getResources().getStringArray(R.array.recetas_p5);
                 recetas_url = getResources().getStringArray(R.array.recetas_url_p5);
+                recetas_imagen_url = getResources().getStringArray(R.array.recetas_imagen_url_p5);
                 break;
             default:
         }
 
-
         for(int i = 0; i < recetas.length; i++){
-            int imagen = getResources().getIdentifier("p" + Integer.valueOf(pagina) + "_" + (i + 1), "drawable", getPackageName());
-            recetasArrayList.add(new Recetas(recetas[i], imagen, recetas_url[i]));
+            //int imagen = getResources().getIdentifier("p" + Integer.valueOf(pagina) + "_" + (i + 1), "drawable", getPackageName());
+            recetasArrayList.add(new Recetas(recetas[i], recetas_imagen_url[i], recetas_url[i]));
         }
         return recetasArrayList;
     }
@@ -180,27 +232,25 @@ public class RecetasActivity extends AppCompatActivity {
         toolbar.setTitle("Recetas " + "Pág. " + pagina);
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         setSupportActionBar(toolbar);
-
     }
 
     private void updateAdapter(){
         vista = getVistaPrefs();
         if(vista.equals("imagenes") || vista.equals("null")) {
-            myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_vistas, new MyAdapter.OnItemClickListener() {
+            myAdapter = new AdaptadorRecetas(receta, R.layout.recycler_view_item_vistas, new AdaptadorRecetas.OnItemClickListener() {
                 @Override
                 public void onItemClick(Recetas receta, int position) {
                     goToUrl(recetas_url[position]);
                 }
             });
         }else{
-            myAdapter = new MyAdapter(receta, R.layout.recycler_view_item_lista, new MyAdapter.OnItemClickListener() {
+            myAdapter = new AdaptadorRecetas(receta, R.layout.recycler_view_item_lista, new AdaptadorRecetas.OnItemClickListener() {
                 @Override
 
                 public void onItemClick(Recetas receta, int position) {
                     goToUrl(recetas_url[position]);
                 }
             });
-
         }
 
         myRecyclerView.setHasFixedSize(true);

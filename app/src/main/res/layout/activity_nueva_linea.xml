@@ -17,9 +17,9 @@
             android:id="@+id/editTextCodigoArticulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_weight="0.85"
-            android:hint="Cód.de barras o cod.Barea"
+            android:layout_margin="10dp"
+            android:layout_weight="0.70"
+            android:hint="Cód.de Barras o Interno"
             android:inputType="number" />
 
         <ImageButton
@@ -27,9 +27,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:background="@color/colorAccent"
             android:src="@android:drawable/ic_menu_search"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonBarcodeScan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent"
+            android:src="@android:drawable/ic_menu_camera"/>
 
     </LinearLayout>
 
@@ -52,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:background="@color/colorAccent"
             android:src="@android:drawable/ic_menu_search"
             />
@@ -87,7 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:background="@color/colorAccent"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
             />
@@ -103,10 +112,10 @@
             android:id="@+id/btnValidar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:background="@color/colorAccent"
             android:layout_margin="15dp"
-            android:hint="Añadir al pedido"/>
+            android:background="@color/colorAccent"
+            android:hint="Añadir al pedido"
+            android:textSize="@dimen/textSize24"/>
 
     </LinearLayout>
 
