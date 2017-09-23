@@ -59,10 +59,7 @@ public class RecetasActivity extends AppCompatActivity {
 
         receta = this.getAllRecetas(pagina);
 
-        if(isOnLine()){
-            AsyncTaskCargarImagenes MyTask = new AsyncTaskCargarImagenes();
-            MyTask.execute(receta);
-        }else{
+        if(!isOnLine()){
             Toast.makeText(getApplicationContext(), "No hay conexión de datos.", Toast.LENGTH_SHORT).show();
         }
 
@@ -79,34 +76,6 @@ public class RecetasActivity extends AppCompatActivity {
             return true;
         }else {
             return false;
-        }
-    }
-
-    public class AsyncTaskCargarImagenes extends AsyncTask<List<Recetas>, String, String>{
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(List<Recetas>... params) {
-            List<Recetas> RecetasUrl = params[0];
-            for(int i = 0; i < RecetasUrl.size(); i++){
-                String urlImagen = RecetasUrl.get(i).getUrlImagenReceta();
-
-            }
-            return "";
-        }
-
-        @Override
-        protected void onProgressUpdate(String... values) {
-            super.onProgressUpdate(values);
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
         }
     }
 

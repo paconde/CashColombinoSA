@@ -211,7 +211,7 @@ public class NuevaLineaActivity extends AppCompatActivity {
 
         // se reciben datos del lector de codigos de barras.
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (scanningResult != null) {
+        if (scanningResult != null && data != null) {
             String scanContent = scanningResult.getContents();
             for (int i = 0; i < catalogo.size(); i++) {
                 if((scanContent.equals(catalogo.get(i).getCodigoBarras().toString())) || (scanContent.equals(catalogo.get(i).getCodigoInterno().toString()))){
