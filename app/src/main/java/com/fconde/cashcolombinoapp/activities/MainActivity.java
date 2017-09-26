@@ -107,10 +107,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        onCreatePrefs();
+    }
+
     private void onCreatePrefs(){
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("pagina", "1");
         editor.putString("vista", "lista");
+        editor.putString("empresa", "Cash Colombino");
         editor.commit();
         editor.apply();
     }

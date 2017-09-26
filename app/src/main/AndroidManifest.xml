@@ -42,14 +42,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.MainActivity"/>
         <activity
-            android:name=".activities.NosotrosActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.NosotrosActivity"/>
         <activity
-            android:name=".activities.CatalogoActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.CatalogoActivity"/>
         <activity
             android:name=".activities.MarcasPropiasActivity"
             android:screenOrientation="portrait" />
