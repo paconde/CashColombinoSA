@@ -41,7 +41,7 @@
             android:text="959 233 330"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/texto_medio"
+            android:textSize="@dimen/texto24sp"
             android:textStyle="italic" />
 
         <ImageButton
@@ -70,7 +70,7 @@
             android:text="959 233 319"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/texto_medio"
+            android:textSize="@dimen/texto24sp"
             android:textStyle="italic" />
 
         <ImageButton

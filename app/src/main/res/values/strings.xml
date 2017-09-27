@@ -95,6 +95,16 @@
         completions."
     </string>
     <string name="title_activity_maps">Map</string>
+    <string name="buscarpornombre">Buscar por nombre</string>
+    <string name="buscarporcodigo">Buscar por código</string>
+    <string name="cod_de_barras_o_interno">Cód.de barras o interno</string>
+    <string name="lectorcodigobarra">Lector Codigo Barra</string>
+    <string name="limpiarpantalla">Limpiar pantalla</string>
+    <string name="nombre_articulo">Nombre Artículo: aaa bbb ccc</string>
+    <string name="informacion_busqueda">Teclee el código de barras o el código interno del producto si lo conoce o bien haga una busqueda por nombre escribiendo palabras separadas.</string>
+    <string name="ubicacion">Ubicación :</string>
+    <string name="ver_en_el_plano">Ver en el plano</string>
+    <string name="ver_ubicacion">Ver ubicación del artículo</string>
 
 
 </resources>

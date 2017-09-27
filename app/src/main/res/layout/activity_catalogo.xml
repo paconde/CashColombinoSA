@@ -32,7 +32,7 @@
                 android:layout_marginLeft="@dimen/margenLeft"
                 android:layout_marginRight="@dimen/margenLeft"
                 android:text="@string/catalogos"
-                android:textSize="@dimen/texto_medio" />
+                android:textSize="@dimen/texto20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/oferta_fidelidad"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/oferta_mensual"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 

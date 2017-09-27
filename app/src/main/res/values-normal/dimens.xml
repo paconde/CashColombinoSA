@@ -17,9 +17,13 @@
     <dimen name="cardViewImage">270dp</dimen>
     <dimen name="maximo">300dp</dimen>
     <dimen name="maximo2">450dp</dimen>
-    <dimen name="texto">12sp</dimen>
-    <dimen name="texto_cardView">18sp</dimen>
-    <dimen name="texto_medio">24sp</dimen>
+    <dimen name="texto12sp">12sp</dimen>
+    <dimen name="texto14sp">14sp</dimen>
+    <dimen name="texto16sp">16sp</dimen>
+    <dimen name="texto18sp">18sp</dimen>
+    <dimen name="texto20sp">20sp</dimen>
+    <dimen name="texto22sp">22sp</dimen>
+    <dimen name="texto24sp">24sp</dimen>
     <dimen name="margenTop">60dp</dimen>
     <dimen name="margenLeft">15dp</dimen>
     <dimen name="margenLeft2">20dp</dimen>

@@ -9,6 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +39,7 @@ public class LocalizadorActivity extends AppCompatActivity {
 
     EditText inputCodigo, inputArticulo;
     ImageButton btnSearchCodigo, btnSearchDesc, btnLimpiar, btnBarcodeScan;
-    TextView ubicacion;
+    TextView ubicacion, info;
     Button validar, verPlano;
 
     private List<Catalogo> catalogo;
@@ -69,6 +70,9 @@ public class LocalizadorActivity extends AppCompatActivity {
         btnLimpiar = (ImageButton)findViewById(R.id.imageButtonLimpiar);
         validar = (Button)findViewById(R.id.btnValidar);
         verPlano = (Button)findViewById(R.id.btnVerPlano);
+        info = (TextView) findViewById(R.id.textViewInfoSearch);
+
+        info.setMovementMethod(new ScrollingMovementMethod());
 
         // Cargar catalogo y calles desde CSV
         cargaCatalogo();

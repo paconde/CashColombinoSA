@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marcas_propias_intro"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marca_manuel_barea"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marca_olibarea"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
                 <ImageView
                     android:id="@+id/imagenMarcaOlibarea"
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marca_cumbre_iberica"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 
@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marca_consemur"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
                 <ImageView
                     android:id="@+id/imagenMarcaConsemur"
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marca_baresol"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 
@@ -247,7 +247,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="@string/marca_simon_verde"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
                 <ImageView
                     android:id="@+id/imagenMarcaSimonVerde"
@@ -282,7 +282,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/marcas_propias"
-                    android:textSize="@dimen/texto_medio" />
+                    android:textSize="@dimen/texto20sp" />
 
             </LinearLayout>
 
@@ -309,7 +309,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/min_med"
         android:layout_weight="0">
 
@@ -317,7 +317,7 @@
         android:id="@+id/fragment"
         android:name="com.fconde.cashcolombinoapp.models.frg_bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="570dp"
+        android:layout_height="match_parent"
         tools:layout="@layout/lay_frg_bottom_bar" />
 
     </LinearLayout>
