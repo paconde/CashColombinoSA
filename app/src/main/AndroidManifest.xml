@@ -50,14 +50,12 @@
         <activity
             android:name=".activities.MarcasPropiasActivity"/>
         <activity
-            android:name=".activities.LocalizadorActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.LocalizadorActivity"/>
         <activity
             android:name=".activities.RecetasActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.PedidosActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.PedidosActivity"/>
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -69,20 +67,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.LineasPedidoActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.LineasPedidoActivity" />
         <activity
-            android:name=".activities.BusquedaArticuloActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.BusquedaArticuloActivity"/>
         <activity
-            android:name=".activities.NuevaLineaActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.NuevaLineaActivity"/>
         <activity
-            android:name=".activities.LoginActivity"
-            android:screenOrientation="portrait" />
+            android:name=".activities.LoginActivity"/>
+
         <activity
             android:name=".activities.PlanoActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".activities.ContactoActivity"
             android:screenOrientation="portrait" />

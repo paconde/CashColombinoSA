@@ -105,6 +105,19 @@
     <string name="ubicacion">Ubicación :</string>
     <string name="ver_en_el_plano">Ver en el plano</string>
     <string name="ver_ubicacion">Ver ubicación del artículo</string>
+    <string name="cantidad_pedida">Cantidad pedida</string>
+    <string name="und_caja">Und./caja</string>
+    <string name="log_in">LOG IN</string>
+    <string name="nif">NIF</string>
+    <string name="info_login">Para poder realizar pedidos a traves de la app necesita identificarse. Su representante le facilitará los datos necesarios para ello.</string>
+    <string name="password">Password</string>
+    <string name="recordar">Recordar</string>
+    <string name="ud">24 ud.</string>
+    <string name="cod">3121696</string>
+    <string name="articulo">Azucar Blanquilla 1kg.</string>
+    <string name="borrar_linea">Borrar Linea</string>
+    <string name="editar_linea">Editar Linea</string>
+    <string name="validar_linea">Añadir al pedido</string>
 
 
 </resources>

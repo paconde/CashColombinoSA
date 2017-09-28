@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fconde.cashcolombinoapp.R;
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private SharedPreferences prefs;
     private EditText editTextLogin, editTextPassword;
+    private TextView infoLogin;
     private Switch switchRecordar;
     private Button buttonLogin;
     private List<Usuarios> usuarios;
@@ -44,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.blanco));
         toolbar.setTitle("Identificación");
         setSupportActionBar(toolbar);
+
+        infoLogin.setMovementMethod(new ScrollingMovementMethod());
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         switchRecordar = (Switch) findViewById(R.id.switchRecordar);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
+        infoLogin = (TextView) findViewById(R.id.textViewInfo);
     }
 
     public void cargaUsuarios(){
