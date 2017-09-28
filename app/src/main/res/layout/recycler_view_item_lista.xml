@@ -3,6 +3,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardViewLista"
     android:layout_width="match_parent"
     android:layout_height="@dimen/extralargo"
@@ -16,7 +17,8 @@
     <ImageView
         android:id="@+id/imageViewReceta"
         android:layout_width="@dimen/extralargo"
-        android:layout_height="@dimen/extralargo"/>
+        android:layout_height="@dimen/extralargo"
+        android:contentDescription="@string/foto_receta_pequena" />
 
     <TextView
         android:id="@+id/textViewReceta"
@@ -24,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/extralargo2"
-        android:textSize="@dimen/texto18sp"/>
+        android:textSize="@dimen/texto18sp"
+        tools:ignore="RtlHardcoded" />
 
 </android.support.v7.widget.CardView>

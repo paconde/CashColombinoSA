@@ -19,16 +19,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:text="Pedido 01/01/2017"
-                android:textSize="18dp"/>
+                android:text="@string/fecha_pedido"
+                android:textSize="@dimen/texto18sp"/>
 
             <TextView
                 android:id="@+id/textViewEnviado"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="Enviado"
-                android:textSize="18dp"/>
+                android:text="@string/enviado"
+                android:textSize="@dimen/texto18sp"/>
 
 
         </LinearLayout>
@@ -37,7 +37,7 @@
         android:id="@+id/textViewLineas"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Nº de referencias del pedido:"
-        android:textSize="18dp"/>
+        android:text="@string/n_de_referencias_del_pedido"
+        android:textSize="@dimen/texto18sp"/>
 
 </LinearLayout>

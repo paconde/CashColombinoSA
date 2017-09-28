@@ -118,6 +118,21 @@
     <string name="borrar_linea">Borrar Linea</string>
     <string name="editar_linea">Editar Linea</string>
     <string name="validar_linea">Añadir al pedido</string>
+    <string name="resultados_de_la_busqueda">Resultados de la Busqueda:</string>
+    <string name="telefono2">959 233 319</string>
+    <string name="telefono1">959 233 330</string>
+    <string name="fax">Fax: 959 233 800</string>
+    <string name="telefonos">Telefonos oficina:</string>
+    <string name="email">cashcolombino@barea.com</string>
+    <string name="web">www.barea.com</string>
+    <string name="icono_telefono">icono_telefono</string>
+    <string name="icono_telefono2">icono_telefono2</string>
+    <string name="textview">TextView</string>
+    <string name="enviado">Enviado</string>
+    <string name="n_de_referencias_del_pedido">Nº de referencias del pedido:</string>
+    <string name="fecha_pedido">Pedido 01/01/2017</string>
+    <string name="foto_receta_pequena">Foto receta pequeña</string>
+    <string name="foto_receta_grande">Foto receta grande</string>
 
 
 </resources>

@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/tb_main"
-        layout="@layout/tool_bar_main"></include>
+        layout="@layout/tool_bar_main"/>
 
     <ScrollView
         android:layout_width="match_parent"

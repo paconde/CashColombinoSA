@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.85"
-            android:hint="Cód.de barras o cod.Barea"
+            android:hint="@string/cod_de_barras_o_interno"
             android:inputType="number" />
 
         <ImageButton
@@ -25,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:layout_margin="15dp"
-            android:src="@android:drawable/ic_menu_search"/>
+            android:src="@android:drawable/ic_menu_search"
+            android:contentDescription="@string/buscarporcodigo" />
 
     </LinearLayout>
 
@@ -40,17 +40,17 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.85"
-            android:hint="Nombre Artículo: aaa,bbb,ccc"
+            android:hint="@string/nombre_articulo"
             android:inputType="text" />
 
         <ImageButton
             android:id="@+id/imageButtonDescripcionSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.15"
             android:layout_margin="15dp"
-            android:src="@android:drawable/ic_menu_search"
-            />
+            android:layout_weight="0.15"
+            android:contentDescription="@string/buscarpornombre"
+            android:src="@android:drawable/ic_menu_search" />
 
     </LinearLayout>
 
@@ -64,7 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Cantidad pedida"
+            android:hint="@string/cantidad_pedida"
             android:inputType="number"
             android:layout_weight="0.50"/>
 
@@ -72,7 +72,7 @@
             android:id="@+id/textViewFormato"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="24 Und./caja"
+            android:hint="@string/und_caja"
             android:layout_margin="15dp"
             android:textSize="18sp"
             android:layout_weight="0.50"/>
